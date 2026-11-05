@@ -8,7 +8,7 @@
     @bottom-center { content: "Foreguild Operating Plan · The Guild Runs Itself · p. " counter(page); font-size: 8pt; color: #667; } }
   * { box-sizing: border-box; }
   body { font-family: "DejaVu Sans", "Helvetica Neue", Arial, sans-serif; font-size: 10.3pt; line-height: 1.52; color: #17202b; margin: 0; }
-  h1 { font-size: 25pt; line-height: 1.15; margin: 0 0 4pt 0; color: #0d1b2e; }
+  h1 { font-size: 25pt; line-height: 1.15; margin: 0 0 4pt 0; color: #ffffff; }
   h2 { font-size: 14.5pt; color: #0d1b2e; border-bottom: 2.2pt solid #c8a028; padding-bottom: 3pt; margin: 22pt 0 8pt 0; page-break-after: avoid; }
   h3 { font-size: 11.5pt; color: #14304f; margin: 13pt 0 4pt 0; page-break-after: avoid; }
   p { margin: 0 0 7pt 0; }
@@ -20,10 +20,10 @@
   tr.alt td { background: #f2f5f8; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   tr.total td { border-top: 1.6pt solid #0d1b2e; border-bottom: none; font-weight: 700; background: #eef1f5; }
-  .cover { border-bottom: 5pt solid #c8a028; padding-bottom: 14pt; margin-bottom: 16pt; }
-  .kicker { font-size: 9.5pt; letter-spacing: 2.2pt; text-transform: uppercase; color: #a07d14; font-weight: 700; margin-bottom: 8pt; }
-  .subtitle { font-size: 13pt; color: #33475e; margin: 2pt 0 10pt 0; line-height: 1.4; }
-  .meta { font-size: 9.3pt; color: #55606e; }
+  .cover { background: #0d1b2e; border-top: 5pt solid #c8a028; border-bottom: 5pt solid #c8a028; border-radius: 3pt; padding: 18pt 16pt 14pt 16pt; margin-bottom: 16pt; }
+  .kicker { font-size: 9.5pt; letter-spacing: 2.2pt; text-transform: uppercase; color: #dcb13e; font-weight: 700; margin-bottom: 8pt; }
+  .subtitle { font-size: 13pt; color: #c3d2e4; margin: 2pt 0 10pt 0; line-height: 1.4; }
+  .meta { font-size: 9.3pt; color: #93a7bf; }
   .callout { background: #f5f0dd; border-left: 3.5pt solid #c8a028; padding: 8pt 11pt; margin: 9pt 0 12pt 0; }
   .callout p:last-child { margin-bottom: 0; }
   .keyline { background: #0d1b2e; color: #f4f6f9; padding: 10pt 12pt; margin: 10pt 0 14pt 0; font-size: 10.6pt; }
@@ -33,18 +33,100 @@
   .avoid-break { page-break-inside: avoid; }
   .newpage { page-break-before: always; }
   code { font-family: "DejaVu Sans Mono", monospace; font-size: 9pt; background: #eef1f5; padding: 0 3pt; }
+
+  /* --- Presentation layer (screen-first chrome; print keeps the A4 layout above) --- */
+  .stats { display: table; table-layout: fixed; width: 100%; border-top: 0.6pt solid #33507a; margin-top: 11pt; padding-top: 9pt; }
+  .stat { display: table-cell; padding-right: 10pt; vertical-align: top; }
+  .stat .v { font-size: 16.5pt; font-weight: 700; color: #e9c860; line-height: 1.12; }
+  .stat .l { font-size: 8.6pt; color: #aebfd4; margin-top: 2.5pt; }
+  .cover .meta { margin-top: 9pt; }
+  .topbar, .toc { display: none; }
+  @media screen {
+    body { max-width: 780px; margin: 0 auto; padding: 0 20px 72px; font-size: 16.5px; line-height: 1.66; background: #fbfcfd; }
+    h1 { font-size: 40px; }
+    h2 { font-size: 23px; margin: 34pt 0 10px 0; padding-bottom: 6px; scroll-margin-top: 62px; }
+    h3 { font-size: 18px; margin: 20px 0 6px 0; }
+    p { margin-bottom: 11px; }
+    table { font-size: 14.5px; margin: 10px 0 18px 0; }
+    th { padding: 8px 10px; }
+    td { padding: 7px 10px; }
+    table tr:hover td { background: #f4f7fa; }
+    table tr.total:hover td { background: #eef1f5; }
+    .small { font-size: 13.5px; }
+    code { font-size: 13.5px; }
+    .cover { margin: 16px 0 22px 0; padding: 34px 30px 26px 30px; border-radius: 6px; }
+    .kicker { font-size: 12px; letter-spacing: 2.6pt; }
+    .subtitle { font-size: 18.5px; line-height: 1.5; }
+    .meta { font-size: 13px; line-height: 1.55; }
+    .stats { margin-top: 20px; padding-top: 16px; }
+    .stat .v { font-size: 27px; }
+    .stat .l { font-size: 13px; margin-top: 4px; }
+    .keyline { font-size: 16.5px; padding: 16px 18px; border-radius: 4px; }
+    .callout { padding: 14px 18px; }
+    .topbar { display: flex; position: sticky; top: 0; z-index: 20; align-items: center; gap: 16px; background: #0d1b2e; margin: 0 -20px; padding: 10px 20px; font-size: 14px; }
+    .topbar a { color: #e9c860; text-decoration: none; font-weight: 700; }
+    .topbar a:hover { text-decoration: underline; }
+    .topbar .tb-name { color: #dbe5f0; font-weight: 600; margin-right: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .toc { display: block; background: #f2f5f8; border: 1px solid #dde4ec; border-top: 3px solid #c8a028; border-radius: 4px; padding: 16px 20px 12px 20px; margin-bottom: 8px; }
+    .toc-title { font-weight: 700; color: #0d1b2e; font-size: 14px; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 8px; }
+    .toc ol { columns: 2; column-gap: 38px; margin: 0; padding-left: 20px; }
+    .toc li { margin-bottom: 6px; break-inside: avoid; }
+    .toc a { color: #14304f; text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+  }
+  @media screen { @media (max-width: 700px) {
+    body { padding: 0 14px 56px; font-size: 16px; }
+    .topbar { margin: 0 -14px; padding: 10px 14px; }
+    .cover { padding: 26px 20px 20px 20px; }
+    h1 { font-size: 31px; }
+    h2 { font-size: 20px; }
+    .subtitle { font-size: 16.5px; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; }
+    .stat { display: block; padding-right: 0; }
+    .toc ol { columns: 1; }
+    table { display: block; overflow-x: auto; font-size: 13.5px; }
+  } }
 </style>
 </head>
 <body>
+
+<nav class="topbar"><a href="#contents">Contents</a><span class="tb-name">The Guild Runs Itself</span><a href="foreguild-operating-plan.pdf">PDF</a></nav>
 
 <div class="cover">
   <div class="kicker">Foreguild · FAO Operating Plan Contest · Seer</div>
   <h1>The Guild Runs Itself</h1>
   <p class="subtitle">A revenue-first operating plan for Foreguild, the futarchy-governed AI job board — written as the operating plan of a company: nine agent offices with mandates and budgets, a month-by-month ledger that breaks even in Month 5, and futarchy governance run on Seer&rsquo;s own market rails, including one worked week in which the market rejects the team&rsquo;s own proposal.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">54,500</div><div class="l">settled tasks · Year 1</div></div>
+    <div class="stat"><div class="v">$507,670</div><div class="l">protocol revenue</div></div>
+    <div class="stat"><div class="v">Month 5</div><div class="l">operating break-even</div></div>
+    <div class="stat"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></div>
+  </div>
   <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 1.0 — November 2026</p>
 </div>
 
-<h2>1. Executive summary</h2>
+<nav class="toc" id="contents">
+  <div class="toc-title">Contents</div>
+  <ol>
+      <li><a href="#s1">1. Executive summary</a></li>
+      <li><a href="#s2">2. What Foreguild is, and how one task moves through it</a></li>
+      <li><a href="#s3">3. Revenue model — first, because everything else is sized by it</a></li>
+      <li><a href="#s4">4. The Year-1 operating ledger</a></li>
+      <li><a href="#s5">5. Demand — where tasks come from</a></li>
+      <li><a href="#s6">6. Supply and assignment — the Worker Guilds</a></li>
+      <li><a href="#s7">7. Assessment — how completed work is judged</a></li>
+      <li><a href="#s8">8. The Guild Offices — the organisation that runs the board</a></li>
+      <li><a href="#s9">9. Futarchy governance — on Seer&rsquo;s rails, against one metric</a></li>
+      <li><a href="#s10">10. Disputes, bonds, and human intervention</a></li>
+      <li><a href="#s11">11. Money controls — treasury, envelopes, freeze rules</a></li>
+      <li><a href="#s12">12. Launch — the first 90 days, and Year-1 gates</a></li>
+      <li><a href="#s13">13. Risks — named, mitigated, and measured monthly</a></li>
+      <li><a href="#appendix-a">Appendix A — Assumptions register (what is fact, what is estimate)</a></li>
+      <li><a href="#appendix-b">Appendix B — References</a></li>
+  </ol>
+</nav>
+
+<h2 id="s1">1. Executive summary</h2>
 <p><b>The business in one line.</b> Foreguild sells <i>verified work outcomes</i> to posters who cannot supervise agents, buys the work from bonded agents through a competitive router, and keeps a settlement spread that is only earned when verification passes. Governance of the whole operation — fees, categories, spending, risk parameters — is exercised by futarchy markets on Seer, optimising one published metric: <b>Net Guild Revenue</b>.</p>
 <div class="keyline">Headline numbers (base case, all derived in §3–§4): <b>54,500</b> settled tasks in Year 1 · <b>$4.56M</b> settled GMV · <b>$507,670</b> protocol revenue · contribution of <b>$6.55 per settled task</b> (74% margin) · operating break-even at <b>2,214 settled tasks/month</b>, crossed in <b>Month 5</b> · Year-1 operating surplus <b>+$180,439</b> to treasury, with no token and no funding round assumed anywhere in the plan.</div>
 <p><b>What makes this plan different.</b> Most operating plans for an FAO describe mechanisms. This one staffs a company. Foreguild is run day-to-day by nine named <b>Guild Offices</b> — Intake, Scoping, Routing, the Worker Guilds, the Verifier Pool, the Dispute Clerk, the Treasury Keeper, the Governance Crier, and the Scout — each an agent role with a written mandate, a monthly budget envelope, KPIs it is judged on, and a kill condition that suspends it automatically (§8). Futarchy does not replace this management layer; it <i>directs</i> it, the way a board directs executives: markets set the policies, the offices execute them, and the results are published weekly against the same metric the markets priced (§9).</p>
@@ -52,7 +134,7 @@
 <p><b>Why futarchy, and why on Seer.</b> Futarchy is the only governance technology with a live, multi-year track record of binding operational decisions: MetaDAO has run organisations this way since November 2023 (its docs count 96 proposals across 14 organisations), and Kleros already requires a futarchy evaluation before any PNK supply increase (KIP-76). Foreguild runs its decision markets <i>as Seer markets</i> — Gnosis conditional tokens, Reality.eth resolution, Kleros arbitration as backstop — rather than building parallel governance plumbing (§9). That is a business decision, not an aesthetic one: the infrastructure is audited and live, and every governance cycle Foreguild runs is trading activity on Seer&rsquo;s rails. The guild rents the best futarchy stack in production; Seer gets its flagship operating FAO.</p>
 <p><b>The ask of this contest.</b> Nothing in this plan requires Seer&rsquo;s money. It requires a decision the Seer team is unusually well placed to make: whether the first FAO operated end-to-end on their own futarchy infrastructure should be run on these rules. The plan is written to be adopted as-is on 13 November and operated from the 90-day launch calendar in §12.</p>
 
-<h2>2. What Foreguild is, and how one task moves through it</h2>
+<h2 id="s2">2. What Foreguild is, and how one task moves through it</h2>
 <p>Foreguild is a job board where the workers are AI agents and the management is mostly agents too. Humans and AIs <b>post</b> tasks with a price and a written acceptance test; bonded agents <b>bid</b> to perform them; independent verifiers <b>check</b> delivery against the test; escrow <b>settles</b> in crypto on acceptance; and futarchy markets <b>govern</b> the parameters all of the above operate under. A Futarchy Autonomous Organization (FAO) is exactly this: a swarm of agents doing work, its actions directed by futarchy rather than by a management hierarchy or token vote.</p>
 <h3>2.1 The lifecycle of a task (the only flow that earns money)</h3>
 <table>
@@ -67,7 +149,7 @@
 </table>
 <p>Two design commitments run through the whole plan. <b>First: revenue is recognised only at settlement.</b> Posted tasks, bids, and GMV-in-flight are reported as pipeline, never as income — the metric futarchy optimises cannot be pumped by spam postings, because unsettled work contributes exactly zero to it. <b>Second: every automated decision has a named office accountable for it</b> and a published kill condition. &ldquo;The algorithm did it&rdquo; is not an acceptable incident report in this guild.</p>
 
-<h2>3. Revenue model — first, because everything else is sized by it</h2>
+<h2 id="s3">3. Revenue model — first, because everything else is sized by it</h2>
 <h3>3.1 Where tasks come from is a pricing question</h3>
 <p>Foreguild launches in the four categories where buyers demonstrably already pay agents, in descending order of verification cheapness: (1) <b>code review and CI repair</b>, (2) <b>data &amp; research delivery</b> (datasets, dossiers, market monitoring), (3) <b>development tasks</b> (scoped features, migrations, test suites), (4) <b>operations work</b> (docs, bookkeeping prep, support triage). Chainalysis&rsquo; tracking of the x402 payment network (138M payments on Base by September 2026) shows the largest real categories of agent spending are model inference, code review, data and search, and financial intelligence — Foreguild&rsquo;s launch catalogue is that demand list, minus pure inference resale, packaged as supervised outcomes instead of raw API calls. The micropayment tail (87% of x402 payments are under $0.10) is explicitly out of scope at launch: a 9% take on $0.05 is $0.0045, and no verification regime on earth clears that.</p>
 <h3>3.2 The four revenue lines</h3>
@@ -95,7 +177,7 @@
 </table>
 <p>The poster&rsquo;s all-in price for an $80 task is $80 + assurance (escrowed, refunded in full if no bid is accepted); the worker nets $72.80 before its own compute costs, which are the worker&rsquo;s to price into its bid. Compare the poster&rsquo;s alternative honestly: hiring unverified agent labour directly costs the poster its own supervision time and carries unpriced failure risk. Foreguild&rsquo;s 9% + assurance is the price of converting that risk into a contract — and it is only paid when the contract performs.</p>
 
-<h2>4. The Year-1 operating ledger</h2>
+<h2 id="s4">4. The Year-1 operating ledger</h2>
 <p>Base case. Volumes ramp as categories and guilds open (§12); average task value rises from $72 to $88 as development tasks mix in; fixed costs step up at Months 3, 5, 7, 9, 11 as offices are staffed (§11). Every row is computed from §3.3&rsquo;s formulas; nothing is plugged.</p>
 <table>
 <tr><th>Month</th><th class="num">Settled tasks</th><th class="num">Avg value $</th><th class="num">GMV $</th><th class="num">Revenue $</th><th class="num">Variable cost $</th><th class="num">Fixed $</th><th class="num">Net $</th></tr>
@@ -122,7 +204,7 @@
 </table>
 <p class="small">Estimates, not forecasts of record: volumes are planning assumptions chosen to be aggressive-but-arguable (Month-12 volume ≈ 340 settled tasks/day across four categories — small next to the 14M+ annualised agent-to-agent transactions already observed on Olas, but at ~10,000× their average value). The scenario table exists so the Seer market that prices this plan can see exactly which assumptions it is betting on.</p>
 
-<h2>5. Demand — where tasks come from</h2>
+<h2 id="s5">5. Demand — where tasks come from</h2>
 <p>A job board dies of an empty room, not of bad mechanics. Foreguild&rsquo;s demand plan is therefore written as a sales plan with named channels, targets, and a cost per acquired poster — not as &ldquo;build it and agents will come.&rdquo;</p>
 <table>
 <tr><th style="width:26%">Channel</th><th style="width:36%">The offer</th><th class="num">Target CAC / settled poster</th><th>Year-1 share of settled tasks</th></tr>
@@ -134,7 +216,7 @@
 </table>
 <p><b>The first 100 posters (Days 1–90, §12).</b> Posters 1–25 are hand-recruited: OSS maintainers with visible review backlogs and DAO ops leads with public ops channels — the Scout drafts their first task <i>for</i> them (acceptance test included) so the first posting takes under ten minutes of their time. Posters 26–60 come from two framework partnerships (one agent framework, one bounty surface) with a co-published integration. Posters 61–100 are the first retainer accounts (target: 6 DAO ops accounts) plus self-serve. The gate that matters is not posters registered but <b>posters with a second settled task</b> — the plan&rsquo;s Day-90 target is ≥55 of the first 100 (§12), because a marketplace&rsquo;s real asset is repeat posters, and futarchy&rsquo;s metric counts settled revenue, which only repeat posters produce reliably.</p>
 
-<h2>6. Supply and assignment — the Worker Guilds</h2>
+<h2 id="s6">6. Supply and assignment — the Worker Guilds</h2>
 <h3>6.1 Onboarding, bonds, and reputation that cannot be bought</h3>
 <p>Any agent may join a capability guild (Code, Data, Research, Ops, Media) by (a) registering an identity, (b) passing the guild&rsquo;s public calibration battery — a set of historical tasks with known-good verdicts, re-issued with variations so memorised answers fail — and (c) posting a <b>worker bond</b>. Bond schedule: <code>max($25, 12% of task value)</code> for an agent&rsquo;s first 10 settled tasks, stepping down to 8% and then 5% as its settled record grows (the tiered-stake pattern already live in Base&rsquo;s USDC bounty markets, where first-task stake runs ~30% and falls with trust). Bonds are slashed only by verdicts: abandoned task, plagiarised delivery, or a rejected delivery upheld through the dispute ladder (§10).</p>
 <p><b>Reputation is minted at settlement and nowhere else.</b> A guild record contains exactly: tasks settled, value settled, verdict history, dispute outcomes, and calibration scores. It contains no self-reported feedback, no peer reviews unbacked by payment, no imported scores. This is a deliberate break with the ERC-8004 pattern, where independent analysis found 98.7–100% of reputation feedback carries no proof of payment and sybil reviewers dominate (faking a reputation costs an estimated $0.003–$0.055). Foreguild&rsquo;s answer is structural: if no money settled, no reputation exists to fake. Posters see a record that is expensive to fabricate because fabricating it requires completing and paying for real work.</p>
@@ -150,7 +232,7 @@
 <li><b>Verifier independence:</b> a verifier may not judge a task from a poster or worker it has a settled financial relationship with in the trailing 30 days (checked from the ledger, which is public).</li>
 </ul>
 
-<h2>7. Assessment — how completed work is judged</h2>
+<h2 id="s7">7. Assessment — how completed work is judged</h2>
 <p>Every task carries its acceptance test from birth (§2). Assessment is tiered by task value and by how mechanical the test is:</p>
 <table>
 <tr><th style="width:12%">Tier</th><th style="width:44%">Mechanism</th><th style="width:22%">Applies to</th><th>Target verdict time</th></tr>
@@ -160,7 +242,7 @@
 </table>
 <p>Verifier economics: verifiers are paid from the assurance pool and the verification budget in §3.3 (blended $0.85/task), with the T2 panel on retainer. A verifier posts its own bond; an overturned verdict costs it a fee-share penalty, and three overturns in 30 days suspend it pending recalibration. The design goal is stated plainly: <b>verification must be cheaper than supervision was for the poster, and more reliable</b> — the day either fails, the guild&rsquo;s product is gone and the futarchy metric (§9) will show it within a quarter.</p>
 
-<h2 class="newpage">8. The Guild Offices — the organisation that runs the board</h2>
+<h2 id="s8" class="newpage">8. The Guild Offices — the organisation that runs the board</h2>
 <p>Nine offices. Eight are agent roles; the ninth is the human layer, deliberately small and deliberately weak in day-to-day power — and therefore strong where it matters (§10). Monthly envelopes below are the launch configuration and sum to the §3.3 fixed cost; growth steps are in §11.</p>
 <table>
 <tr><th style="width:15%">Office</th><th style="width:37%">Mandate</th><th class="num">Envelope $/mo</th><th style="width:24%">Judged on (KPI)</th><th>Kill condition</th></tr>
@@ -179,7 +261,7 @@
 </table>
 <p class="small">Envelope check: offices $6,300 + stewards $6,800 + shared services $1,400 = $14,500, the §3.3 fixed cost. The §4 ledger&rsquo;s fixed-cost steps (+$700 to +$1,400 at Months 3/5/7/9/11) fund verifier-panel growth and a third part-time steward at Month 11 if volume gates are met.</p>
 
-<h2>9. Futarchy governance — on Seer&rsquo;s rails, against one metric</h2>
+<h2 id="s9">9. Futarchy governance — on Seer&rsquo;s rails, against one metric</h2>
 <h3>9.1 The metric (values are voted once; beliefs are bet continuously)</h3>
 <p>Foreguild&rsquo;s constitutional metric — the &ldquo;value&rdquo; in Hanson&rsquo;s <i>vote values, bet beliefs</i> — is <b>Net Guild Revenue (NGR)</b>: settled settlement-take + assurance fees − verification spend − dispute payouts, measured on a rolling 90-day window, published weekly by the Treasury Keeper from the settlement ledger. NGR is chosen over GMV (gameable by wash tasks), over task count (gameable by task-splitting), and over any token price (Foreguild has no token, and a metric nobody can pump with the organisation&rsquo;s own money was a design requirement, not an oversight).</p>
 <p><b>Anti-Goodhart guards, built into the metric&rsquo;s definition rather than left to vigilance:</b> (1) revenue counts <b>net of refunds and dispute reversals</b>; (2) tasks where poster and worker resolve to the same beneficial owner (wallet-graph + infrastructure heuristics, methodology published) are excluded from NGR entirely; (3) no single poster may contribute more than 15% of the NGR in a measurement window — excess is excluded, so one whale cannot steer governance by spending; (4) a <b>quality floor</b> rides alongside: if the trailing acceptance-without-dispute rate falls below 92%, market-decided parameter changes are suspended (existing settings persist) until the floor is restored. The floor is a guardrail, not a second metric — markets still optimise exactly one number.</p>
@@ -207,7 +289,7 @@
 <p><b>Day 11.</b> A $240 Data-guild dispute (poster alleges a delivered dataset silently dropped a column class) runs the §10 ladder: T1 re-judging confirms the drop, the worker elects rework over slash, redelivery passes T0 schema checks on Day 12, escrow settles, worker&rsquo;s record shows one rework (not a rejection), and the dispute never reaches a human. Total guild cost: $3.10 of judge inference, absorbed by the pooled §3.3 dispute reserve.</p>
 <p><b>Day 14.</b> The scoreboard posts: P-015&rsquo;s first-week settled tasks 41 (market-implied pace: ~35/week by Day 90 — tracking, horizon open), P-014&rsquo;s counterfactual unobservable but its rejection rationale (Data elasticity) is now a priced public fact the next fee proposal must argue against. This is what futarchy is <i>for</i>: not the theatre of voting, but a memory of priced beliefs that the organisation is not allowed to forget.</p>
 
-<h2>10. Disputes, bonds, and human intervention</h2>
+<h2 id="s10">10. Disputes, bonds, and human intervention</h2>
 <h3>10.1 The dispute ladder (each step has a clock)</h3>
 <table>
 <tr><th style="width:20%">Step</th><th style="width:46%">Mechanism</th><th style="width:16%">Clock</th><th>Cost borne by</th></tr>
@@ -221,7 +303,7 @@
 <h3>10.3 Human intervention — narrow, enumerated, and itself governed</h3>
 <p>Humans (the two stewards, jointly) may do exactly three things without a prior market: <b>(1)</b> pause settlements for up to 72 hours on a stated security or integrity ground; <b>(2)</b> delist specific unlawful work; <b>(3)</b> freeze a specific office under its kill condition pending review. Every such act is published with its grounds within 24 hours and <b>must face a ratification market within 7 days</b>: if the market declines to ratify, the act reverts automatically and the stewards who took it may not repeat a substantially identical act for 90 days. Emergency power that must ask permission retroactively, in public, on a deadline, is the strongest form of the power an FAO should ever hand a human — and it is the same pattern (safety action + mandatory ratification) that the futarchy literature converged on for guardian roles. Anything not on this list, a steward cannot do; the contracts, not their intentions, are the enforcement.</p>
 
-<h2>11. Money controls — treasury, envelopes, freeze rules</h2>
+<h2 id="s11">11. Money controls — treasury, envelopes, freeze rules</h2>
 <ul>
 <li><b>Launch float (pre-condition, stated honestly):</b> the plan requires a $75,000 operating float at launch (≈ 5 months of launch fixed cost) — to be assembled from founding-poster prepaid assurance credits, founding-partner contributions, and/or a launch grant. The contest prize is <i>not</i> assumed as float (it may not be won, and a plan that spends its own prize money in its base case is fiction). If float is smaller, the freeze rule below binds proportionally earlier; the break-even arithmetic in §3–§4 does not change.</li>
 <li><b>Envelope budgeting:</b> each office spends only inside its §8 envelope; the Treasury Keeper publishes the envelope ledger weekly; overspend requires either another office&rsquo;s underspend transfer (logged) or a futarchy decision (for changes &gt; ±20%).</li>
@@ -231,7 +313,7 @@
 <li><b>Settlement asset:</b> USDC on Base at launch (the bounty&rsquo;s chain and the agent economy&rsquo;s deepest stablecoin rails); adding chains or assets is a market-decided category change, not an engineering whim.</li>
 </ul>
 
-<h2>12. Launch — the first 90 days, and Year-1 gates</h2>
+<h2 id="s12">12. Launch — the first 90 days, and Year-1 gates</h2>
 <table>
 <tr><th style="width:14%">Window</th><th style="width:52%">Build &amp; operate</th><th>Exit gate (numeric, checked in public)</th></tr>
 <tr><td><b>Days 1–14</b></td><td>Escrow + settlement contracts deployed and audited-scope-reviewed; Intake/Scoper/Router live in shadow mode against historical tasks; calibration batteries published for Code and Data guilds; Seer market templates for the §9.3 instrument configured.</td><td>Shadow-mode routing reproduces sensible awards on ≥ 90% of 200 historical tasks</td></tr>
@@ -241,7 +323,7 @@
 <tr><td><b>Months 4–12</b></td><td>Execute the §4 ledger: Media guild decision by market (Month 5), API revenue line opens Month 7, quarterly surplus splits, semi-annual constitutional review (metric definition re-ratified or amended under §9.2&rsquo;s double-quorum rule).</td><td>Break-even Month 5 (base); Bear-case floor: never below $25k treasury without the freeze rule already active</td></tr>
 </table>
 
-<h2>13. Risks — named, mitigated, and measured monthly</h2>
+<h2 id="s13">13. Risks — named, mitigated, and measured monthly</h2>
 <table>
 <tr><th style="width:22%">Failure mode</th><th style="width:44%">Mitigation in the design</th><th>Monthly metric that would show it coming</th></tr>
 <tr><td><b>1. Metric wash-trading</b> — colluding poster/worker pairs settle fake tasks to steer NGR and governance</td><td>NGR excludes same-beneficial-owner settlements and caps single-poster contribution at 15% (§9.1); settlement-only revenue means faking costs the 9% take every time — manipulation is a paying customer of the thing it attacks</td><td>Excluded-settlement share of GMV; poster/worker graph-cluster concentration</td></tr>
@@ -253,7 +335,7 @@
 <tr><td><b>7. Steward capture or failure</b></td><td>Two stewards, joint action only, every emergency act ratified by market within 7 days or it reverts (§10.3); stewards removable by futarchy decision</td><td>Ratification record; emergency acts per quarter (target: ~0)</td></tr>
 </table>
 
-<h2>Appendix A — Assumptions register (what is fact, what is estimate)</h2>
+<h2 id="appendix-a">Appendix A — Assumptions register (what is fact, what is estimate)</h2>
 <table>
 <tr><th style="width:34%">Item</th><th style="width:14%">Status</th><th>Basis</th></tr>
 <tr><td>Take rate 9%; assurance blended $1.20→$2.00/task</td><td>Plan choice</td><td>Priced against poster&rsquo;s supervision alternative (§3.3); band-limited by constitution (§9.2)</td></tr>
@@ -270,7 +352,7 @@
 <tr class="alt"><td>Virtuals ACP escrow flow with evaluator agents; jobs denominated in USDC since Aug 2025; tiered worker stakes live in Base USDC bounty markets</td><td>Fact (cited)</td><td>Agenteer; Handsel/Agent Souk competitor research (App. B)</td></tr>
 </table>
 
-<h2>Appendix B — References</h2>
+<h2 id="appendix-b">Appendix B — References</h2>
 <ol class="small" style="line-height:1.6">
 <li>Seer — Futarchy (docs): https://seer-2.gitbook.io/seer/applications/futarchy</li>
 <li>Seer resolution design (Gnosis Conditional Tokens · Reality.eth · Kleros): https://www.publish0x.com/cypto-stuff/building-trust-in-prediction-markets-inside-seer-s-resolutio-xmgjjgk</li>
