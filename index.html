@@ -26,6 +26,12 @@
   .meta { font-size: 9.3pt; color: #93a7bf; }
   .callout { background: #f5f0dd; border-left: 3.5pt solid #c8a028; padding: 8pt 11pt; margin: 9pt 0 12pt 0; }
   .callout p:last-child { margin-bottom: 0; }
+  .start { background: #f5f0dd; border: 1px solid #dde4ec; border-top: 3px solid #c8a028; border-radius: 4px; padding: 10pt 12pt; margin: 0 0 14pt 0; }
+  .start .st-title { font-weight: 700; color: #0d1b2e; font-size: 10pt; letter-spacing: 1.2pt; text-transform: uppercase; margin-bottom: 5pt; }
+  .start ol { margin: 0; padding-left: 16pt; }
+  .start li { margin-bottom: 3pt; }
+  .start a { color: #14304f; font-weight: 700; text-decoration: none; }
+  .stat a { display: block; text-decoration: none; color: inherit; }
   .keyline { background: #0d1b2e; color: #f4f6f9; padding: 10pt 12pt; margin: 10pt 0 14pt 0; font-size: 10.6pt; }
   .keyline b { color: #e9c860; }
   .small { font-size: 8.8pt; color: #55606e; }
@@ -61,6 +67,11 @@
     .stats { margin-top: 20px; padding-top: 16px; }
     .stat .v { font-size: 27px; }
     .stat .l { font-size: 13px; margin-top: 4px; }
+    .stat a:hover .v { text-decoration: underline; }
+    .start { padding: 16px 20px 12px 20px; margin-bottom: 18px; }
+    .start .st-title { font-size: 14px; }
+    .start li { font-size: 15.5px; }
+    .start a:hover { text-decoration: underline; }
     .keyline { font-size: 16.5px; padding: 16px 18px; border-radius: 4px; }
     .callout { padding: 14px 18px; }
     .topbar { display: flex; position: sticky; top: 0; z-index: 20; align-items: center; gap: 16px; background: #0d1b2e; margin: 0 -20px; padding: 10px 20px; font-size: 14px; }
@@ -106,12 +117,21 @@
   <h1>The Guild Runs Itself</h1>
   <p class="subtitle">A revenue-first operating plan for Foreguild, the futarchy-governed AI job board — written as the operating plan of a company: nine agent offices with mandates and budgets, a month-by-month ledger that breaks even in Month 5, and futarchy governance run on Seer&rsquo;s own market rails, including one worked week in which the market rejects the team&rsquo;s own proposal.</p>
   <div class="stats">
-    <div class="stat"><div class="v">54,500</div><div class="l">settled tasks · Year 1</div></div>
-    <div class="stat"><div class="v">$507,670</div><div class="l">protocol revenue</div></div>
-    <div class="stat"><div class="v">Month 5</div><div class="l">operating break-even</div></div>
-    <div class="stat"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></div>
+    <div class="stat"><a href="#s4"><div class="v">54,500</div><div class="l">settled tasks · Year 1</div></a></div>
+    <div class="stat"><a href="#s4"><div class="v">$507,670</div><div class="l">protocol revenue</div></a></div>
+    <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
+    <div class="stat"><a href="#s3"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
   <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 1.0 — November 2026</p>
+</div>
+
+<div class="start">
+  <div class="st-title">Start here — three checks</div>
+  <ol>
+    <li><a href="#s9">The market rejects the stewards&rsquo; own fee raise — §9.4, fourteen days in March</a></li>
+    <li><a href="#calc">Try the numbers — the plan&rsquo;s own arithmetic, live</a></li>
+    <li><a href="#s8">Nine offices, each with a kill condition — §8</a></li>
+  </ol>
 </div>
 
 <nav class="toc" id="contents">
