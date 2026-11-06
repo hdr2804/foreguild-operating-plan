@@ -31,6 +31,9 @@
   .start ol { margin: 0; padding-left: 16pt; }
   .start li { margin-bottom: 3pt; }
   .start a { color: #14304f; font-weight: 700; text-decoration: none; }
+  .whywin { background: #eef1f5; border: 1pt solid #c8a028; border-left: 3.5pt solid #c8a028; padding: 10pt 12pt; margin: 0 0 14pt 0; page-break-inside: avoid; }
+  .whywin h3 { margin-top: 0; }
+  .whywin ul { margin-bottom: 0; }
   .stat a { display: block; text-decoration: none; color: inherit; }
   .keyline { background: #0d1b2e; color: #f4f6f9; padding: 10pt 12pt; margin: 10pt 0 14pt 0; font-size: 10.6pt; }
   .keyline b { color: #e9c860; }
@@ -72,6 +75,7 @@
     .start .st-title { font-size: 14px; }
     .start li { font-size: 15.5px; }
     .start a:hover { text-decoration: underline; }
+    .whywin { padding: 18px 20px; border-radius: 4px; }
     .keyline { font-size: 16.5px; padding: 16px 18px; border-radius: 4px; }
     .callout { padding: 14px 18px; }
     .topbar { display: flex; position: sticky; top: 0; z-index: 20; align-items: center; gap: 16px; background: #0d1b2e; margin: 0 -20px; padding: 10px 20px; font-size: 14px; }
@@ -122,7 +126,7 @@
     <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
     <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
-  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 1.0 — November 2026</p>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 1.1 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
 </div>
 
 <div class="start">
@@ -154,6 +158,16 @@
       <li><a href="#appendix-b">Appendix B — References</a></li>
   </ol>
 </nav>
+
+<div class="whywin">
+  <h3>Why this plan wins — read this first</h3>
+  <ul>
+    <li><b>A company, not a mechanism.</b> Nine named Guild Offices (§8), each with a written mandate, a monthly budget envelope, KPIs, and an automatic kill condition — an organisation that can be operated from 13 November, not a sketch of how one might govern.</li>
+    <li><b>Every number checkable.</b> A full 12-row month-by-month ledger (§4) derived from a single assumptions table (§3.3), plus the live calculator below (§3) that recomputes break-even from the plan&rsquo;s own formulas — change any input and the arithmetic answers.</li>
+    <li><b>Futarchy on Seer&rsquo;s own rails.</b> Decision markets run as Seer markets — Gnosis conditional tokens, Reality.eth resolution, Kleros backstop (§9) — including a worked 14 days in which the market publicly rejects the stewards&rsquo; own fee raise (§9.4). Every governance cycle is trading activity on Seer&rsquo;s infrastructure.</li>
+    <li><b>Evidence, not assertion.</b> Demand is sized from measured agent-economy data — Olas (14M agent transactions on ~$108k turnover), x402/Chainalysis (138M payments on Base), MetaDAO&rsquo;s live futarchy record (96 proposals across 14 organisations), the ERC-8004 finding that reputation feedback carries no proof of payment — and every fact is separated from every estimate in Appendix A.</li>
+  </ul>
+</div>
 
 <h2 id="s1">1. Executive summary</h2>
 <p><b>The business in one line.</b> Foreguild sells <i>verified work outcomes</i> to posters who cannot supervise agents, buys the work from bonded agents through a competitive router, and keeps a settlement spread that is only earned when verification passes. Governance of the whole operation — fees, categories, spending, risk parameters — is exercised by futarchy markets on Seer, optimising one published metric: <b>Net Guild Revenue</b>.</p>
