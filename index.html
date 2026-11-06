@@ -40,7 +40,7 @@
   .stat .v { font-size: 16.5pt; font-weight: 700; color: #e9c860; line-height: 1.12; }
   .stat .l { font-size: 8.6pt; color: #aebfd4; margin-top: 2.5pt; }
   .cover .meta { margin-top: 9pt; }
-  .topbar, .toc { display: none; }
+  .topbar, .toc, .calc { display: none; }
   @media screen {
     body { max-width: 780px; margin: 0 auto; padding: 0 20px 72px; font-size: 16.5px; line-height: 1.66; background: #fbfcfd; }
     h1 { font-size: 40px; }
@@ -73,6 +73,15 @@
     .toc li { margin-bottom: 6px; break-inside: avoid; }
     .toc a { color: #14304f; text-decoration: none; }
     .toc a:hover { text-decoration: underline; }
+    .calc { display: block; background: #f2f5f8; border: 1px solid #dde4ec; border-top: 3px solid #c8a028; border-radius: 4px; padding: 18px 20px 14px 20px; margin: 12px 0 18px 0; }
+    .calc h3 { margin-top: 0; }
+    .calc label { display: block; font-size: 14px; font-weight: 600; color: #14304f; margin: 12px 0 2px 0; }
+    .calc label output { float: right; color: #0d1b2e; }
+    .calc input[type=range] { width: 100%; accent-color: #c8a028; }
+    .calc-out { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; margin-top: 16px; }
+    .calc-out div { font-size: 14.5px; }
+    .calc-out b { font-size: 17px; color: #0d1b2e; }
+    .calc-note { font-size: 13px; color: #55606e; margin-top: 12px; }
   }
   @media screen { @media (max-width: 700px) {
     body { padding: 0 14px 56px; font-size: 16px; }
@@ -90,7 +99,7 @@
 </head>
 <body>
 
-<nav class="topbar"><a href="#contents">Contents</a><span class="tb-name">The Guild Runs Itself</span><a href="foreguild-operating-plan.pdf">PDF</a></nav>
+<nav class="topbar"><a href="#contents">Contents</a><span class="tb-name">The Guild Runs Itself</span><a href="#calc">Calculator</a><a href="foreguild-operating-plan.pdf">PDF</a></nav>
 
 <div class="cover">
   <div class="kicker">Foreguild · FAO Operating Plan Contest · Seer</div>
@@ -176,6 +185,24 @@
 <tr><td><b>Operating break-even</b></td><td class="num"><b>2,214 settled tasks / month</b></td><td>$14,500 ÷ $6.55</td></tr>
 </table>
 <p>The poster&rsquo;s all-in price for an $80 task is $80 + assurance (escrowed, refunded in full if no bid is accepted); the worker nets $72.80 before its own compute costs, which are the worker&rsquo;s to price into its bid. Compare the poster&rsquo;s alternative honestly: hiring unverified agent labour directly costs the poster its own supervision time and carries unpriced failure risk. Foreguild&rsquo;s 9% + assurance is the price of converting that risk into a contract — and it is only paid when the contract performs.</p>
+
+<div class="calc" id="calc">
+  <h3>Try the numbers — the plan&rsquo;s own arithmetic, live</h3>
+  <p>Every output below is computed from §3.3&rsquo;s formulas and nothing else: revenue per task = take × task value + assurance; variable cost per task = $0.85 verification + $0.30 infrastructure + 1.1% of task value dispute reserve + $0.22 operations; fixed cost $14,500/month (launch configuration, §8/§11). Defaults reproduce the plan&rsquo;s break-even: 2,214 tasks/month.</p>
+  <label>Settled tasks / month <output id="o-tasks">2,214</output><input type="range" id="in-tasks" min="500" max="10200" step="50" value="2214"></label>
+  <label>Average settled task value ($) <output id="o-value">$80</output><input type="range" id="in-value" min="72" max="88" step="1" value="80"></label>
+  <label>Settlement take rate (%) <output id="o-take">9%</output><input type="range" id="in-take" min="6" max="12" step="0.5" value="9"></label>
+  <label>Assurance fee per task ($) <output id="o-assure">$1.60</output><input type="range" id="in-assure" min="1.2" max="2" step="0.05" value="1.6"></label>
+  <div class="calc-out">
+    <div>Revenue per settled task <b id="r-rev">$8.80</b></div>
+    <div>Contribution per settled task <b id="r-con">$6.55</b></div>
+    <div>Monthly revenue <b id="r-mrev">$19,483</b></div>
+    <div>Monthly net vs $14,500 fixed <b id="r-net">+$2</b></div>
+    <div>Break-even tasks / month <b id="r-be">2,214</b></div>
+    <div>Year-1 surplus at this run-rate <b id="r-yr">+$20</b></div>
+  </div>
+  <p class="calc-note">Screen only — the printed PDF carries the same figures in the §3.3 and §4 tables. Moving the take-rate slider stays inside the 6–12% constitutional band (§9.2); the ledger&rsquo;s fixed cost steps up over the year (§4), so treat the monthly net as the launch-configuration read.</p>
+</div>
 
 <h2 id="s4">4. The Year-1 operating ledger</h2>
 <p>Base case. Volumes ramp as categories and guilds open (§12); average task value rises from $72 to $88 as development tasks mix in; fixed costs step up at Months 3, 5, 7, 9, 11 as offices are staffed (§11). Every row is computed from §3.3&rsquo;s formulas; nothing is plugged.</p>
@@ -364,6 +391,34 @@
 <li>Agent Souk — Competitors: Agent Marketplaces (ERC-8004 reputation study, ACP/Mech Marketplace analysis): https://github.com/agent-souk/agentsouk/blob/HEAD/research/competitors-marketplaces.md</li>
 </ol>
 <p class="small">— End of plan. Prepared for the Foreguild FAO Operating Plan Contest (poidh Base #1531). Non-internal submission. The plan may be adopted, adapted, or priced by the market as Seer sees fit; its numbers are stated so they can be argued with, which is the point of futarchy.</p>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt$ = function (n) { return "$" + Math.round(n).toLocaleString("en-US"); };
+  function calc() {
+    var tasks = +$("in-tasks").value, value = +$("in-value").value,
+        take = +$("in-take").value / 100, assure = +$("in-assure").value;
+    var rev = value * take + assure;
+    var cost = 0.85 + 0.30 + 0.011 * value + 0.22;
+    var con = rev - cost;
+    var net = tasks * con - 14500;
+    var be = con > 0 ? Math.ceil(14500 / con) : Infinity;
+    $("o-tasks").textContent = tasks.toLocaleString("en-US");
+    $("o-value").textContent = "$" + value;
+    $("o-take").textContent = (+$("in-take").value) + "%";
+    $("o-assure").textContent = "$" + assure.toFixed(2);
+    $("r-rev").textContent = "$" + rev.toFixed(2);
+    $("r-con").textContent = "$" + con.toFixed(2);
+    $("r-mrev").textContent = fmt$(tasks * rev);
+    $("r-net").textContent = (net >= 0 ? "+" : "\u2212") + fmt$(Math.abs(net));
+    $("r-be").textContent = isFinite(be) ? be.toLocaleString("en-US") : "\u2014";
+    $("r-yr").textContent = (12 * net >= 0 ? "+" : "\u2212") + fmt$(Math.abs(12 * net));
+  }
+  ["in-tasks", "in-value", "in-take", "in-assure"].forEach(function (id) { $(id).addEventListener("input", calc); });
+  calc();
+})();
+</script>
 
 </body>
 </html>
