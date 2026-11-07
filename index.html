@@ -185,7 +185,7 @@
     <tr><td>How spending is handled</td><td><a href="#s11">&sect;11 Money controls</a> &mdash; treasury, envelopes, freeze rules; <a href="#s8">&sect;8</a> office budget envelopes</td></tr>
     <tr class="alt"><td>How disputes are handled</td><td><a href="#s10">&sect;10 Disputes, bonds, and human intervention</a> &mdash; the dispute ladder, each step with a clock</td></tr>
     <tr><td>How human intervention is handled</td><td><a href="#s10">&sect;10.3 Human intervention</a> &mdash; narrow, enumerated, itself governed; <a href="#s9">&sect;9.2</a> what markets never touch</td></tr>
-    <tr class="alt"><td>How futarchy governs its actions</td><td><a href="#s9">&sect;9 Futarchy governance</a> on Seer&rsquo;s rails; <a href="#s9">&sect;9.4 Worked example</a> &mdash; fourteen days in which the market rejects the stewards&rsquo; own fee raise</td></tr>
+    <tr class="alt"><td>How futarchy governs its actions</td><td><a href="#s9">&sect;9 Futarchy governance</a> on Seer&rsquo;s rails; <a href="#s9-4">&sect;9.4 Worked example</a> &mdash; fourteen days in which the market rejects the stewards&rsquo; own fee raise</td></tr>
   </table>
 </div>
 
@@ -195,7 +195,7 @@
   <ol>
     <li><b>Check the ledger adds up.</b> <a href="#s4">&sect;4 Year-1 ledger</a>, month by month: 54,500 tasks, $507,670 revenue, +$180,439 surplus.</li>
     <li><b>Break it at break-even.</b> <a href="#calc">The calculator</a>: set the slider to 2,214 tasks a month and the monthly net reads +$2. One task fewer and it reads negative.</li>
-    <li><b>Watch the market overrule the stewards.</b> <a href="#s9">&sect;9.4 Worked example</a>: fourteen days in which the market rejects the stewards&rsquo; own fee raise (P-014 &minus;4.2%) and adopts a cheaper one (P-015 +5.8%).</li>
+    <li><b>Watch the market overrule the stewards.</b> <a href="#s9-4">&sect;9.4 Worked example</a>: fourteen days in which the market rejects the stewards&rsquo; own fee raise (P-014 &minus;4.2%) and adopts a cheaper one (P-015 +5.8%).</li>
     <li><b>Find one kill condition.</b> <a href="#s8">&sect;8</a>: nine offices, each with a written kill condition that suspends it automatically. Pick any one and check it fires without a human vote.</li>
     <li><b>Trace one number to its source.</b> <a href="#s3">&sect;3.3 Unit economics</a> gives every figure&rsquo;s derivation; <a href="#appendix-a">Appendix A</a> says plainly which inputs are fact and which are estimate.</li>
   </ol>
@@ -375,7 +375,7 @@
 <li><b>Quorum &amp; anti-capture:</b> minimum $7,500 open interest at close or the market is void and the proposal may be re-run once; no wallet may hold more than 5% of open interest on either side (excess is ineligible at settlement of the governance read); proposal bond $250, refunded when quorum is met, forfeited to the verifier bonus pool when it is not (spam has a price).</li>
 <li><b>Execution &amp; scoreboard:</b> the Governance Crier executes adopted decisions within 72 hours and publishes, at horizon end, the market&rsquo;s prediction next to the realised NGR. A futarchy that never grades its own predictions is astrology with better branding; Foreguild&rsquo;s scoreboard is public from the first decision.</li>
 </ul>
-<h3>9.4 Worked example — fourteen days in March (Year 1, Month 4 volumes)</h3>
+<h3 id="s9-4">9.4 Worked example — fourteen days in March (Year 1, Month 4 volumes)</h3>
 <p><b>Day 1.</b> The Treasury Keeper&rsquo;s weekly ledger shows NGR tracking 6% under plan; the Data guild&rsquo;s assurance attach rate is the bright spot. Two proposals are filed in standard format: <b>P-014</b> (steward-filed): raise the settlement take on the Data guild only, 9% → 10.5%, projected +$2,900 NGR/quarter. <b>P-015</b> (poster-filed, bond posted by an OSS collective): open a fifth category, <i>Smart-contract audit assistance</i> (scoped, test-anchored audit support tasks), projected +$6,100 NGR/quarter at stated volumes.</p>
 <p><b>Days 2–6.</b> Seer markets open for both. On P-014, arbitrageurs who also work the Data guild price the elasticity the team&rsquo;s model missed: the adopt market fades from −1% to <b>−4.2%</b> vs reject — the market&rsquo;s view is that Data posters are the most price-sensitive on the board and volume loss eats the rate gain. On P-015, the adopt market builds steadily to <b>+5.8%</b> with $11,240 open interest; a late attempt to push it under the band in the final hours moves the 48h TWAP by 0.3 points.</p>
 <p><b>Day 7 (reads).</b> P-014: adopt −4.2% → <b>REJECTED</b>. The stewards&rsquo; own proposal dies in public, the $250 bond is refunded (quorum was met), and the Crier logs the kill with the market&rsquo;s reasoning attached. P-015: adopt +5.8% ≥ 3% band, quorum met → <b>ADOPTED</b>; the category opens on Day 9 with T0-heavy verification (audit-assistance tasks are unusually test-anchored) and a 60-day probationary cap of $400/task.</p>
