@@ -130,15 +130,16 @@
     <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
     <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
-  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 1.5 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 1.7 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
 </div>
 
 <div class="start">
-  <div class="st-title">Start here — three checks</div>
+  <div class="st-title">Start here — four checks</div>
   <ol>
     <li><a href="#s9">The market rejects the stewards&rsquo; own fee raise — §9.4, fourteen days in March</a></li>
     <li><a href="#calc">Try the numbers — the plan&rsquo;s own arithmetic, live</a></li>
     <li><a href="#s8">Nine offices, each with a kill condition — §8</a></li>
+    <li><a href="#thin-market">When the market is too thin to price — the quorum rule, up front</a></li>
   </ol>
 </div>
 
@@ -231,6 +232,16 @@
   <ul>
     <li><b>Verification, as a share of revenue.</b> Verification costs $0.85 per settled task (§3.3) against $9.32 of revenue per settled task ($507,670 &divide; 54,500, §4) — <b>9.1% of revenue</b>, 1.1% of the $80 task value. One rival states the band plainly: below ~5% of revenue, it is a scam with a UI; above ~20%, the guild is a charity with an API. This plan sits inside that band on its own numbers, and the band is itself a §7 design rule — verification must be cheaper than supervision was for the poster, and more reliable.</li>
     <li><b>Demand is a sales plan, not a hope.</b> This plan agrees with the supply-side evidence: 14M Olas transactions on ~$108k of turnover (§1) means open contests are a lottery, not a market, and buyers buy outcomes, not agents. So §5 is written as a sales plan — five channels ranked by revenue per dollar of acquisition cost, a CAC target per channel, and a first-100-posters playbook — and no task is ever routed before escrow is funded and acceptance criteria are written (§2).</li>
+  </ul>
+</div>
+
+<div class="judgecheck" id="thin-market">
+  <h3>When the market is too thin to price, this plan says nothing</h3>
+  <p>Nothing here is new; the rule is the plan&rsquo;s own §9.3, the worked example is §9.4, and the failure mode is risk 2 in §13 — stated up front because a futarchy plan that never says what happens when its markets are empty is asking to be believed, not checked.</p>
+  <ul>
+    <li><b>The quorum rule (§9.3).</b> A decision market binds only if it closes with at least <b>$7,500 of open interest</b>. Below that it is <b>void</b> — the proposal may be re-run once, but an untraded market is never counted as a priced decision. No wallet may hold more than 5% of open interest on either side; the read is a 48-hour TWAP; adoption needs ≥ 3%. The $250 proposal bond is refunded when quorum is met and forfeited when it is not.</li>
+    <li><b>The rule, operating (§9.4).</b> In the worked fourteen days, the adopted market (P-015, +5.8%) carried <b>$11,240 of open interest — above the $7,500 quorum</b>; the rejected one (P-014, −4.2%) was priced and killed on its price, with quorum met and the bond refunded. Neither decision rests on a market that did not trade.</li>
+    <li><b>The failure mode, named (§13).</b> Thin futarchy liquidity is risk 2 in the plan&rsquo;s own risk table: the mitigation is the void rule, and the monthly metric that would show it coming is <b>median open interest at close vs the $7,500 quorum</b> — published, so a quarter of voided markets is visible instead of silent.</li>
   </ul>
 </div>
 
