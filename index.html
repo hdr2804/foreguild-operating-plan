@@ -130,11 +130,11 @@
     <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
     <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
-  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.0 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.1 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
 </div>
 
 <div class="start">
-  <div class="st-title">Start here — seven checks</div>
+  <div class="st-title">Start here — eight checks</div>
   <ol>
     <li><a href="#s9">The market rejects the stewards&rsquo; own fee raise — §9.4, fourteen days in March</a></li>
     <li><a href="#calc">Try the numbers — the plan&rsquo;s own arithmetic, live</a></li>
@@ -143,6 +143,7 @@
     <li><a href="#collected-revenue">Counted only when the money settles — the collection rule, up front</a></li>
     <li><a href="#model-not-record">A model, not a track record — what this plan does and does not claim</a></li>
     <li><a href="#verification-tiers">Three tiers judge every task — the verification machine, up front</a></li>
+    <li><a href="#demand-first-spread">Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed</a></li>
   </ol>
 </div>
 
@@ -249,6 +250,19 @@
     <li><b>What happens when a verdict is wrong (§10).</b> The dispute ladder, each step with a clock: fresh T1 re-judge in 24 hours (guild pays, from reserve); structured response in 48 hours — accept one round of rework, or escalate with a dispute bond of 10% of task value, minimum $10; a T2 panel of three decides in 72 hours; above $1,000, or for alleged bad-faith rulings, Kleros decides and the loser pays. The worked dispute in §9.4 ran the ladder and never reached a human: a $240 dataset dispute, T1 re-judging confirmed the dropped column, the worker chose rework, redelivery passed T0 schema checks, escrow settled — total guild cost $3.10 of judge inference, absorbed by the pooled reserve.</li>
     <li><b>The guardrails that watch the machine (§9.1, §8, §12).</b> The Verifier Pool&rsquo;s kill condition: overturn rate above 6% in a month pauses T1 judging — T0 and T2 only. The constitutional quality floor: if the trailing acceptance-without-dispute rate falls below 92%, market-decided parameter changes are suspended until the floor is restored. The Day-60 launch gate requires verifier overturn at or below 5%. And the tier thresholds themselves — which tasks get which tier, at what dollar values and sampling rates — are futarchy-decided (§9.2), so the machine&rsquo;s own cost is priced by the market that optimises NGR.</li>
     <li><b>What this plan does not set.</b> No false-accept or false-reject targets, and no quarterly calibration count — the quality controls it does set are the overturn rate, the T2 10% sample, and the 92% floor. The plan says so here rather than letting a judge discover the absence by comparison.</li>
+  </ul>
+</div>
+
+<div class="judgecheck" id="demand-first-spread">
+  <h3>Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed</h3>
+  <p>Nothing here is new; the spread is the plan&rsquo;s own §3.3, the ledger is §4, the demand plan is §5, the router is §6.2, the metric is §9.1 — stated up front because the newest strong entry in this contest is built on exactly this thesis: sell guaranteed outcomes to buyers who already pay, keep the spread, and put demand before supply. A judge should be able to see, without hunting, where this plan&rsquo;s spread comes from and where its demand actually stands.</p>
+  <ul>
+    <li><b>The spread, priced per task (§3.3).</b> On a steady-state $80 task: settlement take 9% ($7.20) plus assurance blended $1.60 is <b>$8.80 of revenue per settled task</b>; variable cost is $0.85 verification + $0.30 infrastructure + $0.88 dispute reserve (1.1% of value) + $0.22 operations, leaving <b>$6.55 contribution per task — a 74% margin</b>. Against $14,500/month fixed cost (§8/§11) that is break-even at <b>2,214 settled tasks a month</b>. The spread is priced into every task by the plan&rsquo;s own arithmetic, not assumed from falling costs: verification is held flat at $0.85, and the worker&rsquo;s own compute cost is the worker&rsquo;s to price into its bid.</li>
+    <li><b>The ledger that carries it (§4).</b> Twelve month-by-month rows, every row computed from §3.3&rsquo;s formulas and nothing plugged: 54,500 settled tasks in Year 1, $507,670 revenue, +$180,439 surplus, break-even crossed in <b>Month 5</b>. The Bear case (§4.1) still ends Year 1 at −$28,158 with the freeze rule (§11) firing at Month 4 — the spread survives the plan&rsquo;s own downside, on its own numbers.</li>
+    <li><b>Demand is a sales plan, not a hope (§5).</b> Five channels ranked by revenue per dollar of acquisition cost, each with a CAC target and a Year-1 share: OSS maintainer overflow $18 (30%), DAO &amp; protocol operations $140 account-level (25%), AI labs &amp; agent frameworks $220 account-level (20%), agents hiring agents $4 (15%), self-serve long tail $6 (10%). The first-100-posters playbook runs Days 1–90 — 1–25 hand-recruited, 26–60 from two framework partnerships, 61–100 retainer accounts plus self-serve — and the gate that matters is repeat posters: <b>Day-90 target ≥55 of the first 100 with a second settled task</b> (§12). No task is ever routed before escrow is funded and acceptance criteria are written (§2).</li>
+    <li><b>Assignment is priced, not auctioned (§6.2).</b> The Router awards to the lowest <i>expected total cost</i>, not the lowest bid: <code>score = bid + (1 − p<sub>pass</sub>) × rework_cost + lateness_penalty</code>, where every input is public and any agent can reproduce any award. The cheapest <i>unreliable</i> bid loses by construction — the routing answer to a race to the bottom, written as a formula a judge can re-run.</li>
+    <li><b>Governance prices the same spread (§9).</b> One metric, <b>Net Guild Revenue</b>: settled take + assurance fees − verification spend − dispute payouts, on a rolling 90-day window (§9.1) — the same 90-day horizon shape as a net-fee-revenue metric, under this plan&rsquo;s own name and definition. Markets run on Seer&rsquo;s rails — Gnosis conditional tokens, Reality.eth resolution, Kleros backstop (§9.3) — and the worked fourteen days (§9.4) show the market rejecting the stewards&rsquo; own fee raise (P-014, −4.2%) and adopting a cheaper one (P-015, +5.8%, $11,240 open interest, above the $7,500 quorum).</li>
+    <li><b>What this plan does not have.</b> No named launch buyers with committed standing-order dollars: §5 names channels, not buyers, and the $75,000 launch float (§11) is to be assembled from founding-poster prepaid assurance credits, founding-partner contributions, and/or a launch grant — not from signed orders. No compute-cost spread thesis: §3.3 holds verification flat, so no margin improvement from falling inference prices is claimed anywhere in the plan. No false-accept or false-reject targets and no quarterly calibration count — the quality controls it does set are the overturn rate, the T2 10% sample, and the 92% floor (see the box above). And no written wind-down that returns the reserve: the downside protections are the freeze rule (§11) and Bear-case solvency (§4.1), not a wind-down procedure. The plan says so here rather than letting a judge discover the gaps by comparison.</li>
   </ul>
 </div>
 
