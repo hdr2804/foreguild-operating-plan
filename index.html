@@ -130,11 +130,11 @@
     <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
     <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
-  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 1.9 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.0 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
 </div>
 
 <div class="start">
-  <div class="st-title">Start here — six checks</div>
+  <div class="st-title">Start here — seven checks</div>
   <ol>
     <li><a href="#s9">The market rejects the stewards&rsquo; own fee raise — §9.4, fourteen days in March</a></li>
     <li><a href="#calc">Try the numbers — the plan&rsquo;s own arithmetic, live</a></li>
@@ -142,6 +142,7 @@
     <li><a href="#thin-market">When the market is too thin to price — the quorum rule, up front</a></li>
     <li><a href="#collected-revenue">Counted only when the money settles — the collection rule, up front</a></li>
     <li><a href="#model-not-record">A model, not a track record — what this plan does and does not claim</a></li>
+    <li><a href="#verification-tiers">Three tiers judge every task — the verification machine, up front</a></li>
   </ol>
 </div>
 
@@ -234,6 +235,20 @@
   <ul>
     <li><b>Verification, as a share of revenue.</b> Verification costs $0.85 per settled task (§3.3) against $9.32 of revenue per settled task ($507,670 &divide; 54,500, §4) — <b>9.1% of revenue</b>, 1.1% of the $80 task value. One rival states the band plainly: below ~5% of revenue, it is a scam with a UI; above ~20%, the guild is a charity with an API. This plan sits inside that band on its own numbers, and the band is itself a §7 design rule — verification must be cheaper than supervision was for the poster, and more reliable.</li>
     <li><b>Demand is a sales plan, not a hope.</b> This plan agrees with the supply-side evidence: 14M Olas transactions on ~$108k of turnover (§1) means open contests are a lottery, not a market, and buyers buy outcomes, not agents. So §5 is written as a sales plan — five channels ranked by revenue per dollar of acquisition cost, a CAC target per channel, and a first-100-posters playbook — and no task is ever routed before escrow is funded and acceptance criteria are written (§2).</li>
+  </ul>
+</div>
+
+<div class="judgecheck" id="verification-tiers">
+  <h3>How a task gets judged — three tiers, each with a price and a kill switch</h3>
+  <p>Nothing here is new; the tiers are the plan&rsquo;s own §7, the ladder is §10, the guardrails are §9.1 and §8 — stated up front because the newest strong entry in this contest prices verification as a five-tier P&amp;L, and a judge should be able to see, without hunting, what this plan&rsquo;s verification machine is and what it is not.</p>
+  <ul>
+    <li><b>T0 — Deterministic (§7).</b> The test runs itself: CI suites, schema validation, numeric checks against source data, link and artefact liveness. No judgement is involved, so no judge is paid. About 55% of settled tasks at launch mix; target verdict under 15 minutes.</li>
+    <li><b>T1 — Dual judge (§7).</b> Two independent verifier agents score the delivery against the written test rubric. Agreement settles; disagreement escalates to a third judge whose verdict is final at this tier. Judges are <b>proper-scored</b>: their verdicts are continuously graded against escalations, spot re-checks, and dispute outcomes, and their fee share and eligibility follow that score — a judge who rubber-stamps earns less and is then not assigned. About 35% of tasks; target verdict under 4 hours.</li>
+    <li><b>T2 — Bonded human review (§7).</b> A small retained human panel reviews a 10% random sample of T1 verdicts and 100% of tasks above $500 and all escalated disputes. Humans are the appeal court of the system, not its front line — this is what keeps the human cost at $1,500/month instead of a payroll. About 10% of tasks; target verdict under 24 hours.</li>
+    <li><b>What the machine costs (§3.3).</b> Blended $0.85 per settled task — 9.1% of revenue, as the box above shows. Verifiers are paid from the assurance pool and post their own bond; an overturned verdict costs a fee-share penalty, and three overturns in 30 days suspend a verifier pending recalibration. The design goal is stated plainly in §7: verification must be cheaper than supervision was for the poster, and more reliable.</li>
+    <li><b>What happens when a verdict is wrong (§10).</b> The dispute ladder, each step with a clock: fresh T1 re-judge in 24 hours (guild pays, from reserve); structured response in 48 hours — accept one round of rework, or escalate with a dispute bond of 10% of task value, minimum $10; a T2 panel of three decides in 72 hours; above $1,000, or for alleged bad-faith rulings, Kleros decides and the loser pays. The worked dispute in §9.4 ran the ladder and never reached a human: a $240 dataset dispute, T1 re-judging confirmed the dropped column, the worker chose rework, redelivery passed T0 schema checks, escrow settled — total guild cost $3.10 of judge inference, absorbed by the pooled reserve.</li>
+    <li><b>The guardrails that watch the machine (§9.1, §8, §12).</b> The Verifier Pool&rsquo;s kill condition: overturn rate above 6% in a month pauses T1 judging — T0 and T2 only. The constitutional quality floor: if the trailing acceptance-without-dispute rate falls below 92%, market-decided parameter changes are suspended until the floor is restored. The Day-60 launch gate requires verifier overturn at or below 5%. And the tier thresholds themselves — which tasks get which tier, at what dollar values and sampling rates — are futarchy-decided (§9.2), so the machine&rsquo;s own cost is priced by the market that optimises NGR.</li>
+    <li><b>What this plan does not set.</b> No false-accept or false-reject targets, and no quarterly calibration count — the quality controls it does set are the overturn rate, the T2 10% sample, and the 92% floor. The plan says so here rather than letting a judge discover the absence by comparison.</li>
   </ul>
 </div>
 
