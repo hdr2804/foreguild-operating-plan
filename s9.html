@@ -558,6 +558,33 @@
   }
 
 
+  /* --- Pass 23 print overhaul (v2.12): the PDF as a designed document ---
+     Open Sans throughout; a running footer (title left, Page X of Y
+     right - CSS-generated, never HTML text); long boxes and tables may
+     break across pages instead of leaving half-empty pages behind, but
+     rows, cards and headings stay whole and table headers repeat; the
+     Guild Offices table gets readable column proportions. Palette stays
+     the document's own: navy, gold, warm paper. */
+  @page { size: A4; margin: 18mm 16mm 19mm 16mm;
+    @bottom-center { content: none; }
+    @bottom-left { content: "The Guild Runs Itself"; font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif; font-size: 8pt; color: #6b7686; }
+    @bottom-right { content: "Page " counter(page) " of " counter(pages); font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif; font-size: 8pt; color: #6b7686; } }
+  @media print {
+    body { font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif; }
+    .cover { page-break-inside: avoid; break-inside: avoid; }
+    .judgecheck, .briefmap, .whywin, .start, details, table { page-break-inside: auto; break-inside: auto; }
+    tr, .stat, .keyline, .callout { page-break-inside: avoid; break-inside: avoid; }
+    thead { display: table-header-group; }
+    tfoot { display: table-footer-group; }
+    h2, h3 { page-break-after: avoid; break-after: avoid; }
+    h2#s8 + details table { table-layout: fixed; font-size: 8.6pt; line-height: 1.4; }
+    h2#s8 + details table th:nth-child(1) { width: 13%; }
+    h2#s8 + details table th:nth-child(2) { width: 33%; }
+    h2#s8 + details table th:nth-child(3) { width: 9%; }
+    h2#s8 + details table th:nth-child(4) { width: 22%; }
+    h2#s8 + details table th:nth-child(5) { width: 23%; }
+  }
+
   /* --- Pass 23 (v2.12): multi-page split ---
      Screen: prev/next cards close every page (arrows are CSS content,
      not words), section pages carry their teaser as a static intro line,
@@ -585,6 +612,116 @@
     .prevnext { flex-direction: column; }
     .prevnext a { flex: 1 1 auto; }
     .pn-next { margin-left: 0; }
+  }
+
+  /* --- Pass 23 GitBook fidelity (v2.12) ---
+     Values MEASURED on the reference itself, seer-2.gitbook.io/seer
+     (served HTML/CSS variables + utility classes, 12 Nov 2026): theme
+     "clean", no tint, font Inter; primary scale step 9 = rgb(52 109 219)
+     #346DDB, step 10 (hover) #3973E1, tint surface #F1F8FF; neutrals
+     #FFFFFF / #FAFAFA / #F7F7F7, border #E5E5E5, strong text #1D1D1D,
+     muted #6E6E6E, secondary #79859B; header 64px sticky white with a
+     hairline; sidebar 288px (w-72), links 14px, padding 6px 12px,
+     radius 6px, active = primary tint + primary text + left bar;
+     content max-w-3xl = 768px; H1 36px/700 tight; prev/next cards:
+     hairline border, label 12px muted above a strong title. The cream
+     system leaves the screen here; print rules are untouched by this
+     block (screen only). Fallbacks where the fetch exposes no value:
+     body line-height 1.7 and the active-tint rgba are GitBook defaults. */
+  @media screen {
+    body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1c1d1f; background: #ffffff; }
+    ::selection { background: #e0eeff; color: #1d1d1d; }
+    h1, h2, h3 { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      text-transform: none; letter-spacing: -0.011em; color: #1d1d1d; }
+    h1 { font-size: 36px; font-weight: 700; line-height: 1.15; }
+    h2 { font-size: 24px; font-weight: 700; border-bottom: 1px solid #e5e5e5; }
+    h3 { font-size: 19px; font-weight: 600; }
+    a { color: #346ddb; }
+    a:hover { color: #3973e1; }
+    a:focus-visible, summary:focus-visible, input:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 2px solid #346ddb; }
+    .topbar { height: 64px; background: #ffffff; border-bottom: 1px solid #e5e5e5; padding-top: 0; padding-bottom: 0; }
+    .topbar a { color: #1d1d1d; border-radius: 6px; }
+    .topbar a:hover { color: #346ddb; background: #f7f7f7; }
+    .topbar .tb-name { font-family: Inter, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 600; color: #1d1d1d; }
+    .topbar a[href="foreguild-operating-plan.pdf"] { background: #346ddb; color: #ffffff; border-radius: 6px; padding: 7px 16px; }
+    .topbar a[href="foreguild-operating-plan.pdf"]:hover { background: #3973e1; color: #ffffff; }
+    .cover { background: #ffffff; border: none; border-bottom: 1px solid #e5e5e5; border-radius: 0;
+      padding: 40px 0 28px; margin: 10px 0 24px; }
+    .cover h1 { color: #1d1d1d; margin-top: 8px; }
+    .kicker { color: #79859b; letter-spacing: .08em; }
+    .subtitle { color: #6e6e6e; font-size: 18px; line-height: 1.55; }
+    .cover .meta { color: #79859b; }
+    .stats { align-items: stretch; }
+    .stat a { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; }
+    .stat a:hover { border-color: #346ddb; background: #ffffff; }
+    .stat .v { font-family: Inter, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #1d1d1d; font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
+    .stat .l { color: #6e6e6e; }
+    .start, .toc, .calc, .whywin, .judgecheck, .briefmap { background: #ffffff;
+      border: 1px solid #e5e5e5; border-radius: 8px; }
+    .judgecheck, .briefmap { border-top: 1px solid #e5e5e5; }
+    .start .st-title, .toc-title { color: #79859b; }
+    .start a, .toc a { color: #346ddb; }
+    .start a:hover, .toc a:hover { color: #3973e1; }
+    .callout, .keyline { background: #f1f8ff; border: 1px solid #e5e5e5; border-left: 3px solid #346ddb; border-radius: 8px; }
+    .keyline b { color: #1d1d1d; }
+    .tag { background: #f1f8ff; color: #346ddb; }
+    code { background: #f7f7f7; color: #1d1d1d; }
+    table { border: 1px solid #e5e5e5; border-radius: 8px; }
+    th { background: #f7f7f7; color: #1d1d1d; text-transform: none; letter-spacing: 0;
+      font-weight: 600; border-bottom: 1px solid #e5e5e5; }
+    td { border-bottom: 1px solid #ededed; }
+    table tr:hover td { background: #fafafa; }
+    tr.total td { background: #f1f8ff; border-top: 2px solid #346ddb; }
+    table tr.total:hover td { background: #f1f8ff; }
+    .secd > summary { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; color: #1d1d1d; }
+    .secd > summary:hover { background: #fafafa; border-color: #346ddb; }
+    .secd[open ] > summary { background: #ffffff; border-bottom-color: #ededed; }
+    .secd > summary::before, .boxd > summary::before { background: #f1f8ff; color: #346ddb; }
+    .boxd > summary { color: #3f4756; }
+    .boxd > summary:hover { color: #346ddb; }
+    .boxd > summary:active { color: #346ddb; }
+    .secd > summary:active { background: #f1f8ff; border-color: #346ddb; }
+    [id] { scroll-margin-top: 80px; }
+    :target { outline: 2px solid #346ddb; background-color: rgba(52,109,219,.08); }
+    @keyframes targetflash {
+      0% { background-color: rgba(52,109,219,.28); outline: 3px solid #346ddb; outline-offset: 3px; }
+      55% { background-color: rgba(52,109,219,.14); outline: 3px solid #346ddb; outline-offset: 3px; }
+      100% { background-color: rgba(52,109,219,0); outline: 3px solid rgba(52,109,219,0); outline-offset: 3px; }
+    }
+    p a, td a, .start li a, .judgecheck li a { text-decoration-color: rgba(52,109,219,.45); }
+    p a:hover, td a:hover, .start li a:hover, .judgecheck li a:hover { color: #3973e1; text-decoration-color: #346ddb; }
+    .calc label output { color: #346ddb; }
+    .calc input[type=range] { accent-color: #346ddb; }
+    .calc-out div { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 8px; }
+    .calc-out b { color: #1d1d1d; }
+    .sidebar a { font-size: 14px; padding: 6px 12px; border-radius: 6px; color: #3f4756; }
+    .sidebar a:hover { color: #1d1d1d; background: #f7f7f7; }
+    .sidebar a.active { color: #346ddb; background: #f1f8ff; box-shadow: inset 3px 0 0 #346ddb; }
+    .sb-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: #79859b; }
+    .sb-sep { border-top: 1px solid #e5e5e5; }
+    .prevnext a { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px 16px; }
+    .prevnext a:hover { border-color: #346ddb; background: #ffffff; color: #1d1d1d; }
+    .pn-prev::before, .pn-next::after { content: none; }
+    .pn-lab { display: block; font-size: 12px; font-weight: 500; color: #6e6e6e; margin-bottom: 2px; }
+    .pn-prev .pn-lab::before { content: "\2190  "; color: #346ddb; }
+    .pn-next .pn-lab::after { content: "  \2192"; color: #346ddb; }
+    .pn-t { display: block; font-size: 15px; font-weight: 600; color: #1d1d1d; line-height: 1.35; }
+    .secteas { color: #3f4756; font-weight: 500; }
+    .pagefoot .meta { color: #79859b; }
+  }
+  @media screen and (min-width: 1024px) {
+    body { padding-top: 64px; padding-left: 336px; }
+    body > :not(.topbar):not(.sidebar) { max-width: 768px; }
+    .sidebar { top: 64px; width: 288px; background: #fafafa; border-right: 1px solid #e5e5e5; }
+  }
+  @media screen and (max-width: 1023.98px) {
+    body { padding-top: 64px; }
+    .sidebar { top: 64px; background: #ffffff; border-right: 1px solid #e5e5e5; }
+    body.sb-open::before { top: 64px; }
+    .sidebar a.active { box-shadow: inset 3px 0 0 #346ddb; }
   }
 </style>
 </head>
@@ -655,8 +792,8 @@
 </article>
 
 <nav class="prevnext">
-<a class="pn-card pn-prev" href="s8.html"><span class="pn-t">8. The Guild Offices — the organisation that runs the board</span></a>
-<a class="pn-card pn-next" href="s10.html"><span class="pn-t">10. Disputes, bonds, and human intervention</span></a>
+<a class="pn-card pn-prev" href="s8.html"><span class="pn-lab">Previous</span><span class="pn-t">8. The Guild Offices — the organisation that runs the board</span></a>
+<a class="pn-card pn-next" href="s10.html"><span class="pn-lab">Next</span><span class="pn-t">10. Disputes, bonds, and human intervention</span></a>
 </nav>
 
 <div class="pagefoot"><p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.12 — November 2026 · presentation pass only; every figure unchanged from v1.0</p></div>
