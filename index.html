@@ -198,6 +198,117 @@
     .topbar { backdrop-filter: none; -webkit-backdrop-filter: none; }
   }
 
+  /* --- v2.6 modern product layer (screen only; print layer above is untouched) ---
+     Bold sans headlines, one vivid accent (indigo) + violet secondary, slate neutrals,
+     large radii, soft layered shadows. Serif display and navy/gold are retired here. */
+  @media screen {
+    :root {
+      --m-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --m-bg: #f8fafc; --m-card: #ffffff;
+      --m-ink: #0f172a; --m-ink2: #334155; --m-mut: #64748b;
+      --m-line: #e2e8f0; --m-line-soft: #edf1f6;
+      --m-acc: #6366f1; --m-acc-d: #4f46e5; --m-acc-xd: #4338ca;
+      --m-acc-50: #eef2ff; --m-acc-100: #e0e7ff; --m-acc-200: #c7d2fe; --m-acc-300: #a5b4fc;
+      --m-violet: #8b5cf6;
+      --m-sh-sm: 0 1px 2px rgba(15,23,42,.05), 0 1px 3px rgba(15,23,42,.06);
+      --m-sh-md: 0 4px 12px rgba(15,23,42,.07), 0 12px 32px rgba(15,23,42,.09);
+      --m-sh-hero: 0 24px 48px -12px rgba(15,23,42,.28);
+    }
+    body { font-family: var(--m-sans); font-size: 17px; line-height: 1.7; color: var(--m-ink);
+      background-color: var(--m-bg);
+      background-image: radial-gradient(920px 460px at 88% -120px, rgba(99,102,241,.08), rgba(99,102,241,0) 62%); }
+    ::selection { background: var(--m-acc); color: #fff; }
+    a { color: var(--m-acc-d); }
+    a:hover { color: var(--m-acc-xd); }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--m-acc); outline-offset: 2px; border-radius: 6px; }
+    h1, h2, h3 { font-family: var(--m-sans); }
+    h1 { font-size: 50px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.04; }
+    h2 { font-size: 25px; font-weight: 800; letter-spacing: -0.025em; color: var(--m-ink);
+      background: linear-gradient(90deg, var(--m-acc) 0 48px, var(--m-line) 48px) bottom / 100% 2px no-repeat; padding-bottom: 10px; }
+    h3 { font-size: 18.5px; font-weight: 700; letter-spacing: -0.015em; color: var(--m-ink); }
+    /* Glass product nav */
+    .topbar { background: rgba(255,255,255,.82); backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6);
+      border-bottom: 1px solid var(--m-line); box-shadow: 0 1px 12px rgba(15,23,42,.05); padding: 11px 20px; }
+    .topbar a { color: var(--m-ink2); font-weight: 600; padding: 6px 13px; border-radius: 999px; transition: background .15s ease, color .15s ease; }
+    .topbar a:hover { background: var(--m-acc-50); color: var(--m-acc-xd); text-decoration: none; }
+    .topbar .tb-name { font-family: var(--m-sans); font-size: 15.5px; font-weight: 800; letter-spacing: -0.01em; color: var(--m-ink); }
+    /* Modern hero: deep slate, accent glows, pill kicker */
+    .cover { background:
+        radial-gradient(720px 340px at 88% -60px, rgba(139,92,246,.38), rgba(139,92,246,0) 62%),
+        radial-gradient(640px 380px at -80px 115%, rgba(99,102,241,.32), rgba(99,102,241,0) 60%),
+        linear-gradient(150deg, #0b1120 0%, #111a30 55%, #1b1440 130%);
+      border: 1px solid #26314d; border-radius: 24px; box-shadow: var(--m-sh-hero);
+      padding: 54px 44px 34px; margin: 22px 0 24px; }
+    .kicker { display: inline-block; background: rgba(99,102,241,.16); border: 1px solid rgba(165,180,252,.42);
+      color: #c7d2fe; border-radius: 999px; padding: 6px 14px; font-size: 11.5px; font-weight: 600; letter-spacing: .16em; margin-bottom: 20px; }
+    .subtitle { color: #cbd5e1; font-size: 19px; line-height: 1.6; max-width: 60ch; }
+    .cover .meta { color: #94a3b8; font-size: 12.5px; }
+    /* Stat cards: equal height by construction (grid stretch + flex anchor) */
+    .stats { gap: 14px; margin-top: 30px; align-items: stretch; }
+    .stat { display: flex; padding-right: 0; }
+    .stat a { flex: 1 1 auto; width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13);
+      border-radius: 16px; padding: 18px 18px 15px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease; }
+    .stat a:hover { background: rgba(255,255,255,.10); border-color: rgba(165,180,252,.55); transform: translateY(-3px); }
+    .stat .v { font-family: var(--m-sans); font-size: 31px; font-weight: 800; letter-spacing: -0.03em; color: #fff; font-variant-numeric: tabular-nums; }
+    .stat .l { color: #a8b8cc; font-size: 13px; line-height: 1.45; margin-top: 5px; }
+    /* Panels as clean white cards */
+    .start, .toc, .calc, .whywin, .judgecheck, .briefmap { background: var(--m-card); border: 1px solid var(--m-line);
+      border-top: 3px solid var(--m-acc); border-radius: 16px; box-shadow: var(--m-sh-sm); padding: 22px 24px; }
+    .judgecheck, .briefmap { border-top-color: var(--m-violet); }
+    .start .st-title { font-family: var(--m-sans); color: var(--m-ink); letter-spacing: .09em; }
+    .start a { color: var(--m-acc-d); }
+    .start a:hover { color: var(--m-acc-xd); }
+    .toc-title { color: var(--m-ink); letter-spacing: .09em; }
+    .toc a { color: var(--m-ink2); }
+    .toc a:hover { color: var(--m-acc-d); }
+    .callout { background: var(--m-acc-50); border-left: 4px solid var(--m-acc); border-radius: 0 12px 12px 0; }
+    .keyline { background: linear-gradient(135deg, #0b1120, #1e1b4b); border-radius: 16px; box-shadow: var(--m-sh-md); }
+    .keyline b { color: var(--m-acc-300); }
+    .tag { background: var(--m-acc-50); color: var(--m-acc-xd); border-radius: 999px; padding: 2px 10px; }
+    code { background: #f1f5f9; color: #334155; border-radius: 6px; }
+    .calc label { color: var(--m-ink2); }
+    .calc label output { color: var(--m-ink); font-weight: 700; }
+    .calc input[type=range] { accent-color: var(--m-acc); }
+    .calc-out div { background: #f8fafc; border: 1px solid var(--m-line); border-radius: 12px; padding: 11px 14px; }
+    .calc-out b { color: var(--m-ink); }
+    /* Modern tables: light caps header, hairline rows, rounded shell */
+    table { border: 1px solid var(--m-line); border-radius: 12px; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+    th { background: #f8fafc; color: #475569; text-transform: uppercase; letter-spacing: .07em; font-size: 12px; font-weight: 600;
+      border-bottom: 1px solid var(--m-line); padding: 10px 12px; }
+    th:first-child { border-radius: 11px 0 0 0; } th:last-child { border-radius: 0 11px 0 0; }
+    td { border-bottom: 1px solid var(--m-line-soft); padding: 9px 12px; }
+    tr:last-child td { border-bottom: none; }
+    tr:last-child td:first-child { border-radius: 0 0 0 11px; } tr:last-child td:last-child { border-radius: 0 0 11px 0; }
+    table tr:hover td { background: #f8fafc; }
+    tr.total td { background: var(--m-acc-50); border-top: 2px solid var(--m-ink); }
+    table tr.total:hover td { background: var(--m-acc-50); }
+    /* Collapsible rows as modern list cards */
+    .secd > summary { background: var(--m-card); border: 1px solid var(--m-line); border-radius: 16px; box-shadow: var(--m-sh-sm);
+      padding: 16px 18px; font-size: 16.5px; font-weight: 600; letter-spacing: -0.01em; color: var(--m-ink);
+      transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease; }
+    .secd > summary:hover { box-shadow: var(--m-sh-md); transform: translateY(-1px); border-color: var(--m-acc-200); text-decoration: none; }
+    .secd[open ] > summary { background: var(--m-card); border-radius: 16px 16px 0 0; box-shadow: var(--m-sh-sm); border-bottom-color: var(--m-line-soft); }
+    .secd > summary::before, .boxd > summary::before { background: var(--m-acc-50); color: var(--m-acc-d); }
+    .secd[open ] > summary::before, .boxd[open ] > summary::before { content: "\25B8 "; transform: rotate(90deg); }
+    .boxd > summary { color: var(--m-ink2); font-weight: 600; }
+    .boxd > summary:hover { color: var(--m-acc-d); text-decoration: none; }
+  }
+  @media screen and (max-width: 700px) {
+    h1 { font-size: 34px; }
+    .cover { padding: 38px 22px 26px; border-radius: 20px; }
+    .subtitle { font-size: 17px; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat .v { font-size: 25px; }
+    .start, .toc, .calc, .whywin, .judgecheck, .briefmap { padding: 18px; }
+    .secd > summary { font-size: 15.5px; padding: 14px 15px; }
+  }
+  @media screen and (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .stat a, .secd > summary, .topbar a, .secd > summary::before, .boxd > summary::before { transition: none; }
+    .stat a:hover, .secd > summary:hover { transform: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -214,7 +325,7 @@
     <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
     <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
-  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.5 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.6 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
 </div>
 
 <div class="start">
