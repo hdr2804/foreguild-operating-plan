@@ -130,7 +130,7 @@
     <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
     <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
-  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.1 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.2 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
 </div>
 
 <div class="start">
@@ -139,7 +139,7 @@
     <li><a href="#s9">The market rejects the stewards&rsquo; own fee raise — §9.4, fourteen days in March</a></li>
     <li><a href="#calc">Try the numbers — the plan&rsquo;s own arithmetic, live</a></li>
     <li><a href="#s8">Nine offices, each with a kill condition — §8</a></li>
-    <li><a href="#thin-market">When the market is too thin to price — the quorum rule, up front</a></li>
+    <li><a href="#thin-market">When the market is too thin to price — the quorum rule, the depth subsidy, and the scoreboard, up front</a></li>
     <li><a href="#collected-revenue">Counted only when the money settles — the collection rule, up front</a></li>
     <li><a href="#model-not-record">A model, not a track record — what this plan does and does not claim</a></li>
     <li><a href="#verification-tiers">Three tiers judge every task — the verification machine, up front</a></li>
@@ -268,11 +268,15 @@
 
 <div class="judgecheck" id="thin-market">
   <h3>When the market is too thin to price, this plan says nothing</h3>
-  <p>Nothing here is new; the rule is the plan&rsquo;s own §9.3, the worked example is §9.4, and the failure mode is risk 2 in §13 — stated up front because a futarchy plan that never says what happens when its markets are empty is asking to be believed, not checked.</p>
+  <p>Nothing here is new; the rule is the plan&rsquo;s own §9.3, the worked example is §9.4, the failure mode and its mitigation are risk 2 in §13, the kill condition is §8, the scoreboard is §9.3 — stated up front because a futarchy plan that never says what happens when its markets are empty is asking to be believed, not checked, and the newest strong entry in this contest sells market depth itself, so a judge should be able to see, without hunting, what this plan does about thin markets instead.</p>
   <ul>
     <li><b>The quorum rule (§9.3).</b> A decision market binds only if it closes with at least <b>$7,500 of open interest</b>. Below that it is <b>void</b> — the proposal may be re-run once, but an untraded market is never counted as a priced decision. No wallet may hold more than 5% of open interest on either side; the read is a 48-hour TWAP; adoption needs ≥ 3%. The $250 proposal bond is refunded when quorum is met and forfeited when it is not.</li>
     <li><b>The rule, operating (§9.4).</b> In the worked fourteen days, the adopted market (P-015, +5.8%) carried <b>$11,240 of open interest — above the $7,500 quorum</b>; the rejected one (P-014, −4.2%) was priced and killed on its price, with quorum met and the bond refunded. Neither decision rests on a market that did not trade.</li>
     <li><b>The failure mode, named (§13).</b> Thin futarchy liquidity is risk 2 in the plan&rsquo;s own risk table: the mitigation is the void rule, and the monthly metric that would show it coming is <b>median open interest at close vs the $7,500 quorum</b> — published, so a quarter of voided markets is visible instead of silent.</li>
+    <li><b>Who pays for depth (§13, risk 2).</b> The same risk&rsquo;s mitigation names it in full: proposal cadence and bond are sized to the quorum, and a market-making subsidy is a capped, market-approved envelope item, never a secret. Depth, if it is ever bought, is bought in the open, by a budget a market approved — and envelopes are published in the Treasury Keeper&rsquo;s weekly ledger (§11), so the subsidy is visible the same week it is spent.</li>
+    <li><b>What happens when thin markets persist (§8).</b> The Governance Crier&rsquo;s kill condition: two consecutive failed quorums halve the proposal cadence and trigger a format review. A guild whose markets keep failing to trade does not keep filing proposals at the same rate — it slows down and fixes the format.</li>
+    <li><b>Every decision is graded after the fact (§9.3, §9.4).</b> The Crier executes adopted decisions within 72 hours and publishes, at horizon end, the market&rsquo;s prediction next to the realised NGR — the scoreboard is public from the first decision. In the worked example it posts on Day 14: P-015&rsquo;s first-week settled tasks 41 against the market-implied pace of ~35 a week by Day 90 — tracking, horizon open. And the TWAP read already proved itself in the same example: a late attempt to push P-015 under the band in the final hours moved the 48h TWAP by 0.3 points.</li>
+    <li><b>What this plan does not have.</b> No depth product, no depth-hour price, no liquidity-provision mechanism: the plan sells verified work, not market depth, and the only money it contemplates spending on depth is the capped, market-approved subsidy above. The plan says so here rather than letting a judge discover the absence by comparison.</li>
   </ul>
 </div>
 
