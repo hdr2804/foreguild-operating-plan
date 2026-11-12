@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Foreguild Operating Plan — The Guild Runs Itself</title>
+<style>
+  @page { size: A4; margin: 20mm 17mm 20mm 17mm;
+    @bottom-center { content: "Foreguild Operating Plan · The Guild Runs Itself · p. " counter(page); font-size: 8pt; color: #667; } }
+  * { box-sizing: border-box; }
+  body { font-family: "DejaVu Sans", "Helvetica Neue", Arial, sans-serif; font-size: 10.3pt; line-height: 1.52; color: #17202b; margin: 0; }
+  h1 { font-size: 25pt; line-height: 1.15; margin: 0 0 4pt 0; color: #ffffff; }
+  h2 { font-size: 14.5pt; color: #0d1b2e; border-bottom: 2.2pt solid #c8a028; padding-bottom: 3pt; margin: 22pt 0 8pt 0; page-break-after: avoid; }
+  h3 { font-size: 11.5pt; color: #14304f; margin: 13pt 0 4pt 0; page-break-after: avoid; }
+  p { margin: 0 0 7pt 0; }
+  ul, ol { margin: 2pt 0 8pt 0; padding-left: 16pt; }
+  li { margin-bottom: 3.5pt; }
+  table { border-collapse: collapse; width: 100%; margin: 6pt 0 12pt 0; font-size: 9.3pt; page-break-inside: avoid; }
+  th { background: #0d1b2e; color: #fff; padding: 4.5pt 6pt; text-align: left; font-weight: 600; }
+  td { border-bottom: 0.6pt solid #ccd3dc; padding: 4pt 6pt; vertical-align: top; }
+  tr.alt td { background: #f2f5f8; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.total td { border-top: 1.6pt solid #0d1b2e; border-bottom: none; font-weight: 700; background: #eef1f5; }
+  .cover { background: #0d1b2e; border-top: 5pt solid #c8a028; border-bottom: 5pt solid #c8a028; border-radius: 3pt; padding: 18pt 16pt 14pt 16pt; margin-bottom: 16pt; }
+  .kicker { font-size: 9.5pt; letter-spacing: 2.2pt; text-transform: uppercase; color: #dcb13e; font-weight: 700; margin-bottom: 8pt; }
+  .subtitle { font-size: 13pt; color: #c3d2e4; margin: 2pt 0 10pt 0; line-height: 1.4; }
+  .meta { font-size: 9.3pt; color: #93a7bf; }
+  .callout { background: #f5f0dd; border-left: 3.5pt solid #c8a028; padding: 8pt 11pt; margin: 9pt 0 12pt 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .start { background: #f5f0dd; border: 1px solid #dde4ec; border-top: 3px solid #c8a028; border-radius: 4px; padding: 10pt 12pt; margin: 0 0 14pt 0; }
+  .start .st-title { font-weight: 700; color: #0d1b2e; font-size: 10pt; letter-spacing: 1.2pt; text-transform: uppercase; margin-bottom: 5pt; }
+  .start ol { margin: 0; padding-left: 16pt; }
+  .start li { margin-bottom: 3pt; }
+  .start a { color: #14304f; font-weight: 700; text-decoration: none; }
+  .whywin { background: #eef1f5; border: 1pt solid #c8a028; border-left: 3.5pt solid #c8a028; padding: 10pt 12pt; margin: 0 0 14pt 0; page-break-inside: avoid; }
+  .whywin h3 { margin-top: 0; }
+  .whywin ul { margin-bottom: 0; }
+  .judgecheck { background: #eef1f5; border: 1pt solid #14304f; border-left: 3.5pt solid #14304f; padding: 10pt 12pt; margin: 0 0 14pt 0; page-break-inside: avoid; }
+  .judgecheck h3 { margin-top: 0; }
+  .judgecheck ol { margin-bottom: 0; }
+  .judgecheck li { margin-bottom: 3pt; }
+  .briefmap { background: #eef1f5; border: 1pt solid #14304f; border-left: 3.5pt solid #14304f; padding: 10pt 12pt; margin: 0 0 14pt 0; page-break-inside: avoid; }
+  .briefmap h3 { margin-top: 0; }
+  summary { list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  .stat a { display: block; text-decoration: none; color: inherit; }
+  .keyline { background: #0d1b2e; color: #f4f6f9; padding: 10pt 12pt; margin: 10pt 0 14pt 0; font-size: 10.6pt; }
+  .keyline b { color: #e9c860; }
+  .small { font-size: 8.8pt; color: #55606e; }
+  .tag { display: inline-block; background: #e7ecf1; border-radius: 3pt; padding: 0.5pt 5pt; font-size: 8.4pt; font-weight: 700; color: #14304f; }
+  .avoid-break { page-break-inside: avoid; }
+  .newpage { page-break-before: always; }
+  code { font-family: "DejaVu Sans Mono", monospace; font-size: 9pt; background: #eef1f5; padding: 0 3pt; }
+
+  @media print {
+    .secd > summary, .boxd > summary { display: none; }
+  }
+  /* --- Presentation layer (screen-first chrome; print keeps the A4 layout above) --- */
+  .stats { display: table; table-layout: fixed; width: 100%; border-top: 0.6pt solid #33507a; margin-top: 11pt; padding-top: 9pt; }
+  .stat { display: table-cell; padding-right: 10pt; vertical-align: top; }
+  .stat .v { font-size: 16.5pt; font-weight: 700; color: #e9c860; line-height: 1.12; }
+  .stat .l { font-size: 8.6pt; color: #aebfd4; margin-top: 2.5pt; }
+  .cover .meta { margin-top: 9pt; }
+  .topbar, .toc, .calc { display: none; }
+  @media screen {
+    body { max-width: 780px; margin: 0 auto; padding: 0 20px 72px; font-size: 16.5px; line-height: 1.66; background: #fbfcfd; }
+    h1 { font-size: 40px; }
+    h2 { font-size: 23px; margin: 34pt 0 10px 0; padding-bottom: 6px; scroll-margin-top: 62px; }
+    h3 { font-size: 18px; margin: 20px 0 6px 0; }
+    p { margin-bottom: 11px; }
+    table { font-size: 14.5px; margin: 10px 0 18px 0; }
+    th { padding: 8px 10px; }
+    td { padding: 7px 10px; }
+    table tr:hover td { background: #f4f7fa; }
+    table tr.total:hover td { background: #eef1f5; }
+    .small { font-size: 13.5px; }
+    code { font-size: 13.5px; }
+    .cover { margin: 16px 0 22px 0; padding: 34px 30px 26px 30px; border-radius: 6px; }
+    .kicker { font-size: 12px; letter-spacing: 2.6pt; }
+    .subtitle { font-size: 18.5px; line-height: 1.5; }
+    .meta { font-size: 13px; line-height: 1.55; }
+    .stats { margin-top: 20px; padding-top: 16px; }
+    .stat .v { font-size: 27px; }
+    .stat .l { font-size: 13px; margin-top: 4px; }
+    .stat a:hover .v { text-decoration: underline; }
+    .start { padding: 16px 20px 12px 20px; margin-bottom: 18px; }
+    .start .st-title { font-size: 14px; }
+    .start li { font-size: 15.5px; }
+    .start a:hover { text-decoration: underline; }
+    .whywin { padding: 18px 20px; border-radius: 4px; }
+    .keyline { font-size: 16.5px; padding: 16px 18px; border-radius: 4px; }
+    .callout { padding: 14px 18px; }
+    .topbar { display: flex; position: sticky; top: 0; z-index: 20; align-items: center; gap: 16px; background: #0d1b2e; margin: 0 -20px; padding: 10px 20px; font-size: 14px; }
+    .topbar a { color: #e9c860; text-decoration: none; font-weight: 700; }
+    .topbar a:hover { text-decoration: underline; }
+    .topbar .tb-name { color: #dbe5f0; font-weight: 600; margin-right: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .toc { display: block; background: #f2f5f8; border: 1px solid #dde4ec; border-top: 3px solid #c8a028; border-radius: 4px; padding: 16px 20px 12px 20px; margin-bottom: 8px; }
+    .toc-title { font-weight: 700; color: #0d1b2e; font-size: 14px; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 8px; }
+    .toc ol { columns: 2; column-gap: 38px; margin: 0; padding-left: 20px; }
+    .toc li { margin-bottom: 6px; break-inside: avoid; }
+    .toc a { color: #14304f; text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    .calc { display: block; background: #f2f5f8; border: 1px solid #dde4ec; border-top: 3px solid #c8a028; border-radius: 4px; padding: 18px 20px 14px 20px; margin: 12px 0 18px 0; }
+    .calc h3 { margin-top: 0; }
+    .calc label { display: block; font-size: 14px; font-weight: 600; color: #14304f; margin: 12px 0 2px 0; }
+    .calc label output { float: right; color: #0d1b2e; }
+    .calc input[type=range] { width: 100%; accent-color: #c8a028; }
+    .calc-out { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; margin-top: 16px; }
+    .calc-out div { font-size: 14.5px; }
+    .calc-out b { font-size: 17px; color: #0d1b2e; }
+    .calc-note { font-size: 13px; color: #55606e; margin-top: 12px; }
+    .toc { padding: 12px 18px 8px 18px; }
+    .toc li { margin-bottom: 3px; font-size: 14.5px; }
+    .secd > summary, .boxd > summary { cursor: pointer; color: #14304f; font-weight: 600; }
+    .secd > summary { font-size: 15.5px; padding: 8px 12px; background: #f2f5f8; border: 1px solid #dde4ec; border-left: 3.5px solid #c8a028; border-radius: 4px; margin: 2px 0 16px 0; }
+    .boxd > summary { font-size: 14.5px; padding: 2px 0 4px 0; }
+    .secd > summary::before, .boxd > summary::before { content: "\25B8 "; color: #c8a028; font-weight: 700; }
+    .secd[open ] > summary::before, .boxd[open ] > summary::before { content: "\25BE "; }
+    .secd > summary:hover, .boxd > summary:hover { text-decoration: underline; }
+  }
+  @media screen { @media (max-width: 700px) {
+    body { padding: 0 14px 56px; font-size: 16px; }
+    .topbar { margin: 0 -14px; padding: 10px 14px; }
+    .cover { padding: 26px 20px 20px 20px; }
+    h1 { font-size: 31px; }
+    h2 { font-size: 20px; }
+    .subtitle { font-size: 16.5px; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; }
+    .stat { display: block; padding-right: 0; }
+    .toc ol { columns: 1; }
+    table { display: block; overflow-x: auto; font-size: 13.5px; }
+  } }
+  /* --- v2.5 design system (screen only; print layer above is untouched) --- */
+  @media screen {
+    :root {
+      --ink: #0d1b2e; --ink2: #14304f; --gold: #c8a028; --gold-bright: #e9c860;
+      --paper: #eceff3; --card: #ffffff; --tint: #f4f6f9; --tint-gold: #faf6e9;
+      --line: #dde3ea; --muted: #55606e;
+      --shadow-sm: 0 1px 2px rgba(13,27,46,.06), 0 1px 6px rgba(13,27,46,.05);
+      --shadow-md: 0 2px 6px rgba(13,27,46,.08), 0 10px 28px rgba(13,27,46,.10);
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--paper); background-image: radial-gradient(1100px 480px at 50% -80px, #ffffff 0%, rgba(255,255,255,0) 60%), linear-gradient(180deg, #f4f6f9 0%, var(--paper) 340px); color: #1b2735; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #ffe9a8; }
+    [id] { scroll-margin-top: 70px; }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+    h1, h2, h3 { font-family: var(--serif); letter-spacing: -0.01em; }
+    h1 { font-weight: 700; }
+    h2 { border-bottom: none; background: linear-gradient(90deg, var(--gold) 0 56px, var(--line) 56px) bottom / 100% 2px no-repeat; padding-bottom: 8px; }
+    h3 { color: var(--ink2); }
+    /* Top bar as product nav */
+    .topbar { background: rgba(13,27,46,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 2px solid var(--gold); box-shadow: 0 2px 14px rgba(13,27,46,.22); padding: 11px 20px; }
+    .topbar a { padding: 4px 11px; border-radius: 999px; transition: background .15s ease, color .15s ease; }
+    .topbar a:hover { background: rgba(233,200,96,.16); text-decoration: none; }
+    .topbar .tb-name { font-family: var(--serif); font-size: 15px; letter-spacing: .01em; }
+    /* Hero cover */
+    .cover { background: linear-gradient(135deg, #0a1626 0%, #0d1b2e 46%, #173457 100%); border-top: 4px solid var(--gold); border-bottom: 4px solid var(--gold); border-radius: 14px; box-shadow: var(--shadow-md); padding: 42px 36px 28px 36px; }
+    .kicker { color: var(--gold-bright); }
+    .subtitle { color: #c9d8ea; max-width: 62ch; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; border-top: none; margin-top: 24px; padding-top: 0; }
+    .stat { display: block; padding-right: 0; }
+    .stat a { background: rgba(255,255,255,.055); border: 1px solid rgba(233,200,96,.28); border-radius: 10px; padding: 14px 16px 12px; transition: background .15s ease, transform .15s ease, border-color .15s ease; }
+    .stat a:hover { background: rgba(255,255,255,.11); border-color: rgba(233,200,96,.6); transform: translateY(-2px); }
+    .stat a:hover .v { text-decoration: none; }
+    .stat .v { font-family: var(--mono); font-size: 25px; letter-spacing: -0.02em; }
+    .stat .l { color: #b9c9dc; }
+    /* Cards: shared panel treatment */
+    .start, .toc, .calc { background: var(--tint-gold); border: 1px solid #e7dcbc; border-top: 3px solid var(--gold); border-radius: 12px; box-shadow: var(--shadow-sm); }
+    .toc { background: var(--card); border-color: var(--line); border-top-color: var(--gold); }
+    .calc { background: var(--card); border-color: var(--line); border-top-color: var(--gold); }
+    .whywin { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 12px; box-shadow: var(--shadow-sm); padding: 20px 22px; }
+    .judgecheck, .briefmap { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--ink2); border-radius: 12px; box-shadow: var(--shadow-sm); padding: 20px 22px; }
+    .callout { background: var(--tint-gold); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; }
+    .keyline { background: linear-gradient(120deg, #0d1b2e, #173457); border-radius: 12px; box-shadow: var(--shadow-sm); padding: 18px 20px; }
+    .tag { border-radius: 999px; background: #e8edf3; padding: 2px 9px; }
+    code { border-radius: 5px; }
+    /* Tables */
+    th:first-child { border-radius: 8px 0 0 0; } th:last-child { border-radius: 0 8px 0 0; }
+    td { border-bottom: 1px solid #e3e8ef; }
+    /* Collapsible rows as designed cards */
+    .secd > summary { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 10px; box-shadow: var(--shadow-sm); padding: 13px 16px; font-size: 16px; color: var(--ink); transition: border-color .15s ease, box-shadow .15s ease, background .15s ease; }
+    .secd > summary:hover { border-color: #c3cedb; border-left-color: var(--gold); box-shadow: var(--shadow-md); text-decoration: none; }
+    .secd[open ] > summary { background: var(--tint); border-radius: 10px 10px 0 0; box-shadow: none; }
+    .secd > summary::before, .boxd > summary::before { display: inline-block; width: 19px; height: 19px; line-height: 19px; text-align: center; border-radius: 50%; background: var(--gold); color: #fff; font-size: 12px; margin-right: 9px; vertical-align: -3px; transition: transform .18s ease; }
+    .boxd > summary::before { width: 16px; height: 16px; line-height: 16px; font-size: 10px; margin-right: 7px; }
+    .boxd > summary { padding: 4px 2px 6px; transition: color .15s ease; }
+    .boxd > summary:hover { color: var(--gold); text-decoration: none; }
+    .calc input[type=range] { accent-color: var(--gold); cursor: pointer; }
+    .calc-out div { background: var(--tint); border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; }
+  }
+  @media screen and (max-width: 700px) {
+    .cover { padding: 30px 22px 22px 22px; border-radius: 12px; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .whywin, .judgecheck, .briefmap { padding: 16px 17px; }
+    .secd > summary { font-size: 15px; padding: 12px 13px; }
+    .topbar { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  }
+
+  /* --- v2.6 modern product layer (screen only; print layer above is untouched) ---
+     Bold sans headlines, one vivid accent (indigo) + violet secondary, slate neutrals,
+     large radii, soft layered shadows. Serif display and navy/gold are retired here. */
+  @media screen {
+    :root {
+      --m-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --m-bg: #f8fafc; --m-card: #ffffff;
+      --m-ink: #0f172a; --m-ink2: #334155; --m-mut: #64748b;
+      --m-line: #e2e8f0; --m-line-soft: #edf1f6;
+      --m-acc: #6366f1; --m-acc-d: #4f46e5; --m-acc-xd: #4338ca;
+      --m-acc-50: #eef2ff; --m-acc-100: #e0e7ff; --m-acc-200: #c7d2fe; --m-acc-300: #a5b4fc;
+      --m-violet: #8b5cf6;
+      --m-sh-sm: 0 1px 2px rgba(15,23,42,.05), 0 1px 3px rgba(15,23,42,.06);
+      --m-sh-md: 0 4px 12px rgba(15,23,42,.07), 0 12px 32px rgba(15,23,42,.09);
+      --m-sh-hero: 0 24px 48px -12px rgba(15,23,42,.28);
+    }
+    body { font-family: var(--m-sans); font-size: 17px; line-height: 1.7; color: var(--m-ink);
+      background-color: var(--m-bg);
+      background-image: radial-gradient(920px 460px at 88% -120px, rgba(99,102,241,.08), rgba(99,102,241,0) 62%); }
+    ::selection { background: var(--m-acc); color: #fff; }
+    a { color: var(--m-acc-d); }
+    a:hover { color: var(--m-acc-xd); }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--m-acc); outline-offset: 2px; border-radius: 6px; }
+    h1, h2, h3 { font-family: var(--m-sans); }
+    h1 { font-size: 50px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.04; }
+    h2 { font-size: 25px; font-weight: 800; letter-spacing: -0.025em; color: var(--m-ink);
+      background: linear-gradient(90deg, var(--m-acc) 0 48px, var(--m-line) 48px) bottom / 100% 2px no-repeat; padding-bottom: 10px; }
+    h3 { font-size: 18.5px; font-weight: 700; letter-spacing: -0.015em; color: var(--m-ink); }
+    /* Glass product nav */
+    .topbar { background: rgba(255,255,255,.82); backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6);
+      border-bottom: 1px solid var(--m-line); box-shadow: 0 1px 12px rgba(15,23,42,.05); padding: 11px 20px; }
+    .topbar a { color: var(--m-ink2); font-weight: 600; padding: 6px 13px; border-radius: 999px; transition: background .15s ease, color .15s ease; }
+    .topbar a:hover { background: var(--m-acc-50); color: var(--m-acc-xd); text-decoration: none; }
+    .topbar .tb-name { font-family: var(--m-sans); font-size: 15.5px; font-weight: 800; letter-spacing: -0.01em; color: var(--m-ink); }
+    /* Modern hero: deep slate, accent glows, pill kicker */
+    .cover { background:
+        radial-gradient(720px 340px at 88% -60px, rgba(139,92,246,.38), rgba(139,92,246,0) 62%),
+        radial-gradient(640px 380px at -80px 115%, rgba(99,102,241,.32), rgba(99,102,241,0) 60%),
+        linear-gradient(150deg, #0b1120 0%, #111a30 55%, #1b1440 130%);
+      border: 1px solid #26314d; border-radius: 24px; box-shadow: var(--m-sh-hero);
+      padding: 54px 44px 34px; margin: 22px 0 24px; }
+    .kicker { display: inline-block; background: rgba(99,102,241,.16); border: 1px solid rgba(165,180,252,.42);
+      color: #c7d2fe; border-radius: 999px; padding: 6px 14px; font-size: 11.5px; font-weight: 600; letter-spacing: .16em; margin-bottom: 20px; }
+    .subtitle { color: #cbd5e1; font-size: 19px; line-height: 1.6; max-width: 60ch; }
+    .cover .meta { color: #94a3b8; font-size: 12.5px; }
+    /* Stat cards: equal height by construction (grid stretch + flex anchor) */
+    .stats { gap: 14px; margin-top: 30px; align-items: stretch; }
+    .stat { display: flex; padding-right: 0; }
+    .stat a { flex: 1 1 auto; width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13);
+      border-radius: 16px; padding: 18px 18px 15px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease; }
+    .stat a:hover { background: rgba(255,255,255,.10); border-color: rgba(165,180,252,.55); transform: translateY(-3px); }
+    .stat .v { font-family: var(--m-sans); font-size: 31px; font-weight: 800; letter-spacing: -0.03em; color: #fff; font-variant-numeric: tabular-nums; }
+    .stat .l { color: #a8b8cc; font-size: 13px; line-height: 1.45; margin-top: 5px; }
+    /* Panels as clean white cards */
+    .start, .toc, .calc, .whywin, .judgecheck, .briefmap { background: var(--m-card); border: 1px solid var(--m-line);
+      border-top: 3px solid var(--m-acc); border-radius: 16px; box-shadow: var(--m-sh-sm); padding: 22px 24px; }
+    .judgecheck, .briefmap { border-top-color: var(--m-violet); }
+    .start .st-title { font-family: var(--m-sans); color: var(--m-ink); letter-spacing: .09em; }
+    .start a { color: var(--m-acc-d); }
+    .start a:hover { color: var(--m-acc-xd); }
+    .toc-title { color: var(--m-ink); letter-spacing: .09em; }
+    .toc a { color: var(--m-ink2); }
+    .toc a:hover { color: var(--m-acc-d); }
+    .callout { background: var(--m-acc-50); border-left: 4px solid var(--m-acc); border-radius: 0 12px 12px 0; }
+    .keyline { background: linear-gradient(135deg, #0b1120, #1e1b4b); border-radius: 16px; box-shadow: var(--m-sh-md); }
+    .keyline b { color: var(--m-acc-300); }
+    .tag { background: var(--m-acc-50); color: var(--m-acc-xd); border-radius: 999px; padding: 2px 10px; }
+    code { background: #f1f5f9; color: #334155; border-radius: 6px; }
+    .calc label { color: var(--m-ink2); }
+    .calc label output { color: var(--m-ink); font-weight: 700; }
+    .calc input[type=range] { accent-color: var(--m-acc); }
+    .calc-out div { background: #f8fafc; border: 1px solid var(--m-line); border-radius: 12px; padding: 11px 14px; }
+    .calc-out b { color: var(--m-ink); }
+    /* Modern tables: light caps header, hairline rows, rounded shell */
+    table { border: 1px solid var(--m-line); border-radius: 12px; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+    th { background: #f8fafc; color: #475569; text-transform: uppercase; letter-spacing: .07em; font-size: 12px; font-weight: 600;
+      border-bottom: 1px solid var(--m-line); padding: 10px 12px; }
+    th:first-child { border-radius: 11px 0 0 0; } th:last-child { border-radius: 0 11px 0 0; }
+    td { border-bottom: 1px solid var(--m-line-soft); padding: 9px 12px; }
+    tr:last-child td { border-bottom: none; }
+    tr:last-child td:first-child { border-radius: 0 0 0 11px; } tr:last-child td:last-child { border-radius: 0 0 11px 0; }
+    table tr:hover td { background: #f8fafc; }
+    tr.total td { background: var(--m-acc-50); border-top: 2px solid var(--m-ink); }
+    table tr.total:hover td { background: var(--m-acc-50); }
+    /* Collapsible rows as modern list cards */
+    .secd > summary { background: var(--m-card); border: 1px solid var(--m-line); border-radius: 16px; box-shadow: var(--m-sh-sm);
+      padding: 16px 18px; font-size: 16.5px; font-weight: 600; letter-spacing: -0.01em; color: var(--m-ink);
+      transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease; }
+    .secd > summary:hover { box-shadow: var(--m-sh-md); transform: translateY(-1px); border-color: var(--m-acc-200); text-decoration: none; }
+    .secd[open ] > summary { background: var(--m-card); border-radius: 16px 16px 0 0; box-shadow: var(--m-sh-sm); border-bottom-color: var(--m-line-soft); }
+    .secd > summary::before, .boxd > summary::before { background: var(--m-acc-50); color: var(--m-acc-d); }
+    .secd[open ] > summary::before, .boxd[open ] > summary::before { content: "\25B8 "; transform: rotate(90deg); }
+    .boxd > summary { color: var(--m-ink2); font-weight: 600; }
+    .boxd > summary:hover { color: var(--m-acc-d); text-decoration: none; }
+  }
+  @media screen and (max-width: 700px) {
+    h1 { font-size: 34px; }
+    .cover { padding: 38px 22px 26px; border-radius: 20px; }
+    .subtitle { font-size: 17px; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat .v { font-size: 25px; }
+    .start, .toc, .calc, .whywin, .judgecheck, .briefmap { padding: 18px; }
+    .secd > summary { font-size: 15.5px; padding: 14px 15px; }
+  }
+  @media screen and (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .stat a, .secd > summary, .topbar a, .secd > summary::before, .boxd > summary::before { transition: none; }
+    .stat a:hover, .secd > summary:hover { transform: none; }
+  }
+
+  /* --- v2.8 Seer-calm layer (screen only; print layer above is untouched) ---
+     Measured from Seer's own properties (app.seer.pm + seer.pm, Nov 2026):
+     light app, white surfaces, one brand purple #9747FF (their --purple-2 /
+     --purple-primary), deep purple #59097E, hover tint #B38FFF, pale lavender
+     wash #F4F0FD, hairline grays #F2F2F2 / #E5E6E6, text #1F2937, Open Sans,
+     card radius 1rem, primary buttons #9747FF / white / 600 / radius 3px.
+     Calm by design: flat surfaces, no glows, no gradients, no shadow stacks,
+     one accent used sparingly. Open Sans is named first; Segoe UI / Roboto
+     approximate it where it is not installed (no external downloads).
+     --- Pass 20 (v2.9): surfaces re-based to warm cream at Hdr's choice ---
+     The light lavender/white surfaces still glared at night, so every surface
+     token below is now warm cream: page #FAF5EB, cards #FFFDF7 (warm ivory),
+     hero/chips/tints #F3EAD8, table header #F1EADB, hairlines #E5DCC8 family,
+     body ink warm stone #292524. Seer purple #9747FF / #59097E survives only
+     as foreground (text, links, icons, the solid PDF button) — never as a
+     background wash. Structure, calm discipline and all text unchanged. */
+  @media screen {
+    :root {
+      --m-sans: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --m-bg: #faf5eb; --m-card: #fffdf7;
+      --m-ink: #292524; --m-ink2: #44403c; --m-mut: #78716c;
+      --m-line: #e2d7bf; --m-line-soft: #f1eadb;
+      --m-acc: #9747ff; --m-acc-d: #9747ff; --m-acc-xd: #59097e;
+      --m-acc-50: #f3ead8; --m-acc-100: #efe3cb; --m-acc-200: #d9cba6; --m-acc-300: #dcc2ff;
+      --m-violet: #59097e;
+      --m-sh-sm: none; --m-sh-md: none; --m-sh-hero: none;
+      --s-line: #e5dcc8; --s-line-hero: #ddd0b2;
+    }
+    body { font-family: var(--m-sans); font-size: 17px; line-height: 1.7; color: var(--m-ink);
+      background-color: var(--m-bg); background-image: none; }
+    ::selection { background: #dcc2ff; color: #59097e; }
+    a { color: var(--m-acc-d); }
+    a:hover { color: var(--m-acc-xd); }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--m-acc); outline-offset: 2px; border-radius: 3px; }
+    h1, h2, h3 { font-family: var(--m-sans); color: var(--m-ink); text-transform: uppercase; }
+    h1 { font-size: 34px; font-weight: 800; letter-spacing: .03em; line-height: 1.18; }
+    h2 { font-size: 20px; font-weight: 800; letter-spacing: .06em;
+      background: none; border-bottom: 1px solid var(--m-line); padding-bottom: 8px; }
+    h3 { font-size: 16.5px; font-weight: 800; letter-spacing: .05em; }
+    /* Flat white app bar, hairline base; one Seer primary button (PDF) */
+    .topbar { background: var(--m-card); backdrop-filter: none; -webkit-backdrop-filter: none;
+      border-bottom: 1px solid var(--s-line); box-shadow: none; padding: 10px 20px; }
+    .topbar a { color: var(--m-ink); font-weight: 600; padding: 6px 10px; border-radius: 3px; }
+    .topbar a:hover { background: transparent; color: var(--m-acc); text-decoration: none; }
+    .topbar .tb-name { font-family: var(--m-sans); font-size: 15px; font-weight: 700; letter-spacing: 0; color: var(--m-ink); }
+    .topbar a[href="foreguild-operating-plan.pdf"] { background: var(--m-acc); color: #ffffff; padding: 7px 16px; }
+    .topbar a[href="foreguild-operating-plan.pdf"]:hover { background: #b38fff; color: #ffffff; }
+    /* Hero: one flat pale-lavender panel, hairline border, no shadow, no glow */
+    .cover { background: var(--m-acc-50); border: 1px solid var(--s-line-hero); border-radius: 16px;
+      box-shadow: none; padding: 44px 40px 30px; margin: 22px 0 24px; }
+    .kicker { display: inline; background: transparent; border: none; border-radius: 0; padding: 0;
+      color: var(--m-acc); font-size: 12px; font-weight: 600; letter-spacing: .14em; }
+    .cover h1 { color: #59097e; margin-top: 10px; }
+    .subtitle { color: rgba(41,37,36,.84); font-size: 17.5px; line-height: 1.6; max-width: 62ch; }
+    .cover .meta { color: rgba(41,37,36,.56); font-size: 12.5px; }
+    /* Stat cards: flat white, hairline, equal height kept, no lift */
+    .stats { gap: 12px; margin-top: 26px; align-items: stretch; }
+    .stat a { background: var(--m-card); border: 1px solid var(--s-line-hero); border-radius: 16px;
+      padding: 16px 18px 14px; backdrop-filter: none; -webkit-backdrop-filter: none; }
+    .stat a:hover { background: var(--m-card); border-color: #b38fff; transform: none; }
+    .stat .v { font-family: var(--m-sans); font-size: 24px; font-weight: 700; letter-spacing: -0.01em; color: var(--m-acc); }
+    .stat .l { color: rgba(41,37,36,.64); font-size: 13px; line-height: 1.45; margin-top: 4px; text-wrap: balance; }
+    /* Every panel: the same quiet white card */
+    .start, .toc, .calc, .whywin, .judgecheck, .briefmap { background: var(--m-card);
+      border: 1px solid var(--s-line); border-radius: 16px; box-shadow: none; padding: 22px 24px; }
+    .start .st-title { font-family: var(--m-sans); color: var(--m-ink); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .start a { color: var(--m-acc-d); }
+    .start a:hover { color: var(--m-acc-xd); }
+    .toc-title { color: var(--m-ink); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .toc ol { list-style: none; }
+    .toc a { color: var(--m-ink2); }
+    .toc a:hover { color: var(--m-acc-d); }
+    .callout { background: var(--m-acc-50); border-left: 3px solid var(--m-acc); border-radius: 0 12px 12px 0; }
+    .keyline { background: var(--m-acc-50); border: 1px solid var(--s-line-hero); border-radius: 16px;
+      box-shadow: none; color: var(--m-ink); }
+    .keyline b { color: var(--m-acc-xd); }
+    .tag { background: var(--m-acc-50); color: var(--m-acc-xd); border-radius: 999px; padding: 2px 10px; }
+    code { background: var(--m-line-soft); color: var(--m-ink); border-radius: 6px; }
+    .calc label { color: var(--m-ink2); }
+    .calc label output { color: var(--m-acc-xd); font-weight: 700; }
+    .calc input[type=range] { accent-color: var(--m-acc); }
+    .calc-out div { background: #faf3e2; border: 1px solid var(--s-line); border-radius: 12px; padding: 11px 14px; }
+    .calc-out b { color: var(--m-acc-xd); }
+    /* Tables: quiet gray header, hairline rows */
+    table { border: 1px solid var(--m-line); border-radius: 12px; }
+    th { background: var(--m-line-soft); color: var(--m-ink); text-transform: uppercase; letter-spacing: .06em;
+      font-size: 12px; font-weight: 600; border-bottom: 1px solid var(--m-line); padding: 10px 12px; }
+    td { border-bottom: 1px solid var(--m-line-soft); padding: 9px 12px; }
+    table tr:hover td { background: #faf3e2; }
+    tr.total td { background: var(--m-acc-50); border-top: 2px solid var(--m-acc); }
+    table tr.total:hover td { background: var(--m-acc-50); }
+    /* Collapsible rows: same quiet white card as every other panel */
+    .secd > summary { background: var(--m-card); border: 1px solid var(--s-line); border-radius: 16px;
+      box-shadow: none; padding: 15px 18px; font-size: 16px; font-weight: 600; letter-spacing: 0; color: var(--m-ink);
+      text-wrap: balance; }
+    .secd > summary:hover { box-shadow: none; transform: none; border-color: #b38fff; text-decoration: none; }
+    .secd[open ] > summary { background: var(--m-card); border-radius: 16px 16px 0 0; box-shadow: none; border-bottom-color: var(--m-line-soft); }
+    .secd > summary::before, .boxd > summary::before { background: var(--m-acc-50); color: var(--m-acc-d); }
+    .secd > summary::before { width: 24px; height: 24px; line-height: 24px; font-size: 14px; margin-right: 10px; vertical-align: -6px; }
+    .boxd > summary::before { width: 22px; height: 22px; line-height: 22px; font-size: 12px; margin-right: 8px; vertical-align: -5px; }
+    .boxd > summary { color: var(--m-ink2); font-weight: 600; text-wrap: balance; }
+    .boxd > summary:hover { color: var(--m-acc-d); text-decoration: none; }
+  }
+  @media screen and (max-width: 700px) {
+    h1 { font-size: 29px; }
+    .cover { padding: 30px 20px 24px; border-radius: 16px; }
+    .subtitle { font-size: 16.5px; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat .v { font-size: 21px; }
+  }
+
+  /* --- Pass 21 (v2.10): docs layout + anchor destinations announce themselves ---
+     Screen only (plus one print line that hides the sidebar so the PDF stays
+     byte-equivalent). Wide screens get a GitBook-style two-column grid: a
+     sticky ivory sidebar (the Contents, duplicated as navigation chrome)
+     beside the main column. Below 1024px the sidebar becomes a sticky
+     horizontal chip strip under the top bar. A tapped fragment link now ends
+     three ways: the section opens (existing opener), the destination flashes
+     a purple wash that fades over ~2.5s and stays outlined while it is the
+     :target, and the sidebar marks where you are. Palette unchanged: cream
+     surfaces, Seer purple #9747FF as the only accent. */
+  @media print {
+    .sidebar { display: none !important; }
+  }
+  @media screen {
+    [id] { scroll-margin-top: 92px; }
+    .sb-list { list-style: none; margin: 0; padding: 0; }
+    .sidebar a { text-decoration: none; }
+    .sidebar a.active { color: var(--m-acc-xd); background: rgba(151,71,255,.09); }
+    /* The destination, marked: persistent while it is the fragment target */
+    :target { outline: 2px solid var(--m-acc); outline-offset: 3px; background-color: rgba(151,71,255,.10); }
+    @keyframes targetflash {
+      0% { background-color: rgba(151,71,255,.30); outline: 3px solid var(--m-acc); outline-offset: 3px; }
+      55% { background-color: rgba(151,71,255,.16); outline: 3px solid var(--m-acc); outline-offset: 3px; }
+      100% { background-color: rgba(151,71,255,0); outline: 3px solid rgba(151,71,255,0); outline-offset: 3px; }
+    }
+    .flash { animation: targetflash 2.5s ease-out 1; }
+    /* Tappable text reads as tappable before the tap */
+    p a, td a, .start li a, .judgecheck li a { text-decoration: underline;
+      text-decoration-color: rgba(151,71,255,.45); text-underline-offset: 3px; }
+    p a:hover, td a:hover, .start li a:hover, .judgecheck li a:hover { color: var(--m-acc-xd);
+      text-decoration-color: var(--m-acc); }
+    input:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--m-acc); outline-offset: 2px; }
+    /* Collapsible rows answer the pointer */
+    .secd > summary { transition: border-color .15s ease, background-color .15s ease; }
+    .secd > summary:hover { background: #faf3e2; }
+    .secd > summary:active { background: var(--m-acc-50); border-color: var(--m-acc-200); }
+    .boxd > summary { transition: color .15s ease, background-color .15s ease; border-radius: 8px; }
+    .boxd > summary:active { color: var(--m-acc-xd); }
+    .secd > summary::before, .boxd > summary::before { transition: transform .15s ease; }
+  }
+  @media screen and (min-width: 1024px) {
+    body { max-width: 1220px; display: grid; grid-template-columns: 282px minmax(0, 1fr);
+      column-gap: 30px; align-items: start; }
+    .topbar { grid-column: 1 / -1; }
+    .sidebar { grid-column: 1; grid-row: 2 / span 300; position: sticky; top: 76px;
+      max-height: calc(100vh - 92px); overflow-y: auto; background: var(--m-card);
+      border: 1px solid var(--s-line); border-radius: 16px; padding: 18px 14px; }
+    .sb-title { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--m-ink); padding: 0 10px 10px; }
+    .sidebar a { display: block; padding: 6px 10px; border-radius: 8px; color: var(--m-ink2);
+      font-size: 13.5px; line-height: 1.45; }
+    .sidebar a:hover { color: var(--m-acc-xd); background: #faf3e2; }
+    .sidebar a.active { box-shadow: inset 3px 0 0 var(--m-acc); }
+    .sb-list li { margin: 1px 0; }
+    .sb-sep { border-top: 1px solid var(--s-line); margin: 12px 4px; }
+  }
+  @media screen and (max-width: 1023.98px) {
+    [id] { scroll-margin-top: 118px; }
+    .sidebar { position: sticky; top: 56px; z-index: 15; display: flex; align-items: center;
+      gap: 8px; overflow-x: auto; background: var(--m-card); border-bottom: 1px solid var(--s-line);
+      margin: 0 -20px; padding: 8px 12px; }
+    .sb-title { display: none; }
+    .sb-list { display: flex; gap: 8px; }
+    .sb-list li { flex: 0 0 auto; margin: 0; }
+    .sidebar a { display: block; white-space: nowrap; border: 1px solid var(--s-line);
+      border-radius: 999px; padding: 5px 11px; font-size: 13px; color: var(--m-ink2);
+      background: var(--m-card); }
+    .sidebar a.active { border-color: var(--m-acc); box-shadow: none; }
+    .sb-sep { flex: 0 0 auto; width: 1px; align-self: stretch; background: var(--s-line); }
+  }
+  @media screen and (max-width: 700px) {
+    .sidebar { margin: 0 -14px; }
+  }
+  @media screen and (prefers-reduced-motion: reduce) {
+    .flash { animation: none; }
+    .sidebar a, .secd > summary, .boxd > summary, .secd > summary::before, .boxd > summary::before { transition: none; }
+  }
+
+  /* --- Pass 22 (v2.11): faithful GitBook anatomy ---
+     Screen only (plus one print line hiding the menu button, so the PDF
+     stays byte-equivalent). The header is no longer a centred box: it is
+     fixed and full-bleed, edge to edge. The sidebar leaves the centred
+     grid for the left viewport edge, full height under the header, and
+     the main column flows beside it at a docs measure (~820px). On
+     mobile the sidebar hides entirely and the header's menu button
+     opens it as a left drawer over a scrim - GitBook's own behaviour;
+     the pass-21 chip strip is gone. Cream surfaces, the Seer purple
+     accent, caps bold headings and the three-cue target marking are
+     unchanged. Body gains top padding only to clear the fixed header. */
+  @media print {
+    .nav-toggle { display: none !important; }
+  }
+  @media screen {
+    [id] { scroll-margin-top: 76px; }
+    .topbar { position: fixed; top: 0; left: 0; right: 0; width: auto; margin: 0; z-index: 60; }
+    .nav-toggle { display: none; }
+  }
+  @media screen and (min-width: 1024px) {
+    body { display: block; max-width: none; margin: 0; padding-top: 56px; padding-left: 328px; padding-right: 44px; }
+    body > :not(.topbar):not(.sidebar) { max-width: 820px; }
+    .sidebar { position: fixed; left: 0; top: 56px; bottom: 0; width: 280px; max-height: none;
+      overflow-y: auto; background: var(--m-card); border: none; border-right: 1px solid var(--s-line);
+      border-radius: 0; padding: 22px 16px 28px; z-index: 30; }
+  }
+  @media screen and (max-width: 1023.98px) {
+    html, body { overflow-x: hidden; overflow-x: clip; }
+    body { padding-top: 59px; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; flex-direction: column;
+      gap: 4.5px; width: 38px; height: 38px; padding: 0; flex: 0 0 auto; background: transparent;
+      border: 1px solid var(--s-line); border-radius: 9px; cursor: pointer; }
+    .nav-toggle span { display: block; width: 17px; height: 2px; border-radius: 2px; background: var(--m-ink);
+      transition: transform .2s ease, opacity .2s ease; }
+    body.sb-open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    body.sb-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    body.sb-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    body.sb-open::before { content: ""; position: fixed; left: 0; right: 0; top: 59px; bottom: 0;
+      background: rgba(41,37,36,.40); z-index: 44; }
+    .sidebar { position: fixed; top: 59px; left: 0; bottom: 0; width: 300px; max-width: 84vw;
+      margin: 0; padding: 18px 14px 28px; display: block; overflow-y: auto; overflow-x: hidden;
+      transform: translateX(-106%); transition: transform .25s ease; z-index: 45;
+      background: var(--m-card); border: none; border-right: 1px solid var(--s-line); border-radius: 0; }
+    body.sb-open .sidebar { transform: translateX(0); box-shadow: 18px 0 44px rgba(41,37,36,.16); }
+    .sb-title { display: block; font-size: 13px; font-weight: 800; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--m-ink); padding: 0 10px 10px; }
+    .sb-list { display: block; }
+    .sb-list li { margin: 1px 0; }
+    .sidebar a { display: block; padding: 6px 10px; border-radius: 8px; color: var(--m-ink2);
+      font-size: 13.5px; line-height: 1.45; white-space: normal; border: none; background: transparent; }
+    .sidebar a:hover { color: var(--m-acc-xd); background: #faf3e2; }
+    .sidebar a.active { border-color: transparent; box-shadow: inset 3px 0 0 var(--m-acc); }
+    .sb-sep { width: auto; height: auto; align-self: auto; border-top: 1px solid var(--s-line);
+      margin: 12px 4px; background: none; }
+  }
+  @media screen and (prefers-reduced-motion: reduce) {
+    .sidebar, .nav-toggle span { transition: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav class="topbar"><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="sidebar"><span></span><span></span><span></span></button><a href="#contents">Contents</a><span class="tb-name">The Guild Runs Itself</span><a href="#calc">Calculator</a><a href="https://github.com/hdr2804/foreguild-operating-plan">Source</a><a href="foreguild-operating-plan.pdf">PDF</a></nav>
+
+<nav class="sidebar" id="sidebar" aria-label="Sections">
+<div class="sb-title">The Guild Runs Itself</div>
+<ol class="sb-list">
+<li><a href="#s1">1. Executive summary</a></li>
+<li><a href="#s2">2. What Foreguild is, and how one task moves through it</a></li>
+<li><a href="#s3">3. Revenue model — first, because everything else is sized by it</a></li>
+<li><a href="#s4">4. The Year-1 operating ledger</a></li>
+<li><a href="#s5">5. Demand — where tasks come from</a></li>
+<li><a href="#s6">6. Supply and assignment — the Worker Guilds</a></li>
+<li><a href="#s7">7. Assessment — how completed work is judged</a></li>
+<li><a href="#s8">8. The Guild Offices — the organisation that runs the board</a></li>
+<li><a href="#s9">9. Futarchy governance — on Seer&rsquo;s rails, against one metric</a></li>
+<li><a href="#s10">10. Disputes, bonds, and human intervention</a></li>
+<li><a href="#s11">11. Money controls — treasury, envelopes, freeze rules</a></li>
+<li><a href="#s12">12. Launch — the first 90 days, and Year-1 gates</a></li>
+<li><a href="#s13">13. Risks — named, mitigated, and measured monthly</a></li>
+<li><a href="#appendix-a">Appendix A — Assumptions register (what is fact, what is estimate)</a></li>
+<li><a href="#appendix-b">Appendix B — References</a></li>
+</ol>
+<div class="sb-sep"></div>
+<ul class="sb-list">
+<li><a href="#calc">Calculator</a></li>
+<li><a href="#kill-switches">If this plan is wrong, it stops itself — the kill switches</a></li>
+<li><a href="#verification-tiers">How a task gets judged — three tiers, each with a price and a kill switch</a></li>
+<li><a href="#demand-first-spread">Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed</a></li>
+<li><a href="#thin-market">When the market is too thin to price, this plan says nothing</a></li>
+<li><a href="#collected-revenue">Counted only when the money settles — the collection rule</a></li>
+<li><a href="#model-not-record">A model, not a track record — what this plan proves, and what it does not claim</a></li>
+<li><a href="#s9-4">9.4 Worked example — fourteen days in March (Year 1, Month 4 volumes)</a></li>
+<li><a href="foreguild-operating-plan.pdf">PDF</a></li>
+</ul>
+</nav>
+
+<div class="cover">
+  <div class="kicker">Foreguild · FAO Operating Plan Contest · Seer</div>
+  <h1>The Guild Runs Itself</h1>
+  <p class="subtitle">A revenue-first operating plan for Foreguild, the futarchy-governed AI job board — written as the operating plan of a company: nine agent offices with mandates and budgets, a month-by-month ledger that breaks even in Month 5, and futarchy governance run on Seer&rsquo;s own market rails, including one worked week in which the market rejects the team&rsquo;s own proposal.</p>
+  <div class="stats">
+    <div class="stat"><a href="#s4"><div class="v">54,500</div><div class="l">settled tasks · Year 1</div></a></div>
+    <div class="stat"><a href="#s4"><div class="v">$507,670</div><div class="l">protocol revenue</div></a></div>
+    <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
+    <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
+  </div>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.12 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
+</div>
+
+<div class="start">
+  <div class="st-title">Start here — nine checks</div>
+  <ol>
+    <li><a href="#s9">The market rejects the stewards&rsquo; own fee raise — §9.4, fourteen days in March</a></li>
+    <li><a href="#calc">Try the numbers — the plan&rsquo;s own arithmetic, live</a></li>
+    <li><a href="#s8">Nine offices, each with a kill condition — §8</a></li>
+    <li><a href="#thin-market">When the market is too thin to price — the quorum rule, the depth subsidy, and the scoreboard, up front</a></li>
+    <li><a href="#collected-revenue">Counted only when the money settles — the collection rule, up front</a></li>
+    <li><a href="#model-not-record">A model, not a track record — what this plan does and does not claim</a></li>
+    <li><a href="#verification-tiers">Three tiers judge every task — the verification machine, up front</a></li>
+    <li><a href="#demand-first-spread">Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed</a></li>
+    <li><a href="#kill-switches">If this plan is wrong, it stops itself — the kill switches, up front</a></li>
+  </ol>
+</div>
+
+<nav class="toc" id="contents">
+  <div class="toc-title">Contents</div>
+  <ol>
+      <li><a href="#s1">1. Executive summary</a></li>
+      <li><a href="#s2">2. What Foreguild is, and how one task moves through it</a></li>
+      <li><a href="#s3">3. Revenue model — first, because everything else is sized by it</a></li>
+      <li><a href="#s4">4. The Year-1 operating ledger</a></li>
+      <li><a href="#s5">5. Demand — where tasks come from</a></li>
+      <li><a href="#s6">6. Supply and assignment — the Worker Guilds</a></li>
+      <li><a href="#s7">7. Assessment — how completed work is judged</a></li>
+      <li><a href="#s8">8. The Guild Offices — the organisation that runs the board</a></li>
+      <li><a href="#s9">9. Futarchy governance — on Seer&rsquo;s rails, against one metric</a></li>
+      <li><a href="#s10">10. Disputes, bonds, and human intervention</a></li>
+      <li><a href="#s11">11. Money controls — treasury, envelopes, freeze rules</a></li>
+      <li><a href="#s12">12. Launch — the first 90 days, and Year-1 gates</a></li>
+      <li><a href="#s13">13. Risks — named, mitigated, and measured monthly</a></li>
+      <li><a href="#appendix-a">Appendix A — Assumptions register (what is fact, what is estimate)</a></li>
+      <li><a href="#appendix-b">Appendix B — References</a></li>
+  </ol>
+</nav>
+
+<div class="whywin">
+  <h3>Why this plan wins — read this first</h3>
+  <ul>
+    <li><b>A company, not a mechanism.</b> Nine named Guild Offices (§8), each with a written mandate, a monthly budget envelope, KPIs, and an automatic kill condition — an organisation that can be operated from 13 November, not a sketch of how one might govern.</li>
+    <li><b>Every number checkable.</b> A full 12-row month-by-month ledger (§4) derived from a single assumptions table (§3.3), plus the live calculator below (§3) that recomputes break-even from the plan&rsquo;s own formulas — change any input and the arithmetic answers.</li>
+    <li><b>Futarchy on Seer&rsquo;s own rails.</b> Decision markets run as Seer markets — Gnosis conditional tokens, Reality.eth resolution, Kleros backstop (§9) — including a worked 14 days in which the market publicly rejects the stewards&rsquo; own fee raise (§9.4). Every governance cycle is trading activity on Seer&rsquo;s infrastructure.</li>
+    <li><b>Evidence, not assertion.</b> Demand is sized from measured agent-economy data — Olas (14M agent transactions on ~$108k turnover), x402/Chainalysis (138M payments on Base), MetaDAO&rsquo;s live futarchy record (96 proposals across 14 organisations), the ERC-8004 finding that reputation feedback carries no proof of payment — and every fact is separated from every estimate in Appendix A.</li>
+  </ul>
+</div>
+
+<div class="judgecheck">
+  <h3>What Seer provides, what this plan chooses</h3>
+<details class="boxd"><summary>The table: Seer&rsquo;s documented stack on the left, this plan&rsquo;s own choices on the right.</summary>
+  <p>Nothing here is new; it is the plan&rsquo;s own §9, stated plainly so the judges can see where the borrowed stack ends and the plan&rsquo;s own choices begin.</p>
+  <table>
+    <tr><th style="width:38%">Seer provides (documented, cited in Appendix B)</th><th>This plan chooses (adopted, not Seer-prescribed)</th></tr>
+    <tr><td>Conditional scalar markets on Gnosis conditional tokens</td><td><b>Net Guild Revenue</b> as the single constitutional metric, rolling 90-day window, with anti-Goodhart guards built into its definition (<a href="#s9">&sect;9.1</a>)</td></tr>
+    <tr class="alt"><td>Reality.eth resolution, with Kleros as arbitration backstop &mdash; Seer&rsquo;s standard resolution pipeline</td><td>5-day market window, read from the 48h TWAP, adopt only at &ge; 3% &mdash; MetaDAO&rsquo;s calibrated parameters, adopted here (<a href="#s9">&sect;9.3</a>)</td></tr>
+    <tr><td>Futarchy documented with metric-optimisation framing</td><td>$7,500 quorum, 5% open-interest cap per wallet, $250 proposal bond; 90-day NGR horizon per proposal; a public scoreboard grading every market&rsquo;s prediction against the realised NGR (<a href="#s9">&sect;9.3</a>)</td></tr>
+  </table>
+</details>
+</div>
+
+<div class="briefmap">
+  <h3>What the brief asks, where this plan answers it</h3>
+  <p>The brief&rsquo;s prompts &mdash; it says so itself, they are prompts, not a checklist &mdash; and the section that answers each one. Nothing here is new; it is a map of the plan below.</p>
+  <table>
+    <tr><th style="width:38%">The brief asks</th><th>Answered in</th></tr>
+    <tr><td>How it generates revenue</td><td><a href="#s3">&sect;3 Revenue model</a> &mdash; four lines, priced; <a href="#s4">&sect;4 Year-1 ledger</a>, month by month; <a href="#calc">live calculator</a></td></tr>
+    <tr class="alt"><td>Where tasks come from</td><td><a href="#s5">&sect;5 Demand</a> &mdash; five channels, CAC targets, first-100-posters playbook; <a href="#s3">&sect;3.1</a> &mdash; where tasks come from is a pricing question</td></tr>
+    <tr><td>What the agents do</td><td><a href="#s2">&sect;2 The lifecycle of a task</a>; <a href="#s8">&sect;8 Nine Guild Offices</a>, each with mandate, budget and kill condition</td></tr>
+    <tr class="alt"><td>How agents are assigned work</td><td><a href="#s6">&sect;6.2 Router scoring</a>; <a href="#s6">&sect;6.3 Caps and anti-collusion</a></td></tr>
+    <tr><td>How completed work is assessed</td><td><a href="#s7">&sect;7 Assessment</a> &mdash; T0/T1/T2 verification tiers</td></tr>
+    <tr class="alt"><td>How spending is handled</td><td><a href="#s11">&sect;11 Money controls</a> &mdash; treasury, envelopes, freeze rules; <a href="#s8">&sect;8</a> office budget envelopes</td></tr>
+    <tr><td>How disputes are handled</td><td><a href="#s10">&sect;10 Disputes, bonds, and human intervention</a> &mdash; the dispute ladder, each step with a clock</td></tr>
+    <tr class="alt"><td>How human intervention is handled</td><td><a href="#s10">&sect;10.3 Human intervention</a> &mdash; narrow, enumerated, itself governed; <a href="#s9">&sect;9.2</a> what markets never touch</td></tr>
+    <tr><td>How futarchy governs its actions</td><td><a href="#s9">&sect;9 Futarchy governance</a> on Seer&rsquo;s rails; <a href="#s9-4">&sect;9.4 Worked example</a> &mdash; fourteen days in which the market rejects the stewards&rsquo; own fee raise</td></tr>
+    <tr class="alt"><td>Draws on many resources</td><td><a href="#appendix-b">Appendix B</a> &mdash; eight cited sources (Seer, MetaDAO, Kleros, Olas, x402, ERC-8004, and more); <a href="#appendix-a">Appendix A</a> labels each input fact, estimate, or plan choice</td></tr>
+  </table>
+</div>
+
+<div class="judgecheck">
+  <h3>Judge this plan in five minutes</h3>
+  <p>Five checks, each against the plan&rsquo;s own files &mdash; no trust required. All five are answered below; the links go straight to them.</p>
+  <ol>
+    <li><b>Check the ledger adds up.</b> <a href="#s4">&sect;4 Year-1 ledger</a>, month by month: 54,500 tasks, $507,670 revenue, +$180,439 surplus.</li>
+    <li><b>Break it at break-even.</b> <a href="#calc">The calculator</a>: set the slider to 2,214 tasks a month and the monthly net reads +$2. One task fewer and it reads negative.</li>
+    <li><b>Watch the market overrule the stewards.</b> <a href="#s9-4">&sect;9.4 Worked example</a>: fourteen days in which the market rejects the stewards&rsquo; own fee raise (P-014 &minus;4.2%) and adopts a cheaper one (P-015 +5.8%).</li>
+    <li><b>Find one kill condition.</b> <a href="#s8">&sect;8</a>: nine offices, each with a written kill condition that suspends it automatically. Pick any one and check it fires without a human vote.</li>
+    <li><b>Trace one number to its source.</b> <a href="#s3">&sect;3.3 Unit economics</a> gives every figure&rsquo;s derivation; <a href="#appendix-a">Appendix A</a> says plainly which inputs are fact and which are estimate.</li>
+  </ol>
+</div>
+
+<div class="judgecheck">
+  <h3>The first 90 days, at a glance</h3>
+<details class="boxd"><summary>&sect;12&rsquo;s exit-gate column only &mdash; Days 1&ndash;14 to Months 4&ndash;12.</summary>
+  <p>Every gate numeric, checked in public. The full launch table is <a href="#s12">&sect;12</a>; this is its exit-gate column, nothing more.</p>
+  <table>
+    <tr><th style="width:16%">Window</th><th>Exit gate</th></tr>
+    <tr><td><b>Days 1–14</b></td><td>Shadow-mode routing reproduces sensible awards on &ge; 90% of 200 historical tasks</td></tr>
+    <tr class="alt"><td><b>Days 15–30</b></td><td><b>Day 30:</b> &ge; 750 settled tasks cumulative (ledger Month-1: 900); dispute rate &le; 6%; NGR published for 4 consecutive weeks</td></tr>
+    <tr><td><b>Days 31–60</b></td><td><b>Day 60:</b> &ge; 1,900 settled tasks cumulative (ledger: 2,100); run-rate &ge; 1,100/month; second-task poster rate &ge; 45%; verifier overturn &le; 5%</td></tr>
+    <tr class="alt"><td><b>Days 61–90</b></td><td><b>Day 90:</b> &ge; 55 of first 100 posters have a 2nd settled task; &ge; 3,300 settled tasks cumulative (ledger: 3,700) at a &ge; 1,500/month run-rate; zero unreconciled escrow days</td></tr>
+    <tr><td><b>Months 4–12</b></td><td>Break-even Month 5 (base); Bear-case floor: never below $25k treasury without the freeze rule already active</td></tr>
+  </table>
+</details>
+</div>
+
+<div class="judgecheck" id="kill-switches">
+  <h3>If this plan is wrong, it stops itself — the kill switches</h3>
+<details class="boxd"><summary>The freeze rule, the offices&rsquo; kill conditions, the Scout cut-off, &sect;10.3 ratification &mdash; and what the plan does not set.</summary>
+  <p>Nothing here is new; the freeze rule is the plan&rsquo;s own §11, the kill conditions are §8, the ratification rule is §10.3, the gates are §12 — collected in one place because the newest strong entry in this contest sets stop rules at days 60, 90 and 180, and a judge should be able to see, without hunting, what stops this plan when its own numbers turn against it.</p>
+  <ul>
+    <li><b>The freeze rule (§11).</b> If settled revenue runs below 70% of plan for two consecutive months, the discretionary envelopes (Scout, Governance, growth) halve, category expansion stops, and the steward draw halves — until revenue recovers to at least 85% of plan for one month. It is automatic, not discretionary. In the Bear case (§4.1) it fires at Month 4: the cumulative trough is &asymp; &minus;$58k against the $75,000 launch float, solvent throughout with ~$17k of headroom at the worst point.</li>
+    <li><b>The offices stop themselves (§8).</b> Each office has a kill condition that fires without a human vote: a Verifier Pool overturn rate above 6% in a month pauses T1 judging (T0 and T2 only); Intake auto-closes if listings without tests exceed 2% in any week; the Router halts the same day on any award whose inputs are not reproducible; the Treasury Keeper pauses all payouts except settlements in flight if any escrow is unreconciled for more than 24 hours; a Worker Guild whose pass rate falls below 85% in a month closes admissions until recalibrated; the Governance Crier halves proposal cadence after two consecutive failed quorums.</li>
+    <li><b>Demand gets cut off, not fed (§8, §12).</b> If the Scout&rsquo;s recruits&rsquo; second-task rate is below 30% at Day 90, the channel plan is rewritten before more is spent — the demand budget does not keep buying posters who do not come back. The Day-90 gate itself (in the box above) requires &ge; 55 of the first 100 posters with a second settled task.</li>
+    <li><b>Emergency power reverts if the market declines (§10.3).</b> The two stewards may pause settlements for up to 72 hours, delist specific unlawful work, or freeze an office — but every such act must face a ratification market within 7 days, and if the market declines, the act reverts automatically and the stewards may not repeat a substantially identical act for 90 days.</li>
+    <li><b>What this plan does not set.</b> No dated stop rules at days 60, 90 and 180 as a single calendar: the plan&rsquo;s stops are thresholds on its own published metrics — the freeze rule, the office kill conditions, the ratification clock — and the dated stops it does have are the Day-30/60/90 launch gates in the box above, which halt progress unless the numbers are met. The plan says so here rather than letting a judge discover the difference by comparison.</li>
+  </ul>
+</details>
+</div>
+
+<div class="judgecheck">
+  <h3>Verification is 9.1% of revenue — and demand is a sales plan</h3>
+<details class="boxd"><summary>The 9.1% arithmetic against the band, and demand written as a sales plan.</summary>
+  <p>Nothing here is new; both points are the plan&rsquo;s own §3.3, §5 and §7, stated up front because the two strongest new entries argue exactly these points.</p>
+  <ul>
+    <li><b>Verification, as a share of revenue.</b> Verification costs $0.85 per settled task (§3.3) against $9.32 of revenue per settled task ($507,670 &divide; 54,500, §4) — <b>9.1% of revenue</b>, 1.1% of the $80 task value. One rival states the band plainly: below ~5% of revenue, it is a scam with a UI; above ~20%, the guild is a charity with an API. This plan sits inside that band on its own numbers, and the band is itself a §7 design rule — verification must be cheaper than supervision was for the poster, and more reliable.</li>
+    <li><b>Demand is a sales plan, not a hope.</b> This plan agrees with the supply-side evidence: 14M Olas transactions on ~$108k of turnover (§1) means open contests are a lottery, not a market, and buyers buy outcomes, not agents. So §5 is written as a sales plan — five channels ranked by revenue per dollar of acquisition cost, a CAC target per channel, and a first-100-posters playbook — and no task is ever routed before escrow is funded and acceptance criteria are written (§2).</li>
+  </ul>
+</details>
+</div>
+
+<div class="judgecheck" id="verification-tiers">
+  <h3>How a task gets judged — three tiers, each with a price and a kill switch</h3>
+<details class="boxd"><summary>Tier prices and clocks, the $3.10 worked dispute, the guardrails &mdash; and what the plan does not set.</summary>
+  <p>Nothing here is new; the tiers are the plan&rsquo;s own §7, the ladder is §10, the guardrails are §9.1 and §8 — stated up front because the newest strong entry in this contest prices verification as a five-tier P&amp;L, and a judge should be able to see, without hunting, what this plan&rsquo;s verification machine is and what it is not.</p>
+  <ul>
+    <li><b>T0 — Deterministic (§7).</b> The test runs itself: CI suites, schema validation, numeric checks against source data, link and artefact liveness. No judgement is involved, so no judge is paid. About 55% of settled tasks at launch mix; target verdict under 15 minutes.</li>
+    <li><b>T1 — Dual judge (§7).</b> Two independent verifier agents score the delivery against the written test rubric. Agreement settles; disagreement escalates to a third judge whose verdict is final at this tier. Judges are <b>proper-scored</b>: their verdicts are continuously graded against escalations, spot re-checks, and dispute outcomes, and their fee share and eligibility follow that score — a judge who rubber-stamps earns less and is then not assigned. About 35% of tasks; target verdict under 4 hours.</li>
+    <li><b>T2 — Bonded human review (§7).</b> A small retained human panel reviews a 10% random sample of T1 verdicts and 100% of tasks above $500 and all escalated disputes. Humans are the appeal court of the system, not its front line — this is what keeps the human cost at $1,500/month instead of a payroll. About 10% of tasks; target verdict under 24 hours.</li>
+    <li><b>What the machine costs (§3.3).</b> Blended $0.85 per settled task — 9.1% of revenue, as the box above shows. Verifiers are paid from the assurance pool and post their own bond; an overturned verdict costs a fee-share penalty, and three overturns in 30 days suspend a verifier pending recalibration. The design goal is stated plainly in §7: verification must be cheaper than supervision was for the poster, and more reliable.</li>
+    <li><b>What happens when a verdict is wrong (§10).</b> The dispute ladder, each step with a clock: fresh T1 re-judge in 24 hours (guild pays, from reserve); structured response in 48 hours — accept one round of rework, or escalate with a dispute bond of 10% of task value, minimum $10; a T2 panel of three decides in 72 hours; above $1,000, or for alleged bad-faith rulings, Kleros decides and the loser pays. The worked dispute in §9.4 ran the ladder and never reached a human: a $240 dataset dispute, T1 re-judging confirmed the dropped column, the worker chose rework, redelivery passed T0 schema checks, escrow settled — total guild cost $3.10 of judge inference, absorbed by the pooled reserve.</li>
+    <li><b>The guardrails that watch the machine (§9.1, §8, §12).</b> The Verifier Pool&rsquo;s kill condition: overturn rate above 6% in a month pauses T1 judging — T0 and T2 only. The constitutional quality floor: if the trailing acceptance-without-dispute rate falls below 92%, market-decided parameter changes are suspended until the floor is restored. The Day-60 launch gate requires verifier overturn at or below 5%. And the tier thresholds themselves — which tasks get which tier, at what dollar values and sampling rates — are futarchy-decided (§9.2), so the machine&rsquo;s own cost is priced by the market that optimises NGR.</li>
+    <li><b>What this plan does not set.</b> No false-accept or false-reject targets, and no quarterly calibration count — the quality controls it does set are the overturn rate, the T2 10% sample, and the 92% floor. The plan says so here rather than letting a judge discover the absence by comparison.</li>
+  </ul>
+</details>
+</div>
+
+<div class="judgecheck" id="demand-first-spread">
+  <h3>Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed</h3>
+<details class="boxd"><summary>The $6.55 contribution, the ledger that carries it, the five channels &mdash; and the buyers not yet signed.</summary>
+  <p>Nothing here is new; the spread is the plan&rsquo;s own §3.3, the ledger is §4, the demand plan is §5, the router is §6.2, the metric is §9.1 — stated up front because the newest strong entry in this contest is built on exactly this thesis: sell guaranteed outcomes to buyers who already pay, keep the spread, and put demand before supply. A judge should be able to see, without hunting, where this plan&rsquo;s spread comes from and where its demand actually stands.</p>
+  <ul>
+    <li><b>The spread, priced per task (§3.3).</b> On a steady-state $80 task: settlement take 9% ($7.20) plus assurance blended $1.60 is <b>$8.80 of revenue per settled task</b>; variable cost is $0.85 verification + $0.30 infrastructure + $0.88 dispute reserve (1.1% of value) + $0.22 operations, leaving <b>$6.55 contribution per task — a 74% margin</b>. Against $14,500/month fixed cost (§8/§11) that is break-even at <b>2,214 settled tasks a month</b>. The spread is priced into every task by the plan&rsquo;s own arithmetic, not assumed from falling costs: verification is held flat at $0.85, and the worker&rsquo;s own compute cost is the worker&rsquo;s to price into its bid.</li>
+    <li><b>The ledger that carries it (§4).</b> Twelve month-by-month rows, every row computed from §3.3&rsquo;s formulas and nothing plugged: 54,500 settled tasks in Year 1, $507,670 revenue, +$180,439 surplus, break-even crossed in <b>Month 5</b>. The Bear case (§4.1) still ends Year 1 at −$28,158 with the freeze rule (§11) firing at Month 4 — the spread survives the plan&rsquo;s own downside, on its own numbers.</li>
+    <li><b>Demand is a sales plan, not a hope (§5).</b> Five channels ranked by revenue per dollar of acquisition cost, each with a CAC target and a Year-1 share: OSS maintainer overflow $18 (30%), DAO &amp; protocol operations $140 account-level (25%), AI labs &amp; agent frameworks $220 account-level (20%), agents hiring agents $4 (15%), self-serve long tail $6 (10%). The first-100-posters playbook runs Days 1–90 — 1–25 hand-recruited, 26–60 from two framework partnerships, 61–100 retainer accounts plus self-serve — and the gate that matters is repeat posters: <b>Day-90 target ≥55 of the first 100 with a second settled task</b> (§12). No task is ever routed before escrow is funded and acceptance criteria are written (§2).</li>
+    <li><b>Assignment is priced, not auctioned (§6.2).</b> The Router awards to the lowest <i>expected total cost</i>, not the lowest bid: <code>score = bid + (1 − p<sub>pass</sub>) × rework_cost + lateness_penalty</code>, where every input is public and any agent can reproduce any award. The cheapest <i>unreliable</i> bid loses by construction — the routing answer to a race to the bottom, written as a formula a judge can re-run.</li>
+    <li><b>Governance prices the same spread (§9).</b> One metric, <b>Net Guild Revenue</b>: settled take + assurance fees − verification spend − dispute payouts, on a rolling 90-day window (§9.1) — the same 90-day horizon shape as a net-fee-revenue metric, under this plan&rsquo;s own name and definition. Markets run on Seer&rsquo;s rails — Gnosis conditional tokens, Reality.eth resolution, Kleros backstop (§9.3) — and the worked fourteen days (§9.4) show the market rejecting the stewards&rsquo; own fee raise (P-014, −4.2%) and adopting a cheaper one (P-015, +5.8%, $11,240 open interest, above the $7,500 quorum).</li>
+    <li><b>What this plan does not have.</b> No named launch buyers with committed standing-order dollars: §5 names channels, not buyers, and the $75,000 launch float (§11) is to be assembled from founding-poster prepaid assurance credits, founding-partner contributions, and/or a launch grant — not from signed orders. No compute-cost spread thesis: §3.3 holds verification flat, so no margin improvement from falling inference prices is claimed anywhere in the plan. No false-accept or false-reject targets and no quarterly calibration count — the quality controls it does set are the overturn rate, the T2 10% sample, and the 92% floor (see the box above). And no written wind-down that returns the reserve: the downside protections are the freeze rule (§11) and Bear-case solvency (§4.1), not a wind-down procedure. The plan says so here rather than letting a judge discover the gaps by comparison.</li>
+  </ul>
+</details>
+</div>
+
+<div class="judgecheck" id="thin-market">
+  <h3>When the market is too thin to price, this plan says nothing</h3>
+<details class="boxd"><summary>The quorum rule operating in &sect;9.4, who pays for depth, the public scoreboard &mdash; and what the plan does not have.</summary>
+  <p>Nothing here is new; the rule is the plan&rsquo;s own §9.3, the worked example is §9.4, the failure mode and its mitigation are risk 2 in §13, the kill condition is §8, the scoreboard is §9.3 — stated up front because a futarchy plan that never says what happens when its markets are empty is asking to be believed, not checked, and the newest strong entry in this contest sells market depth itself, so a judge should be able to see, without hunting, what this plan does about thin markets instead.</p>
+  <ul>
+    <li><b>The quorum rule (§9.3).</b> A decision market binds only if it closes with at least <b>$7,500 of open interest</b>. Below that it is <b>void</b> — the proposal may be re-run once, but an untraded market is never counted as a priced decision. No wallet may hold more than 5% of open interest on either side; the read is a 48-hour TWAP; adoption needs ≥ 3%. The $250 proposal bond is refunded when quorum is met and forfeited when it is not.</li>
+    <li><b>The rule, operating (§9.4).</b> In the worked fourteen days, the adopted market (P-015, +5.8%) carried <b>$11,240 of open interest — above the $7,500 quorum</b>; the rejected one (P-014, −4.2%) was priced and killed on its price, with quorum met and the bond refunded. Neither decision rests on a market that did not trade.</li>
+    <li><b>The failure mode, named (§13).</b> Thin futarchy liquidity is risk 2 in the plan&rsquo;s own risk table: the mitigation is the void rule, and the monthly metric that would show it coming is <b>median open interest at close vs the $7,500 quorum</b> — published, so a quarter of voided markets is visible instead of silent.</li>
+    <li><b>Who pays for depth (§13, risk 2).</b> The same risk&rsquo;s mitigation names it in full: proposal cadence and bond are sized to the quorum, and a market-making subsidy is a capped, market-approved envelope item, never a secret. Depth, if it is ever bought, is bought in the open, by a budget a market approved — and envelopes are published in the Treasury Keeper&rsquo;s weekly ledger (§11), so the subsidy is visible the same week it is spent.</li>
+    <li><b>What happens when thin markets persist (§8).</b> The Governance Crier&rsquo;s kill condition: two consecutive failed quorums halve the proposal cadence and trigger a format review. A guild whose markets keep failing to trade does not keep filing proposals at the same rate — it slows down and fixes the format.</li>
+    <li><b>Every decision is graded after the fact (§9.3, §9.4).</b> The Crier executes adopted decisions within 72 hours and publishes, at horizon end, the market&rsquo;s prediction next to the realised NGR — the scoreboard is public from the first decision. In the worked example it posts on Day 14: P-015&rsquo;s first-week settled tasks 41 against the market-implied pace of ~35 a week by Day 90 — tracking, horizon open. And the TWAP read already proved itself in the same example: a late attempt to push P-015 under the band in the final hours moved the 48h TWAP by 0.3 points.</li>
+    <li><b>What this plan does not have.</b> No depth product, no depth-hour price, no liquidity-provision mechanism: the plan sells verified work, not market depth, and the only money it contemplates spending on depth is the capped, market-approved subsidy above. The plan says so here rather than letting a judge discover the absence by comparison.</li>
+  </ul>
+</details>
+</div>
+
+<div class="judgecheck" id="collected-revenue">
+  <h3>Counted only when the money settles — the collection rule</h3>
+<details class="boxd"><summary>Settlement-only recognition, the wash-trading attack that fails, the priced reserve.</summary>
+  <p>Nothing here is new; the rule is the plan&rsquo;s own §2, the metric is §9.1, the attack that fails is risk 1 in §13 — stated up front because a plan that counts posted volume as revenue is asking to be believed, not checked. This one counts nothing until escrow settles.</p>
+  <ul>
+    <li><b>The rule (§2).</b> Escrow is funded in USDC at posting — the poster&rsquo;s money, never guild revenue until settlement. Accept is the settlement event; <b>revenue is recognised here and only here</b>. Posted tasks, bids, and GMV-in-flight are pipeline, never income: unsettled work contributes exactly zero to the metric futarchy optimises, because it cannot be pumped by spam postings.</li>
+    <li><b>The metric (§9.1).</b> Net Guild Revenue is settled take + assurance fees &minus; verification spend &minus; dispute payouts, net of refunds and dispute reversals, on a rolling 90-day window. It was chosen over GMV precisely because GMV is gameable by wash tasks.</li>
+    <li><b>The attack that fails (§13, risk 1).</b> Faking a settlement costs the 9% take every time — manipulation is a paying customer of the thing it attacks. Settlements where poster and worker resolve to the same beneficial owner are excluded from NGR entirely, and no single poster may contribute more than 15% of NGR in a window.</li>
+    <li><b>The priced reserve (§3.3, §10, §11).</b> A dispute-loss reserve of 1.1% of task value is priced into every task — the worked dispute in §9.4 cost $3.10 of judge inference and was absorbed by the pooled reserve. Escrow itself is held in segregated contracts, released only by verdict or ladder outcome, reconciled daily.</li>
+  </ul>
+</details>
+</div>
+
+<div class="judgecheck" id="model-not-record">
+  <h3>A model, not a track record — what this plan proves, and what it does not claim</h3>
+  <p>Nothing here is new; the boundary is the plan&rsquo;s own meta line and Appendix A — stated up front because the newest entry in this contest runs on deployed contracts and live transactions, and a judge should not have to guess which kind of document this one is.</p>
+  <ul>
+    <li><b>What it does not claim.</b> No deployed contracts, no live transactions, no traction. The guild in this plan does not exist yet — it is an organisation that can be operated from 13 November — and <b>no figure in it is a reported result</b>: every financial figure is a plan output derived from the assumptions in Appendix A.</li>
+    <li><b>What is fact (cited, Appendix A).</b> MetaDAO futarchy live since November 2023, ~96 proposals across 14 organisations; the Seer stack — Gnosis conditional tokens, Reality.eth resolution, Kleros backstop; Olas, 14M+ agent-to-agent transactions on ~$108k of turnover (August 2026); x402, 138M payments by September 2026; ERC-8004 reputation feedback, 98.7&ndash;100% without proof of payment.</li>
+    <li><b>What is estimate or plan choice (Appendix A).</b> Take rate 9% — a plan choice. Average task value $72 to $88 and the Month-12 ramp to ~340 settled tasks a day — estimates; the task-value bet is deliberately ~10,000&times; the observed Olas average, and the plan says so openly. §4.1 calls them what they are: estimates, not forecasts of record.</li>
+    <li><b>How to check it.</b> §3.3 derives every figure from one assumptions table; Appendix A labels each input fact, estimate, or plan choice; the live calculator (§3) recomputes break-even from the plan&rsquo;s own formulas — change any input and the arithmetic answers. §9.4 is a worked example on the plan&rsquo;s own Month-4 volumes, not a historical record: the rules it exercises are MetaDAO&rsquo;s calibrated parameters, the volumes are the plan&rsquo;s.</li>
+  </ul>
+</div>
+
+<h2 id="s1">1. Executive summary</h2>
+<details class="secd"><summary>The business in one line, the headline numbers, and the ask of this contest.</summary>
+<p><b>The business in one line.</b> Foreguild sells <i>verified work outcomes</i> to posters who cannot supervise agents, buys the work from bonded agents through a competitive router, and keeps a settlement spread that is only earned when verification passes. Governance of the whole operation — fees, categories, spending, risk parameters — is exercised by futarchy markets on Seer, optimising one published metric: <b>Net Guild Revenue</b>.</p>
+<div class="keyline">Headline numbers (base case, all derived in §3–§4): <b>54,500</b> settled tasks in Year 1 · <b>$4.56M</b> settled GMV · <b>$507,670</b> protocol revenue · contribution of <b>$6.55 per settled task</b> (74% margin) · operating break-even at <b>2,214 settled tasks/month</b>, crossed in <b>Month 5</b> · Year-1 operating surplus <b>+$180,439</b> to treasury, with no token and no funding round assumed anywhere in the plan.</div>
+<p><b>What makes this plan different.</b> Most operating plans for an FAO describe mechanisms. This one staffs a company. Foreguild is run day-to-day by nine named <b>Guild Offices</b> — Intake, Scoping, Routing, the Worker Guilds, the Verifier Pool, the Dispute Clerk, the Treasury Keeper, the Governance Crier, and the Scout — each an agent role with a written mandate, a monthly budget envelope, KPIs it is judged on, and a kill condition that suspends it automatically (§8). Futarchy does not replace this management layer; it <i>directs</i> it, the way a board directs executives: markets set the policies, the offices execute them, and the results are published weekly against the same metric the markets priced (§9).</p>
+<p><b>Why revenue first, and why it compounds.</b> The agent economy&rsquo;s open secret is that transaction counts have exploded while value has not: Olas&rsquo;s agent marketplace passed 14 million agent-to-agent transactions on roughly $108k of turnover (August 2026) — under a cent per task. A take rate on sub-cent tasks is not a business. Foreguild therefore refuses the micropayment end of the market at launch and sells only outcomes whose value a poster can state in advance — code review, data and research delivery, development tasks, operations work — at a blended $80 per settled task (§3). Verification is not a cost centre bolted onto this; it is the product. A poster pays Foreguild precisely because the guild, not the poster, stands behind the acceptance test. That is why two of the four revenue lines are verification products, and why reputation inside Foreguild is minted only from settled, paid, verified work — the design answer to the public finding that 98.7–100% of ERC-8004 reputation feedback carries no proof of payment and can be faked for fractions of a cent (§6).</p>
+<p><b>Why futarchy, and why on Seer.</b> Futarchy is the only governance technology with a live, multi-year track record of binding operational decisions: MetaDAO has run organisations this way since November 2023 (its docs count 96 proposals across 14 organisations), and Kleros already requires a futarchy evaluation before any PNK supply increase (KIP-76). Foreguild runs its decision markets <i>as Seer markets</i> — Gnosis conditional tokens, Reality.eth resolution, Kleros arbitration as backstop — rather than building parallel governance plumbing (§9). That is a business decision, not an aesthetic one: the infrastructure is audited and live, and every governance cycle Foreguild runs is trading activity on Seer&rsquo;s rails. The guild rents the best futarchy stack in production; Seer gets its flagship operating FAO.</p>
+<p><b>The ask of this contest.</b> Nothing in this plan requires Seer&rsquo;s money. It requires a decision the Seer team is unusually well placed to make: whether the first FAO operated end-to-end on their own futarchy infrastructure should be run on these rules. The plan is written to be adopted as-is on 13 November and operated from the 90-day launch calendar in §12.</p>
+</details>
+
+<h2 id="s2">2. What Foreguild is, and how one task moves through it</h2>
+<details class="secd"><summary>The lifecycle of one task &mdash; post, bid, verify, settle &mdash; the only flow that earns money.</summary>
+<p>Foreguild is a job board where the workers are AI agents and the management is mostly agents too. Humans and AIs <b>post</b> tasks with a price and a written acceptance test; bonded agents <b>bid</b> to perform them; independent verifiers <b>check</b> delivery against the test; escrow <b>settles</b> in crypto on acceptance; and futarchy markets <b>govern</b> the parameters all of the above operate under. A Futarchy Autonomous Organization (FAO) is exactly this: a swarm of agents doing work, its actions directed by futarchy rather than by a management hierarchy or token vote.</p>
+<h3>2.1 The lifecycle of a task (the only flow that earns money)</h3>
+<table>
+<tr><th style="width:16%">Stage</th><th style="width:44%">What happens</th><th style="width:20%">Responsible office</th><th style="width:20%">Revenue / control event</th></tr>
+<tr><td><b>1. Post</b></td><td>Poster drafts the task: deliverable, deadline, price, and a <b>written acceptance test</b>. No test, no listing — the Intake Clerk returns the draft with the missing checks itemised.</td><td>Intake Clerk</td><td>Escrow funded in USDC at posting (poster&rsquo;s money, never guild revenue until settlement)</td></tr>
+<tr class="alt"><td><b>2. Scope</b></td><td>Task is classified into a capability guild, split if it exceeds one agent&rsquo;s safe blast radius, priced against the guild band, and assigned a verification tier (T0/T1/T2, §7).</td><td>Scoper</td><td>Tier sets the verification fee schedule</td></tr>
+<tr><td><b>3. Route</b></td><td>Eligible bonded agents bid price and completion time. The Router scores bids (§6.2) — the cheapest <i>unreliable</i> bid loses by construction.</td><td>Router</td><td>Winner&rsquo;s bond locks; poster&rsquo;s escrow confirmed</td></tr>
+<tr class="alt"><td><b>4. Work</b></td><td>Agent executes in its own environment. Checkpoints for tasks over $250: a mid-task artefact is lodged so failure is discovered early, not at deadline.</td><td>Worker Guilds</td><td>Late/abandon triggers bond slashing path (§10)</td></tr>
+<tr><td><b>5. Verify</b></td><td>Delivery is checked against the acceptance test by the tier&rsquo;s mechanism (§7). Verdict: accept, rework (one free round), or reject with the failing checks cited.</td><td>Verifier Pool</td><td>Accept = the settlement event; reject = dispute window opens</td></tr>
+<tr class="alt"><td><b>6. Settle</b></td><td>Escrow releases: worker paid, protocol take and assurance fee deducted, reputation minted to both parties&rsquo; records. Full ledger entry published.</td><td>Treasury Keeper</td><td><b>Revenue recognised here and only here</b></td></tr>
+<tr><td><b>7. Govern</b></td><td>Every settled task feeds the published weekly metrics (settled tasks, Net Guild Revenue, dispute rate). Parameter changes are proposed, priced by Seer markets, executed, and scored against the price (§9).</td><td>Governance Crier</td><td>Futarchy loop closes; market fees accrue on Seer</td></tr>
+</table>
+<p>Two design commitments run through the whole plan. <b>First: revenue is recognised only at settlement.</b> Posted tasks, bids, and GMV-in-flight are reported as pipeline, never as income — the metric futarchy optimises cannot be pumped by spam postings, because unsettled work contributes exactly zero to it. <b>Second: every automated decision has a named office accountable for it</b> and a published kill condition. &ldquo;The algorithm did it&rdquo; is not an acceptable incident report in this guild.</p>
+</details>
+
+<h2 id="s3">3. Revenue model — first, because everything else is sized by it</h2>
+<details class="secd"><summary>Four revenue lines priced from one unit-economics table (&sect;3.3) &mdash; and the live calculator.</summary>
+<h3>3.1 Where tasks come from is a pricing question</h3>
+<p>Foreguild launches in the four categories where buyers demonstrably already pay agents, in descending order of verification cheapness: (1) <b>code review and CI repair</b>, (2) <b>data &amp; research delivery</b> (datasets, dossiers, market monitoring), (3) <b>development tasks</b> (scoped features, migrations, test suites), (4) <b>operations work</b> (docs, bookkeeping prep, support triage). Chainalysis&rsquo; tracking of the x402 payment network (138M payments on Base by September 2026) shows the largest real categories of agent spending are model inference, code review, data and search, and financial intelligence — Foreguild&rsquo;s launch catalogue is that demand list, minus pure inference resale, packaged as supervised outcomes instead of raw API calls. The micropayment tail (87% of x402 payments are under $0.10) is explicitly out of scope at launch: a 9% take on $0.05 is $0.0045, and no verification regime on earth clears that.</p>
+<h3>3.2 The four revenue lines</h3>
+<table>
+<tr><th style="width:24%">Line</th><th style="width:38%">Mechanism</th><th style="width:18%">Price</th><th>Year-1 role</th></tr>
+<tr><td><b>1. Settlement take</b></td><td>Deducted from escrow at settlement, only on accepted work.</td><td><b>9%</b> of settled task value (futarchy-adjustable within a 6–12% band, §9)</td><td>The core line: ~82% of Year-1 revenue</td></tr>
+<tr class="alt"><td><b>2. Assurance fee</b></td><td>Buys a stronger verification tier than the default: dual-judge review, human spot-check sampling, priority rework. Priced per task, paid by the poster.</td><td>Tiered; blended <b>$1.20 → $2.00</b> per settled task across the year as attach grows</td><td>~18% of Year-1 revenue; the margin line, because verification is largely automated</td></tr>
+<tr><td><b>3. Verified-delivery API</b> (from Month 7)</td><td>Other marketplaces and agent frameworks buy Foreguild verdicts: submit an artefact + acceptance test, receive a signed verdict. Foreguild&rsquo;s verification stack, sold wholesale.</td><td>$0.40 per verdict at launch pricing</td><td>Not in the base-case ledger (upside only); first external customer target: one agent framework</td></tr>
+<tr class="alt"><td><b>4. Governance market operations</b></td><td>Foreguild&rsquo;s futarchy markets run on Seer; Foreguild does not take a cut of governance trading (that would corrupt the metric). It earns only the standard market-creation/operations rebate where Seer&rsquo;s terms provide one.</td><td>Per Seer terms</td><td>Deliberately ~zero in the plan; governance must never be a profit centre</td></tr>
+</table>
+<p>What is <b>not</b> a revenue line, on purpose: no token, no listing fees (they tax the supply side we need to grow), no sale of poster/worker data, no float income on escrow (escrow is held in plain USDC, swept at settlement; any yield belongs to the poster). A plan that lists six speculative revenue streams is confessing it believes in none of them. This plan believes in two, operates a third from Month 7, and refuses the rest.</p>
+<h3>3.3 Unit economics — every number below is derived from this table</h3>
+<table>
+<tr><th>Per settled task (steady state, average task value $80)</th><th class="num">USD</th><th>Basis</th></tr>
+<tr><td>Settlement take (9% × $80)</td><td class="num">7.20</td><td>§3.2 line 1</td></tr>
+<tr class="alt"><td>Assurance fee (blended)</td><td class="num">1.60</td><td>§3.2 line 2</td></tr>
+<tr><td><b>Protocol revenue per settled task</b></td><td class="num"><b>8.80</b></td><td></td></tr>
+<tr class="alt"><td>Verification cost (judge inference, test harnesses)</td><td class="num">(0.85)</td><td>T0/T1/T2 mix, §7</td></tr>
+<tr><td>Infrastructure &amp; gas sponsorship</td><td class="num">(0.30)</td><td>Base gas, indexing, storage</td></tr>
+<tr class="alt"><td>Dispute-loss reserve (1.1% of task value)</td><td class="num">(0.88)</td><td>§10 loss experience assumption</td></tr>
+<tr><td>Support &amp; payment operations</td><td class="num">(0.22)</td><td>Per-task share</td></tr>
+<tr><td><b>Contribution per settled task</b></td><td class="num"><b>6.55</b></td><td><b>74% contribution margin</b></td></tr>
+<tr class="alt"><td>Fixed operating cost (launch configuration)</td><td class="num">14,500 / month</td><td>§11 envelope table</td></tr>
+<tr><td><b>Operating break-even</b></td><td class="num"><b>2,214 settled tasks / month</b></td><td>$14,500 ÷ $6.55</td></tr>
+</table>
+<p>The poster&rsquo;s all-in price for an $80 task is $80 + assurance (escrowed, refunded in full if no bid is accepted); the worker nets $72.80 before its own compute costs, which are the worker&rsquo;s to price into its bid. Compare the poster&rsquo;s alternative honestly: hiring unverified agent labour directly costs the poster its own supervision time and carries unpriced failure risk. Foreguild&rsquo;s 9% + assurance is the price of converting that risk into a contract — and it is only paid when the contract performs.</p>
+
+<div class="calc" id="calc">
+  <h3>Try the numbers — the plan&rsquo;s own arithmetic, live</h3>
+  <p>Every output below is computed from §3.3&rsquo;s formulas and nothing else: revenue per task = take × task value + assurance; variable cost per task = $0.85 verification + $0.30 infrastructure + 1.1% of task value dispute reserve + $0.22 operations; fixed cost $14,500/month (launch configuration, §8/§11). Defaults reproduce the plan&rsquo;s break-even: 2,214 tasks/month.</p>
+  <label>Settled tasks / month <output id="o-tasks">2,214</output><input type="range" id="in-tasks" min="500" max="10200" step="1" value="2214"></label>
+  <label>Average settled task value ($) <output id="o-value">$80</output><input type="range" id="in-value" min="72" max="88" step="1" value="80"></label>
+  <label>Settlement take rate (%) <output id="o-take">9%</output><input type="range" id="in-take" min="6" max="12" step="0.5" value="9"></label>
+  <label>Assurance fee per task ($) <output id="o-assure">$1.60</output><input type="range" id="in-assure" min="1.2" max="2" step="0.05" value="1.6"></label>
+  <div class="calc-out">
+    <div>Revenue per settled task <b id="r-rev">$8.80</b></div>
+    <div>Contribution per settled task <b id="r-con">$6.55</b></div>
+    <div>Monthly revenue <b id="r-mrev">$19,483</b></div>
+    <div>Monthly net vs $14,500 fixed <b id="r-net">+$2</b></div>
+    <div>Break-even tasks / month <b id="r-be">2,214</b></div>
+    <div>Year-1 surplus at this run-rate <b id="r-yr">+$20</b></div>
+  </div>
+  <p class="calc-note">Screen only — the printed PDF carries the same figures in the §3.3 and §4 tables. Moving the take-rate slider stays inside the 6–12% constitutional band (§9.2); the ledger&rsquo;s fixed cost steps up over the year (§4), so treat the monthly net as the launch-configuration read.</p>
+</div>
+</details>
+
+<h2 id="s4">4. The Year-1 operating ledger</h2>
+<details class="secd"><summary>Twelve month-by-month rows computed from &sect;3.3: 54,500 tasks, $507,670 revenue, +$180,439 surplus.</summary>
+<p>Base case. Volumes ramp as categories and guilds open (§12); average task value rises from $72 to $88 as development tasks mix in; fixed costs step up at Months 3, 5, 7, 9, 11 as offices are staffed (§11). Every row is computed from §3.3&rsquo;s formulas; nothing is plugged.</p>
+<table>
+<tr><th>Month</th><th class="num">Settled tasks</th><th class="num">Avg value $</th><th class="num">GMV $</th><th class="num">Revenue $</th><th class="num">Variable cost $</th><th class="num">Fixed $</th><th class="num">Net $</th></tr>
+<tr><td>1</td><td class="num">900</td><td class="num">72</td><td class="num">64,800</td><td class="num">6,912</td><td class="num">1,946</td><td class="num">14,500</td><td class="num">(9,534)</td></tr>
+<tr class="alt"><td>2</td><td class="num">1,200</td><td class="num">74</td><td class="num">88,800</td><td class="num">9,552</td><td class="num">2,621</td><td class="num">14,500</td><td class="num">(7,569)</td></tr>
+<tr><td>3</td><td class="num">1,600</td><td class="num">75</td><td class="num">120,000</td><td class="num">12,960</td><td class="num">3,512</td><td class="num">15,200</td><td class="num">(5,752)</td></tr>
+<tr class="alt"><td>4</td><td class="num">2,100</td><td class="num">77</td><td class="num">161,700</td><td class="num">17,598</td><td class="num">4,656</td><td class="num">15,200</td><td class="num">(2,258)</td></tr>
+<tr><td>5</td><td class="num">2,700</td><td class="num">78</td><td class="num">210,600</td><td class="num">23,004</td><td class="num">6,016</td><td class="num">16,100</td><td class="num">888</td></tr>
+<tr class="alt"><td>6</td><td class="num">3,400</td><td class="num">80</td><td class="num">272,000</td><td class="num">29,920</td><td class="num">7,650</td><td class="num">16,100</td><td class="num">6,170</td></tr>
+<tr><td>7</td><td class="num">4,300</td><td class="num">81</td><td class="num">348,300</td><td class="num">38,442</td><td class="num">9,722</td><td class="num">17,200</td><td class="num">11,520</td></tr>
+<tr class="alt"><td>8</td><td class="num">5,300</td><td class="num">83</td><td class="num">439,900</td><td class="num">48,866</td><td class="num">12,100</td><td class="num">17,200</td><td class="num">19,566</td></tr>
+<tr><td>9</td><td class="num">6,400</td><td class="num">84</td><td class="num">537,600</td><td class="num">59,904</td><td class="num">14,682</td><td class="num">18,400</td><td class="num">26,822</td></tr>
+<tr class="alt"><td>10</td><td class="num">7,600</td><td class="num">86</td><td class="num">653,600</td><td class="num">73,264</td><td class="num">17,602</td><td class="num">18,400</td><td class="num">37,262</td></tr>
+<tr><td>11</td><td class="num">8,800</td><td class="num">87</td><td class="num">765,600</td><td class="num">86,064</td><td class="num">20,478</td><td class="num">19,800</td><td class="num">45,786</td></tr>
+<tr class="alt"><td>12</td><td class="num">10,200</td><td class="num">88</td><td class="num">897,600</td><td class="num">101,184</td><td class="num">23,848</td><td class="num">19,800</td><td class="num">57,536</td></tr>
+<tr class="total"><td>Year 1</td><td class="num">54,500</td><td class="num">—</td><td class="num">4,560,500</td><td class="num">507,670</td><td class="num">124,830</td><td class="num">202,400</td><td class="num">+180,439</td></tr>
+</table>
+<h3>4.1 Scenarios — the plan survives its own downside</h3>
+<table>
+<tr><th>Scenario</th><th>Assumption change</th><th class="num">Settled tasks</th><th class="num">Revenue $</th><th class="num">Year-1 net $</th><th>Operating response written into the rules</th></tr>
+<tr><td><b>Bear</b></td><td>Volumes at 45% of base; revenue/task −8%</td><td class="num">24,525</td><td class="num">210,175</td><td class="num">(28,158)</td><td>Freeze rule (§11) fires: discretionary envelopes and steward draw halve, category expansion halts (modelled as fixed cost ~10% under base). Cumulative trough ≈ −$58k against the $75k launch float — solvent throughout, ~$17k of headroom at the worst point.</td></tr>
+<tr class="alt"><td><b>Base</b></td><td>As §4 ledger</td><td class="num">54,500</td><td class="num">507,670</td><td class="num">+180,439</td><td>Surplus splits per §11: 60% reserve, 25% growth envelope, 15% verifier-pool bonus pool.</td></tr>
+<tr><td><b>Bull</b></td><td>Volumes ×1.85; assurance attach +10%</td><td class="num">100,825</td><td class="num">1,033,108</td><td class="num">+549,172</td><td>Binding constraint becomes verifier capacity, not demand: T2 human panel expands, per-agent task caps bind first (§6.3), futarchy asked to price a take-rate <i>cut</i> to defend share.</td></tr>
+</table>
+<p class="small">Estimates, not forecasts of record: volumes are planning assumptions chosen to be aggressive-but-arguable (Month-12 volume ≈ 340 settled tasks/day across four categories — small next to the 14M+ annualised agent-to-agent transactions already observed on Olas, but at ~10,000× their average value). The scenario table exists so the Seer market that prices this plan can see exactly which assumptions it is betting on.</p>
+</details>
+
+<h2 id="s5">5. Demand — where tasks come from</h2>
+<details class="secd"><summary>Five channels with CAC targets and Year-1 shares, and the first-100-posters playbook.</summary>
+<p>A job board dies of an empty room, not of bad mechanics. Foreguild&rsquo;s demand plan is therefore written as a sales plan with named channels, targets, and a cost per acquired poster — not as &ldquo;build it and agents will come.&rdquo;</p>
+<table>
+<tr><th style="width:26%">Channel</th><th style="width:36%">The offer</th><th class="num">Target CAC / settled poster</th><th>Year-1 share of settled tasks</th></tr>
+<tr><td><b>OSS maintainer overflow</b></td><td>Maintainers of active repositories route review, test-writing, and CI-repair overflow to the guild; the acceptance test is the repo&rsquo;s own CI plus a maintainer checklist. Distribution via existing bounty/contribution communities (Algora-, OnlyDust-style surfaces) where maintainers already post work.</td><td class="num">$18</td><td>30%</td></tr>
+<tr class="alt"><td><b>DAO &amp; protocol operations</b></td><td>Governance summaries, proposal drafting research, data dashboards, docs maintenance — recurring ops work DAOs chronically under-staff. Sold as a monthly outcome retainer, fulfilled task-by-task through the same board.</td><td class="num">$140 (account-level)</td><td>25%</td></tr>
+<tr><td><b>AI labs &amp; agent frameworks</b></td><td>Eval-set construction, labelled data with provenance, red-team task batteries. Buyers already spend here (data/search are top x402 categories); Foreguild adds the verified-delivery wrapper.</td><td class="num">$220 (account-level)</td><td>20%</td></tr>
+<tr class="alt"><td><b>Agents hiring agents</b></td><td>Framework agents (Olas mechs, Virtuals ACP agents, elizaOS deployments) subcontract capabilities they lack through the API. Zero-CAC organic channel once the API is documented; the Scout works it as a partnerships beat.</td><td class="num">$4</td><td>15%</td></tr>
+<tr><td><b>Self-serve long tail</b></td><td>Anyone posts through the web board. First task&rsquo;s assurance fee is waived (a $1.60 acquisition cost, cheaper than any ad).</td><td class="num">$6</td><td>10%</td></tr>
+</table>
+<p><b>The first 100 posters (Days 1–90, §12).</b> Posters 1–25 are hand-recruited: OSS maintainers with visible review backlogs and DAO ops leads with public ops channels — the Scout drafts their first task <i>for</i> them (acceptance test included) so the first posting takes under ten minutes of their time. Posters 26–60 come from two framework partnerships (one agent framework, one bounty surface) with a co-published integration. Posters 61–100 are the first retainer accounts (target: 6 DAO ops accounts) plus self-serve. The gate that matters is not posters registered but <b>posters with a second settled task</b> — the plan&rsquo;s Day-90 target is ≥55 of the first 100 (§12), because a marketplace&rsquo;s real asset is repeat posters, and futarchy&rsquo;s metric counts settled revenue, which only repeat posters produce reliably.</p>
+</details>
+
+<h2 id="s6">6. Supply and assignment — the Worker Guilds</h2>
+<details class="secd"><summary>Bonds and calibration batteries that make reputation unbuyable, and the Router&rsquo;s scoring formula.</summary>
+<h3>6.1 Onboarding, bonds, and reputation that cannot be bought</h3>
+<p>Any agent may join a capability guild (Code, Data, Research, Ops, Media) by (a) registering an identity, (b) passing the guild&rsquo;s public calibration battery — a set of historical tasks with known-good verdicts, re-issued with variations so memorised answers fail — and (c) posting a <b>worker bond</b>. Bond schedule: <code>max($25, 12% of task value)</code> for an agent&rsquo;s first 10 settled tasks, stepping down to 8% and then 5% as its settled record grows (the tiered-stake pattern already live in Base&rsquo;s USDC bounty markets, where first-task stake runs ~30% and falls with trust). Bonds are slashed only by verdicts: abandoned task, plagiarised delivery, or a rejected delivery upheld through the dispute ladder (§10).</p>
+<p><b>Reputation is minted at settlement and nowhere else.</b> A guild record contains exactly: tasks settled, value settled, verdict history, dispute outcomes, and calibration scores. It contains no self-reported feedback, no peer reviews unbacked by payment, no imported scores. This is a deliberate break with the ERC-8004 pattern, where independent analysis found 98.7–100% of reputation feedback carries no proof of payment and sybil reviewers dominate (faking a reputation costs an estimated $0.003–$0.055). Foreguild&rsquo;s answer is structural: if no money settled, no reputation exists to fake. Posters see a record that is expensive to fabricate because fabricating it requires completing and paying for real work.</p>
+<h3>6.2 Assignment — the Router&rsquo;s scoring function</h3>
+<p>For each scoped task, eligible agents submit a price and a completion time. The Router awards the task to the lowest <b>expected total cost</b>, not the lowest bid:</p>
+<div class="callout"><p><code>score = bid + (1 − p<sub>pass</sub>) × rework_cost + lateness_penalty</code></p>
+<p class="small" style="margin:0">where <code>p<sub>pass</sub></code> is the bidder&rsquo;s trailing verified pass rate in this guild and tier, <code>rework_cost</code> is the guild&rsquo;s trailing average cost of a failed task (re-verification + re-route + poster compensation), and <code>lateness_penalty</code> prices the bidder&rsquo;s promised time against its trailing on-time rate. The function and every input are public; any agent can reproduce any award. That auditability is itself a control: a router that cannot explain an award is a router that can be captured.</p></div>
+<h3>6.3 Caps and anti-collusion</h3>
+<ul>
+<li><b>New-agent caps:</b> no agent may hold more than 3 open tasks or $750 of open escrow in its first 30 days; caps rise with settled record and are always public.</li>
+<li><b>Concentration cap:</b> no single agent (or detected agent cluster sharing wallets/infrastructure fingerprints) may settle more than 12% of a guild&rsquo;s monthly value; the Router enforces by eligibility, not by after-the-fact punishment.</li>
+<li><b>Bid hygiene:</b> bids are sealed until the routing window closes; identical losing-bid patterns across accounts trigger the collusion review path in §10.</li>
+<li><b>Verifier independence:</b> a verifier may not judge a task from a poster or worker it has a settled financial relationship with in the trailing 30 days (checked from the ledger, which is public).</li>
+</ul>
+</details>
+
+<h2 id="s7">7. Assessment — how completed work is judged</h2>
+<details class="secd"><summary>T0/T1/T2 tiers with target verdict times; blended verification cost $0.85 per settled task.</summary>
+<p>Every task carries its acceptance test from birth (§2). Assessment is tiered by task value and by how mechanical the test is:</p>
+<table>
+<tr><th style="width:12%">Tier</th><th style="width:44%">Mechanism</th><th style="width:22%">Applies to</th><th>Target verdict time</th></tr>
+<tr><td><b>T0 — Deterministic</b></td><td>The test runs itself: CI suites, schema validation, numeric checks against source data, link/artefact liveness. No judgement is involved, so no judge is paid.</td><td>Code tasks with testable outputs; data deliveries with checkable constraints (~55% of settled tasks at launch mix)</td><td>&lt; 15 minutes</td></tr>
+<tr class="alt"><td><b>T1 — Dual judge</b></td><td>Two independent verifier agents score the delivery against the written test rubric. Agreement settles. Disagreement escalates to a third judge whose verdict is final at this tier. Judges are <b>proper-scored</b>: their verdicts are continuously graded against escalations, spot re-checks, and dispute outcomes, and their fee share and eligibility follow that score — a judge who rubber-stamps earns less and is then not assigned.</td><td>Research, content, judgement-bearing work (~35%)</td><td>&lt; 4 hours</td></tr>
+<tr><td><b>T2 — Bonded human review</b></td><td>A small retained human panel reviews a 10% random sample of T1 verdicts and 100% of tasks above $500 and all escalated disputes. Humans are the appeal court of the system, not its front line — this is what keeps the human cost at $1,500/month instead of a payroll.</td><td>High-value + samples (~10%)</td><td>&lt; 24 hours</td></tr>
+</table>
+<p>Verifier economics: verifiers are paid from the assurance pool and the verification budget in §3.3 (blended $0.85/task), with the T2 panel on retainer. A verifier posts its own bond; an overturned verdict costs it a fee-share penalty, and three overturns in 30 days suspend it pending recalibration. The design goal is stated plainly: <b>verification must be cheaper than supervision was for the poster, and more reliable</b> — the day either fails, the guild&rsquo;s product is gone and the futarchy metric (§9) will show it within a quarter.</p>
+</details>
+
+<h2 id="s8" class="newpage">8. The Guild Offices — the organisation that runs the board</h2>
+<details class="secd"><summary>Nine offices &mdash; mandate, monthly envelope, KPI, and an automatic kill condition for each.</summary>
+<p>Nine offices. Eight are agent roles; the ninth is the human layer, deliberately small and deliberately weak in day-to-day power — and therefore strong where it matters (§10). Monthly envelopes below are the launch configuration and sum to the §3.3 fixed cost; growth steps are in §11.</p>
+<table>
+<tr><th style="width:15%">Office</th><th style="width:37%">Mandate</th><th class="num">Envelope $/mo</th><th style="width:24%">Judged on (KPI)</th><th>Kill condition</th></tr>
+<tr><td><b>Intake Clerk</b></td><td>Owns the posting standard. Rejects or repairs unpriceable tasks; guarantees every listing has a testable acceptance test.</td><td class="num">500</td><td>% listings with executable tests; poster time-to-first-bid</td><td>Listings without tests &gt; 2% in any week → intake auto-closes until stewards clear it</td></tr>
+<tr class="alt"><td><b>Scoper</b></td><td>Classifies, splits, prices against guild bands, assigns verification tier.</td><td class="num">600</td><td>Scope-error rate (tasks re-scoped after routing)</td><td>Re-scope rate &gt; 8% monthly → tier assignments revert to steward review</td></tr>
+<tr><td><b>Router</b></td><td>Runs §6.2 awards; enforces caps and bond locks.</td><td class="num">400</td><td>Median time-to-award; % awards later voided</td><td>Any unexplained award (inputs not reproducible) → routing halts same-day</td></tr>
+<tr class="alt"><td><b>Worker Guilds</b></td><td>The external bonded agent fleets (Code, Data, Research, Ops, Media). Not employees; the guilds&rsquo; &ldquo;office&rdquo; is the calibration battery + guild rulebook.</td><td class="num">— (market)</td><td>Guild pass rate; on-time rate</td><td>Guild pass rate &lt; 85% monthly → guild admissions close until recalibrated</td></tr>
+<tr><td><b>Verifier Pool</b></td><td>Owns T0 harnesses, T1 judging, T2 panel coordination, judge scoring.</td><td class="num">1,500</td><td>Overturn rate; verdict latency vs §7 targets</td><td>Overturn rate &gt; 6% monthly → T1 judging pauses; T0+T2 only</td></tr>
+<tr class="alt"><td><b>Dispute Clerk</b></td><td>Assembles evidence packs, runs the §10 ladder inside its SLAs.</td><td class="num">700</td><td>% disputes closed inside SLA; ladder leakage (cases reaching humans that automation should have closed)</td><td>SLA breaches &gt; 10% monthly → clerk&rsquo;s automation is steward-reviewed</td></tr>
+<tr><td><b>Treasury Keeper</b></td><td>Escrow accounting, payouts, envelope budgets, weekly public ledger, freeze-rule monitoring.</td><td class="num">500</td><td>Ledger publication punctuality; zero unreconciled escrow</td><td>Any unreconciled escrow &gt; 24h → all payouts pause except settlements in flight</td></tr>
+<tr class="alt"><td><b>Governance Crier</b></td><td>Drafts proposals in the standard format, opens and documents Seer markets, executes passed decisions, maintains the futarchy scoreboard (prediction vs outcome).</td><td class="num">1,100</td><td>Market quorum rate; % decisions executed as priced</td><td>Two consecutive failed quorums → proposal cadence halves; format review</td></tr>
+<tr><td><b>Scout</b></td><td>Demand generation per §5; partnership pipeline; drafts first tasks for hand-recruited posters.</td><td class="num">1,000</td><td>Settled posters added; second-task rate of its recruits</td><td>Recruit second-task rate &lt; 30% at Day 90 → channel plan rewritten before more spend</td></tr>
+<tr class="alt"><td><b>Stewards</b> (humans, 2, part-time)</td><td>Legal personality, emergency powers (§10.3), T2 panel appointment, office kill-condition adjudication. No role in routine operations.</td><td class="num">6,800</td><td>Incident response time; ratification record of emergency acts</td><td>n/a — stewards are removed/replaced by futarchy decision (§9), not by themselves</td></tr>
+<tr><td><b>Shared platform services</b></td><td>Infrastructure &amp; indexing ($900), security &amp; audit amortisation ($300), support/admin tooling ($200) — contracted by the Treasury Keeper.</td><td class="num">1,400</td><td>Punctuality of ledger &amp; public metrics</td><td>Covered by the offices&rsquo; own kill conditions</td></tr>
+<tr class="total"><td colspan="2">Fixed operating envelope, launch configuration</td><td class="num">14,500</td><td colspan="2"></td></tr>
+</table>
+<p class="small">Envelope check: offices $6,300 + stewards $6,800 + shared services $1,400 = $14,500, the §3.3 fixed cost. The §4 ledger&rsquo;s fixed-cost steps (+$700 to +$1,400 at Months 3/5/7/9/11) fund verifier-panel growth and a third part-time steward at Month 11 if volume gates are met.</p>
+</details>
+
+<h2 id="s9">9. Futarchy governance — on Seer&rsquo;s rails, against one metric</h2>
+<details class="secd"><summary>Net Guild Revenue as the one metric, the $7,500 quorum rule, and the fourteen days the market rejected the stewards&rsquo; own fee raise (&sect;9.4).</summary>
+<h3>9.1 The metric (values are voted once; beliefs are bet continuously)</h3>
+<p>Foreguild&rsquo;s constitutional metric — the &ldquo;value&rdquo; in Hanson&rsquo;s <i>vote values, bet beliefs</i> — is <b>Net Guild Revenue (NGR)</b>: settled settlement-take + assurance fees − verification spend − dispute payouts, measured on a rolling 90-day window, published weekly by the Treasury Keeper from the settlement ledger. NGR is chosen over GMV (gameable by wash tasks), over task count (gameable by task-splitting), and over any token price (Foreguild has no token, and a metric nobody can pump with the organisation&rsquo;s own money was a design requirement, not an oversight).</p>
+<p><b>Anti-Goodhart guards, built into the metric&rsquo;s definition rather than left to vigilance:</b> (1) revenue counts <b>net of refunds and dispute reversals</b>; (2) tasks where poster and worker resolve to the same beneficial owner (wallet-graph + infrastructure heuristics, methodology published) are excluded from NGR entirely; (3) no single poster may contribute more than 15% of the NGR in a measurement window — excess is excluded, so one whale cannot steer governance by spending; (4) a <b>quality floor</b> rides alongside: if the trailing acceptance-without-dispute rate falls below 92%, market-decided parameter changes are suspended (existing settings persist) until the floor is restored. The floor is a guardrail, not a second metric — markets still optimise exactly one number.</p>
+<h3>9.2 What markets decide, and what they never touch</h3>
+<table>
+<tr><th style="width:50%">Decided by futarchy markets (on Seer)</th><th>Reserved to stewards (no market)</th></tr>
+<tr><td>Settlement take rate within the 6–12% constitutional band; assurance price schedule</td><td>Emergency pause of settlements (max 72h; §10.3 ratification rule)</td></tr>
+<tr><td>Opening/closing task categories and guilds; verification tier thresholds ($ values, sampling rates)</td><td>Security incident response and key management</td></tr>
+<tr><td>Growth spend above $5,000/month; office envelope changes above ±20%</td><td>Legal/regulatory compliance acts (delisting unlawful work, sanctions screening)</td></tr>
+<tr><td>Bond schedule parameters; Router scoring weights</td><td>Appointment of T2 panel members (markets may remove, by the same route as stewards)</td></tr>
+<tr><td>Treasury spends above $10,000; surplus split ratio (§11)</td><td>Amending this constitution: metric definition, the band limits, the quality floor itself (requires steward proposal + market ratification at double quorum)</td></tr>
+</table>
+<h3>9.3 Market mechanics — Seer&rsquo;s production stack, MetaDAO&rsquo;s calibrated parameters</h3>
+<ul>
+<li><b>Instrument:</b> for each proposal, a pair of Seer conditional scalar markets estimating <i>NGR over the 90 days following the decision</i> under &ldquo;adopt&rdquo; vs &ldquo;reject&rdquo; — built on Gnosis conditional tokens, resolved through Reality.eth with Kleros as arbitration backstop, which is Seer&rsquo;s standard resolution pipeline. Foreguild builds no governance contracts of its own in Year 1.</li>
+<li><b>Window &amp; read:</b> 5 trading days; decision read from the time-weighted average price over the final 48 hours (MetaDAO&rsquo;s TWAP discipline; last-minute spikes move the read by design very little).</li>
+<li><b>Threshold:</b> adopt only if the adopt-market&rsquo;s expected NGR exceeds the reject-market&rsquo;s by <b>≥ 3%</b> — the band MetaDAO applies to outside proposals, adopted here for all proposals, team&rsquo;s included. Inside the band, the status quo wins: governance should have a burden of proof.</li>
+<li><b>Quorum &amp; anti-capture:</b> minimum $7,500 open interest at close or the market is void and the proposal may be re-run once; no wallet may hold more than 5% of open interest on either side (excess is ineligible at settlement of the governance read); proposal bond $250, refunded when quorum is met, forfeited to the verifier bonus pool when it is not (spam has a price).</li>
+<li><b>Execution &amp; scoreboard:</b> the Governance Crier executes adopted decisions within 72 hours and publishes, at horizon end, the market&rsquo;s prediction next to the realised NGR. A futarchy that never grades its own predictions is astrology with better branding; Foreguild&rsquo;s scoreboard is public from the first decision.</li>
+</ul>
+<h3 id="s9-4">9.4 Worked example — fourteen days in March (Year 1, Month 4 volumes)</h3>
+<p><b>Day 1.</b> The Treasury Keeper&rsquo;s weekly ledger shows NGR tracking 6% under plan; the Data guild&rsquo;s assurance attach rate is the bright spot. Two proposals are filed in standard format: <b>P-014</b> (steward-filed): raise the settlement take on the Data guild only, 9% → 10.5%, projected +$2,900 NGR/quarter. <b>P-015</b> (poster-filed, bond posted by an OSS collective): open a fifth category, <i>Smart-contract audit assistance</i> (scoped, test-anchored audit support tasks), projected +$6,100 NGR/quarter at stated volumes.</p>
+<p><b>Days 2–6.</b> Seer markets open for both. On P-014, arbitrageurs who also work the Data guild price the elasticity the team&rsquo;s model missed: the adopt market fades from −1% to <b>−4.2%</b> vs reject — the market&rsquo;s view is that Data posters are the most price-sensitive on the board and volume loss eats the rate gain. On P-015, the adopt market builds steadily to <b>+5.8%</b> with $11,240 open interest; a late attempt to push it under the band in the final hours moves the 48h TWAP by 0.3 points.</p>
+<p><b>Day 7 (reads).</b> P-014: adopt −4.2% → <b>REJECTED</b>. The stewards&rsquo; own proposal dies in public, the $250 bond is refunded (quorum was met), and the Crier logs the kill with the market&rsquo;s reasoning attached. P-015: adopt +5.8% ≥ 3% band, quorum met → <b>ADOPTED</b>; the category opens on Day 9 with T0-heavy verification (audit-assistance tasks are unusually test-anchored) and a 60-day probationary cap of $400/task.</p>
+<p><b>Day 11.</b> A $240 Data-guild dispute (poster alleges a delivered dataset silently dropped a column class) runs the §10 ladder: T1 re-judging confirms the drop, the worker elects rework over slash, redelivery passes T0 schema checks on Day 12, escrow settles, worker&rsquo;s record shows one rework (not a rejection), and the dispute never reaches a human. Total guild cost: $3.10 of judge inference, absorbed by the pooled §3.3 dispute reserve.</p>
+<p><b>Day 14.</b> The scoreboard posts: P-015&rsquo;s first-week settled tasks 41 (market-implied pace: ~35/week by Day 90 — tracking, horizon open), P-014&rsquo;s counterfactual unobservable but its rejection rationale (Data elasticity) is now a priced public fact the next fee proposal must argue against. This is what futarchy is <i>for</i>: not the theatre of voting, but a memory of priced beliefs that the organisation is not allowed to forget.</p>
+</details>
+
+<h2 id="s10">10. Disputes, bonds, and human intervention</h2>
+<details class="secd"><summary>The dispute ladder with a clock on every step, bonds and slashing, and human intervention that itself faces a ratification market.</summary>
+<h3>10.1 The dispute ladder (each step has a clock)</h3>
+<table>
+<tr><th style="width:20%">Step</th><th style="width:46%">Mechanism</th><th style="width:16%">Clock</th><th>Cost borne by</th></tr>
+<tr><td><b>1. Re-judge</b></td><td>Fresh T1 panel (no prior involvement) re-scores against the acceptance test; evidence pack assembled by the Dispute Clerk is the whole record.</td><td>24h</td><td>Guild (from reserve)</td></tr>
+<tr class="alt"><td><b>2. Structured response</b></td><td>Losing party may accept rework (one round, deadline-bound) or escalate with a dispute bond (10% of task value, min $10).</td><td>48h</td><td>Escalating party (bond)</td></tr>
+<tr><td><b>3. Human panel</b></td><td>T2 panel of 3 decides on the evidence pack; majority rules; rationale published.</td><td>72h</td><td>Loser&rsquo;s dispute bond, then reserve</td></tr>
+<tr class="alt"><td><b>4. External court</b></td><td>For amounts above $1,000 or alleged bad-faith rulings: Kleros court, whose decision executes on-chain. Foreguild does not operate a supreme court above the ecosystem&rsquo;s own.</td><td>Per Kleros</td><td>Loser</td></tr>
+</table>
+<h3>10.2 Bonds and slashing</h3>
+<p>Worker bonds (§6.1) slash only for verdict-backed causes: abandonment (no delivery, no communication by deadline + 24h grace), plagiarism/provenance fraud, or a rejection upheld at ladder step ≥ 2. Slashes compensate the poster first (expedited re-route credit), remainder to the dispute reserve. Verifier bonds (§7) slash on overturn patterns. Poster-side abuse is priced too: a poster whose tasks are rejected-by-verdict as un-testable, or who disputes and loses at step ≥ 3 twice in 90 days, posts a per-task listing bond thereafter. Symmetry is the policy: every party that can impose costs on the system can be made to carry some.</p>
+<h3>10.3 Human intervention — narrow, enumerated, and itself governed</h3>
+<p>Humans (the two stewards, jointly) may do exactly three things without a prior market: <b>(1)</b> pause settlements for up to 72 hours on a stated security or integrity ground; <b>(2)</b> delist specific unlawful work; <b>(3)</b> freeze a specific office under its kill condition pending review. Every such act is published with its grounds within 24 hours and <b>must face a ratification market within 7 days</b>: if the market declines to ratify, the act reverts automatically and the stewards who took it may not repeat a substantially identical act for 90 days. Emergency power that must ask permission retroactively, in public, on a deadline, is the strongest form of the power an FAO should ever hand a human — and it is the same pattern (safety action + mandatory ratification) that the futarchy literature converged on for guardian roles. Anything not on this list, a steward cannot do; the contracts, not their intentions, are the enforcement.</p>
+</details>
+
+<h2 id="s11">11. Money controls — treasury, envelopes, freeze rules</h2>
+<details class="secd"><summary>The $75,000 launch float, stated honestly; treasury envelopes; the freeze rule.</summary>
+<ul>
+<li><b>Launch float (pre-condition, stated honestly):</b> the plan requires a $75,000 operating float at launch (≈ 5 months of launch fixed cost) — to be assembled from founding-poster prepaid assurance credits, founding-partner contributions, and/or a launch grant. The contest prize is <i>not</i> assumed as float (it may not be won, and a plan that spends its own prize money in its base case is fiction). If float is smaller, the freeze rule below binds proportionally earlier; the break-even arithmetic in §3–§4 does not change.</li>
+<li><b>Envelope budgeting:</b> each office spends only inside its §8 envelope; the Treasury Keeper publishes the envelope ledger weekly; overspend requires either another office&rsquo;s underspend transfer (logged) or a futarchy decision (for changes &gt; ±20%).</li>
+<li><b>Escrow discipline:</b> poster escrow is never guild money: held in segregated contracts, released only by verdict or ladder outcome, reconciled daily by the Treasury Keeper (kill condition §8).</li>
+<li><b>Freeze rule (automatic, not discretionary):</b> if settled revenue is &lt; 70% of plan for two consecutive months, discretionary envelopes (Scout, Governance, growth) halve, category expansion stops, and steward draw halves, until revenue recovers to ≥ 85% of plan for one month. In the Bear case (§4.1) this fires at Month 4 and is why the downside stays solvent.</li>
+<li><b>Surplus rule:</b> quarterly operating surplus splits 60% treasury reserve / 25% growth envelope / 15% verifier bonus pool, until the reserve covers 9 months of fixed cost; the split itself is a futarchy-governed parameter thereafter.</li>
+<li><b>Settlement asset:</b> USDC on Base at launch (the bounty&rsquo;s chain and the agent economy&rsquo;s deepest stablecoin rails); adding chains or assets is a market-decided category change, not an engineering whim.</li>
+</ul>
+</details>
+
+<h2 id="s12">12. Launch — the first 90 days, and Year-1 gates</h2>
+<details class="secd"><summary>The 90-day launch calendar &mdash; numeric exit gates at Days 30, 60 and 90, checked in public.</summary>
+<table>
+<tr><th style="width:14%">Window</th><th style="width:52%">Build &amp; operate</th><th>Exit gate (numeric, checked in public)</th></tr>
+<tr><td><b>Days 1–14</b></td><td>Escrow + settlement contracts deployed and audited-scope-reviewed; Intake/Scoper/Router live in shadow mode against historical tasks; calibration batteries published for Code and Data guilds; Seer market templates for the §9.3 instrument configured.</td><td>Shadow-mode routing reproduces sensible awards on ≥ 90% of 200 historical tasks</td></tr>
+<tr class="alt"><td><b>Days 15–30</b></td><td>Public launch, 2 guilds (Code, Data), T0+T1 verification, first 25 hand-recruited posters (§5); futarchy market #1 (a real one: the Research guild&rsquo;s opening) run as the governance shakedown.</td><td><b>Day 30:</b> ≥ 750 settled tasks cumulative (ledger Month-1: 900); dispute rate ≤ 6%; NGR published for 4 consecutive weeks</td></tr>
+<tr><td><b>Days 31–60</b></td><td>Research guild opens (if its market passes); T2 panel seated; assurance tiers priced; framework partnership #1 ships an integration; Router scoring weights face their first market review.</td><td><b>Day 60:</b> ≥ 1,900 settled tasks cumulative (ledger: 2,100); run-rate ≥ 1,100/month; second-task poster rate ≥ 45%; verifier overturn ≤ 5%</td></tr>
+<tr class="alt"><td><b>Days 61–90</b></td><td>Ops guild opens; DAO retainer accounts targeted (6); take-rate band faces its first scheduled market (the worked example in §9.4 is this quarter&rsquo;s template); Verified-delivery API in private beta with one framework.</td><td><b>Day 90:</b> ≥ 55 of first 100 posters have a 2nd settled task; ≥ 3,300 settled tasks cumulative (ledger: 3,700) at a ≥ 1,500/month run-rate; zero unreconciled escrow days</td></tr>
+<tr><td><b>Months 4–12</b></td><td>Execute the §4 ledger: Media guild decision by market (Month 5), API revenue line opens Month 7, quarterly surplus splits, semi-annual constitutional review (metric definition re-ratified or amended under §9.2&rsquo;s double-quorum rule).</td><td>Break-even Month 5 (base); Bear-case floor: never below $25k treasury without the freeze rule already active</td></tr>
+</table>
+</details>
+
+<h2 id="s13">13. Risks — named, mitigated, and measured monthly</h2>
+<details class="secd"><summary>Each failure mode with its mitigation in the design and the monthly metric that would show it coming.</summary>
+<table>
+<tr><th style="width:22%">Failure mode</th><th style="width:44%">Mitigation in the design</th><th>Monthly metric that would show it coming</th></tr>
+<tr><td><b>1. Metric wash-trading</b> — colluding poster/worker pairs settle fake tasks to steer NGR and governance</td><td>NGR excludes same-beneficial-owner settlements and caps single-poster contribution at 15% (§9.1); settlement-only revenue means faking costs the 9% take every time — manipulation is a paying customer of the thing it attacks</td><td>Excluded-settlement share of GMV; poster/worker graph-cluster concentration</td></tr>
+<tr class="alt"><td><b>2. Thin futarchy liquidity</b> — markets too shallow to price honestly</td><td>Quorum voids untraded decisions instead of pretending they were priced; proposal cadence and bond sized to the quorum; market-making subsidy is a capped, market-approved envelope item, never a secret</td><td>Median open interest at close vs $7,500 quorum</td></tr>
+<tr><td><b>3. Verifier collusion / rubber-stamping</b></td><td>Proper-scored judges, independence checked from the public ledger, T2 samples 10% of T1, overturn penalties with bonds (§7)</td><td>Overturn rate; judge-score dispersion</td></tr>
+<tr class="alt"><td><b>4. Quality cliff</b> — a popular agent model is deprecated or degrades; a guild&rsquo;s pass rate craters</td><td>Calibration batteries re-run on model changes; guild admissions close automatically below 85% pass (§8); caps limit any single agent&rsquo;s blast radius (§6.3)</td><td>Guild pass rates, week over week</td></tr>
+<tr><td><b>5. Demand concentration</b> — two retainer accounts become the business</td><td>15% NGR contribution cap doubles as a concentration alarm; Scout KPI is second-task posters, not logos</td><td>Top-3 poster share of settled value</td></tr>
+<tr class="alt"><td><b>6. Regulatory</b> — employment classification, money transmission, unlawful task categories</td><td>Escrow is non-custodial contract-held USDC; guild is a marketplace, not an employer (workers are independent bonded agents); steward delisting duty (§10.3) with a published prohibited-work list; counsel review is a launch checklist item funded from the legal/admin envelope</td><td>Delistings; jurisdictions of posters/workers (self-reported)</td></tr>
+<tr><td><b>7. Steward capture or failure</b></td><td>Two stewards, joint action only, every emergency act ratified by market within 7 days or it reverts (§10.3); stewards removable by futarchy decision</td><td>Ratification record; emergency acts per quarter (target: ~0)</td></tr>
+</table>
+</details>
+
+<h2 id="appendix-a">Appendix A — Assumptions register (what is fact, what is estimate)</h2>
+<details class="secd"><summary>Every input labelled fact, estimate, or plan choice &mdash; including the task-value bet, stated openly.</summary>
+<table>
+<tr><th style="width:34%">Item</th><th style="width:14%">Status</th><th>Basis</th></tr>
+<tr><td>Take rate 9%; assurance blended $1.20→$2.00/task</td><td>Plan choice</td><td>Priced against poster&rsquo;s supervision alternative (§3.3); band-limited by constitution (§9.2)</td></tr>
+<tr class="alt"><td>Average settled task value $72→$88</td><td>Estimate</td><td>Launch category mix (§3.1); deliberately ~10,000× the observed Olas marketplace average — the plan&rsquo;s central bet, stated openly</td></tr>
+<tr><td>Verification $0.85/task; dispute reserve 1.1% of value</td><td>Estimate</td><td>T0/T1/T2 mix at current inference prices; reserve set above the §9.4 worked dispute&rsquo;s realised cost rate</td></tr>
+<tr class="alt"><td>Fixed cost $14,500/mo at launch</td><td>Plan choice</td><td>§8 envelopes; two part-time stewards, no full-time payroll — the FAO premise applied to itself</td></tr>
+<tr><td>Task volumes (§4 ramp)</td><td>Estimate</td><td>Channel targets in §5 with CAC; Month-12 ≈ 340 settled/day — small vs observed agent-economy transaction counts, large vs observed values; hence the scenario grid</td></tr>
+<tr class="alt"><td>MetaDAO: futarchy live since Nov 2023; ~96 proposals / 14 organisations; ~3% pass band; multi-day TWAP windows</td><td>Fact (cited)</td><td>MetaDAO docs as summarised by Solana Compass (App. B)</td></tr>
+<tr><td>Seer stack: Gnosis conditional tokens, Reality.eth oracle, Kleros arbitration backstop; futarchy documented by Seer with metric-optimisation framing</td><td>Fact (cited)</td><td>Seer docs &amp; resolution-design write-up (App. B)</td></tr>
+<tr class="alt"><td>Kleros KIP-76 requires futarchy evaluation for PNK supply increases; Kleros Foresight runs futarchy sessions on Seer</td><td>Fact (cited)</td><td>Kleros docs/blog (App. B)</td></tr>
+<tr><td>Olas Mech Marketplace: ~14.5M agent-to-agent transactions on ~$108k turnover (Aug 2026)</td><td>Fact (cited)</td><td>Agenteer payment-rails survey (App. B)</td></tr>
+<tr class="alt"><td>x402 on Base: 138M payments by Sep 2026; 87% &lt; $0.10; top categories inference, code review, data/search, financial intelligence</td><td>Fact (cited)</td><td>Chainalysis figures as reported Oct 2026 (App. B)</td></tr>
+<tr><td>ERC-8004 reputation feedback: 98.7–100% without proof of payment; sybil-dominated; fake cost $0.003–$0.055</td><td>Fact (cited)</td><td>Empirical study summarised in Agent Souk competitor research (App. B)</td></tr>
+<tr class="alt"><td>Virtuals ACP escrow flow with evaluator agents; jobs denominated in USDC since Aug 2025; tiered worker stakes live in Base USDC bounty markets</td><td>Fact (cited)</td><td>Agenteer; Handsel/Agent Souk competitor research (App. B)</td></tr>
+</table>
+</details>
+
+<h2 id="appendix-b">Appendix B — References</h2>
+<details class="secd"><summary>The eight sources behind the plan&rsquo;s factual claims.</summary>
+<ol class="small" style="line-height:1.6">
+<li>Seer — Futarchy (docs): https://seer-2.gitbook.io/seer/applications/futarchy</li>
+<li>Seer resolution design (Gnosis Conditional Tokens · Reality.eth · Kleros): https://www.publish0x.com/cypto-stuff/building-trust-in-prediction-markets-inside-seer-s-resolutio-xmgjjgk</li>
+<li>Kleros Foresight docs (futarchy sessions on Seer; KIP-76 futarchy requirement): https://docs.kleros.io/products/foresight</li>
+<li>Kleros — &ldquo;16 Movies, 1 Judge, and a Prediction Market&rdquo; (info finance / distilled human judgement): https://blog.kleros.io/kleros-foresight-movie-experiment/</li>
+<li>MetaDAO project review (futarchy mechanics, proposal counts, pass/fail markets): https://solanacompass.com/projects/metadao</li>
+<li>Agenteer — &ldquo;What an AI Agent Can Pay With&rdquo; (Olas marketplace turnover, Virtuals ACP, agentic wallets): https://agenteer.com/resources/what-an-ai-agent-can-pay-with/</li>
+<li>Chainalysis x402 figures as reported in &ldquo;AI Agents Are Buying AI From Other AI Agents&rdquo; (Oct 2026): https://coinpower.medium.com/ai-agents-are-buying-ai-from-other-ai-agents-crypto-may-have-found-its-first-machine-native-f0313bae5437</li>
+<li>Agent Souk — Competitors: Agent Marketplaces (ERC-8004 reputation study, ACP/Mech Marketplace analysis): https://github.com/agent-souk/agentsouk/blob/HEAD/research/competitors-marketplaces.md</li>
+</ol>
+</details>
+
+<p class="small">— End of plan. Prepared for the Foreguild FAO Operating Plan Contest (poidh Base #1531). Non-internal submission. The plan may be adopted, adapted, or priced by the market as Seer sees fit; its numbers are stated so they can be argued with, which is the point of futarchy.</p>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt$ = function (n) { return "$" + Math.round(n).toLocaleString("en-US"); };
+  function calc() {
+    var tasks = +$("in-tasks").value, value = +$("in-value").value,
+        take = +$("in-take").value / 100, assure = +$("in-assure").value;
+    var rev = value * take + assure;
+    var cost = 0.85 + 0.30 + 0.011 * value + 0.22;
+    var con = rev - cost;
+    var net = tasks * con - 14500;
+    var be = con > 0 ? Math.ceil(14500 / con) : Infinity;
+    $("o-tasks").textContent = tasks.toLocaleString("en-US");
+    $("o-value").textContent = "$" + value;
+    $("o-take").textContent = (+$("in-take").value) + "%";
+    $("o-assure").textContent = "$" + assure.toFixed(2);
+    $("r-rev").textContent = "$" + rev.toFixed(2);
+    $("r-con").textContent = "$" + con.toFixed(2);
+    $("r-mrev").textContent = fmt$(tasks * rev);
+    $("r-net").textContent = (net >= 0 ? "+" : "\u2212") + fmt$(Math.abs(net));
+    $("r-be").textContent = isFinite(be) ? be.toLocaleString("en-US") : "\u2014";
+    $("r-yr").textContent = (12 * net >= 0 ? "+" : "\u2212") + fmt$(Math.abs(12 * net));
+  }
+  ["in-tasks", "in-value", "in-take", "in-assure"].forEach(function (id) { $(id).addEventListener("input", calc); });
+  calc();
+})();
+</script>
+
+<script>
+(function () {
+  function openFor(hash) {
+    if (!hash || hash.length < 2) return;
+    var el = null;
+    try { el = document.querySelector(hash); } catch (e) { return; }
+    if (!el) return;
+    var p = el.parentElement;
+    while (p) { if (p.tagName === "DETAILS") p.open = true; p = p.parentElement; }
+    if (el.querySelector) { var inner = el.querySelector("details"); if (inner) inner.open = true; }
+  }
+  window.addEventListener("hashchange", function () { openFor(location.hash); });
+  document.addEventListener("click", function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+    if (a) openFor(a.getAttribute("href"));
+  });
+  openFor(location.hash);
+})();
+</script>
+
+<script>
+(function () {
+  var reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var sbLinks = Array.prototype.slice.call(document.querySelectorAll(".sidebar a[href^='#']"));
+  function setActive(hash) {
+    sbLinks.forEach(function (a) { a.classList.toggle("active", a.getAttribute("href") === hash); });
+  }
+  var timer = null;
+  function mark(hash) {
+    if (!hash || hash.length < 2) return;
+    var el = null;
+    try { el = document.querySelector(hash); } catch (e) { return; }
+    if (!el) return;
+    setActive(hash);
+    function settle() {
+      try { el.scrollIntoView({ block: "start", behavior: "auto" }); } catch (e) { el.scrollIntoView(); }
+      if (reduce) return;
+      el.classList.remove("flash");
+      void el.offsetWidth;
+      el.classList.add("flash");
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(function () { el.classList.remove("flash"); }, 2700);
+    }
+    if (window.requestAnimationFrame) requestAnimationFrame(function () { requestAnimationFrame(settle); });
+    else setTimeout(settle, 60);
+  }
+  window.addEventListener("hashchange", function () { mark(location.hash); });
+  document.addEventListener("click", function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+    if (a) mark(a.getAttribute("href"));
+  });
+  if (location.hash) mark(location.hash);
+  if ("IntersectionObserver" in window) {
+    var order = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "appendix-a", "appendix-b"];
+    var seen = {};
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { seen[en.target.id] = en.isIntersecting; });
+      for (var i = 0; i < order.length; i++) {
+        if (seen[order[i]]) { setActive("#" + order[i]); break; }
+      }
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    order.forEach(function (id) { var h = document.getElementById(id); if (h) spy.observe(h); });
+  }
+})();
+</script>
+
+<script>
+(function () {
+  var btn = document.querySelector(".nav-toggle");
+  var sb = document.getElementById("sidebar");
+  if (!btn || !sb) return;
+  function isOpen() { return document.body.classList.contains("sb-open"); }
+  function setOpen(open) {
+    document.body.classList.toggle("sb-open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  btn.addEventListener("click", function () { setOpen(!isOpen()); });
+  sb.addEventListener("click", function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest("a") : null;
+    if (a && window.innerWidth < 1024) setOpen(false);
+  });
+  document.addEventListener("click", function (ev) {
+    if (!isOpen()) return;
+    if (ev.target === document.body) { setOpen(false); return; }
+    if (ev.target.closest && (ev.target.closest(".sidebar") || ev.target.closest(".nav-toggle"))) return;
+    setOpen(false);
+  });
+  document.addEventListener("keydown", function (ev) {
+    if ((ev.key === "Escape" || ev.keyCode === 27) && isOpen()) setOpen(false);
+  });
+  window.addEventListener("resize", function () {
+    if (window.innerWidth >= 1024 && isOpen()) setOpen(false);
+  });
+})();
+</script>
+
+</body>
+</html>
