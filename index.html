@@ -420,11 +420,122 @@
     .stat .v { font-size: 21px; }
   }
 
+  /* --- Pass 21 (v2.10): docs layout + anchor destinations announce themselves ---
+     Screen only (plus one print line that hides the sidebar so the PDF stays
+     byte-equivalent). Wide screens get a GitBook-style two-column grid: a
+     sticky ivory sidebar (the Contents, duplicated as navigation chrome)
+     beside the main column. Below 1024px the sidebar becomes a sticky
+     horizontal chip strip under the top bar. A tapped fragment link now ends
+     three ways: the section opens (existing opener), the destination flashes
+     a purple wash that fades over ~2.5s and stays outlined while it is the
+     :target, and the sidebar marks where you are. Palette unchanged: cream
+     surfaces, Seer purple #9747FF as the only accent. */
+  @media print {
+    .sidebar { display: none !important; }
+  }
+  @media screen {
+    [id] { scroll-margin-top: 92px; }
+    .sb-list { list-style: none; margin: 0; padding: 0; }
+    .sidebar a { text-decoration: none; }
+    .sidebar a.active { color: var(--m-acc-xd); background: rgba(151,71,255,.09); }
+    /* The destination, marked: persistent while it is the fragment target */
+    :target { outline: 2px solid var(--m-acc); outline-offset: 3px; background-color: rgba(151,71,255,.10); }
+    @keyframes targetflash {
+      0% { background-color: rgba(151,71,255,.30); outline: 3px solid var(--m-acc); outline-offset: 3px; }
+      55% { background-color: rgba(151,71,255,.16); outline: 3px solid var(--m-acc); outline-offset: 3px; }
+      100% { background-color: rgba(151,71,255,0); outline: 3px solid rgba(151,71,255,0); outline-offset: 3px; }
+    }
+    .flash { animation: targetflash 2.5s ease-out 1; }
+    /* Tappable text reads as tappable before the tap */
+    p a, td a, .start li a, .judgecheck li a { text-decoration: underline;
+      text-decoration-color: rgba(151,71,255,.45); text-underline-offset: 3px; }
+    p a:hover, td a:hover, .start li a:hover, .judgecheck li a:hover { color: var(--m-acc-xd);
+      text-decoration-color: var(--m-acc); }
+    input:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--m-acc); outline-offset: 2px; }
+    /* Collapsible rows answer the pointer */
+    .secd > summary { transition: border-color .15s ease, background-color .15s ease; }
+    .secd > summary:hover { background: #faf3e2; }
+    .secd > summary:active { background: var(--m-acc-50); border-color: var(--m-acc-200); }
+    .boxd > summary { transition: color .15s ease, background-color .15s ease; border-radius: 8px; }
+    .boxd > summary:active { color: var(--m-acc-xd); }
+    .secd > summary::before, .boxd > summary::before { transition: transform .15s ease; }
+  }
+  @media screen and (min-width: 1024px) {
+    body { max-width: 1220px; display: grid; grid-template-columns: 282px minmax(0, 1fr);
+      column-gap: 30px; align-items: start; }
+    .topbar { grid-column: 1 / -1; }
+    .sidebar { grid-column: 1; grid-row: 2 / span 300; position: sticky; top: 76px;
+      max-height: calc(100vh - 92px); overflow-y: auto; background: var(--m-card);
+      border: 1px solid var(--s-line); border-radius: 16px; padding: 18px 14px; }
+    .sb-title { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--m-ink); padding: 0 10px 10px; }
+    .sidebar a { display: block; padding: 6px 10px; border-radius: 8px; color: var(--m-ink2);
+      font-size: 13.5px; line-height: 1.45; }
+    .sidebar a:hover { color: var(--m-acc-xd); background: #faf3e2; }
+    .sidebar a.active { box-shadow: inset 3px 0 0 var(--m-acc); }
+    .sb-list li { margin: 1px 0; }
+    .sb-sep { border-top: 1px solid var(--s-line); margin: 12px 4px; }
+  }
+  @media screen and (max-width: 1023.98px) {
+    [id] { scroll-margin-top: 118px; }
+    .sidebar { position: sticky; top: 56px; z-index: 15; display: flex; align-items: center;
+      gap: 8px; overflow-x: auto; background: var(--m-card); border-bottom: 1px solid var(--s-line);
+      margin: 0 -20px; padding: 8px 12px; }
+    .sb-title { display: none; }
+    .sb-list { display: flex; gap: 8px; }
+    .sb-list li { flex: 0 0 auto; margin: 0; }
+    .sidebar a { display: block; white-space: nowrap; border: 1px solid var(--s-line);
+      border-radius: 999px; padding: 5px 11px; font-size: 13px; color: var(--m-ink2);
+      background: var(--m-card); }
+    .sidebar a.active { border-color: var(--m-acc); box-shadow: none; }
+    .sb-sep { flex: 0 0 auto; width: 1px; align-self: stretch; background: var(--s-line); }
+  }
+  @media screen and (max-width: 700px) {
+    .sidebar { margin: 0 -14px; }
+  }
+  @media screen and (prefers-reduced-motion: reduce) {
+    .flash { animation: none; }
+    .sidebar a, .secd > summary, .boxd > summary, .secd > summary::before, .boxd > summary::before { transition: none; }
+  }
+
 </style>
 </head>
 <body>
 
 <nav class="topbar"><a href="#contents">Contents</a><span class="tb-name">The Guild Runs Itself</span><a href="#calc">Calculator</a><a href="https://github.com/hdr2804/foreguild-operating-plan">Source</a><a href="foreguild-operating-plan.pdf">PDF</a></nav>
+
+<nav class="sidebar" aria-label="Sections">
+<div class="sb-title">The Guild Runs Itself</div>
+<ol class="sb-list">
+<li><a href="#s1">1. Executive summary</a></li>
+<li><a href="#s2">2. What Foreguild is, and how one task moves through it</a></li>
+<li><a href="#s3">3. Revenue model — first, because everything else is sized by it</a></li>
+<li><a href="#s4">4. The Year-1 operating ledger</a></li>
+<li><a href="#s5">5. Demand — where tasks come from</a></li>
+<li><a href="#s6">6. Supply and assignment — the Worker Guilds</a></li>
+<li><a href="#s7">7. Assessment — how completed work is judged</a></li>
+<li><a href="#s8">8. The Guild Offices — the organisation that runs the board</a></li>
+<li><a href="#s9">9. Futarchy governance — on Seer&rsquo;s rails, against one metric</a></li>
+<li><a href="#s10">10. Disputes, bonds, and human intervention</a></li>
+<li><a href="#s11">11. Money controls — treasury, envelopes, freeze rules</a></li>
+<li><a href="#s12">12. Launch — the first 90 days, and Year-1 gates</a></li>
+<li><a href="#s13">13. Risks — named, mitigated, and measured monthly</a></li>
+<li><a href="#appendix-a">Appendix A — Assumptions register (what is fact, what is estimate)</a></li>
+<li><a href="#appendix-b">Appendix B — References</a></li>
+</ol>
+<div class="sb-sep"></div>
+<ul class="sb-list">
+<li><a href="#calc">Calculator</a></li>
+<li><a href="#kill-switches">If this plan is wrong, it stops itself — the kill switches</a></li>
+<li><a href="#verification-tiers">How a task gets judged — three tiers, each with a price and a kill switch</a></li>
+<li><a href="#demand-first-spread">Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed</a></li>
+<li><a href="#thin-market">When the market is too thin to price, this plan says nothing</a></li>
+<li><a href="#collected-revenue">Counted only when the money settles — the collection rule</a></li>
+<li><a href="#model-not-record">A model, not a track record — what this plan proves, and what it does not claim</a></li>
+<li><a href="#s9-4">9.4 Worked example — fourteen days in March (Year 1, Month 4 volumes)</a></li>
+<li><a href="foreguild-operating-plan.pdf">PDF</a></li>
+</ul>
+</nav>
 
 <div class="cover">
   <div class="kicker">Foreguild · FAO Operating Plan Contest · Seer</div>
@@ -436,7 +547,7 @@
     <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
     <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
-  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.9 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.10 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
 </div>
 
 <div class="start">
@@ -972,6 +1083,52 @@
     if (a) openFor(a.getAttribute("href"));
   });
   openFor(location.hash);
+})();
+</script>
+
+<script>
+(function () {
+  var reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var sbLinks = Array.prototype.slice.call(document.querySelectorAll(".sidebar a[href^='#']"));
+  function setActive(hash) {
+    sbLinks.forEach(function (a) { a.classList.toggle("active", a.getAttribute("href") === hash); });
+  }
+  var timer = null;
+  function mark(hash) {
+    if (!hash || hash.length < 2) return;
+    var el = null;
+    try { el = document.querySelector(hash); } catch (e) { return; }
+    if (!el) return;
+    setActive(hash);
+    function settle() {
+      try { el.scrollIntoView({ block: "start", behavior: "auto" }); } catch (e) { el.scrollIntoView(); }
+      if (reduce) return;
+      el.classList.remove("flash");
+      void el.offsetWidth;
+      el.classList.add("flash");
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(function () { el.classList.remove("flash"); }, 2700);
+    }
+    if (window.requestAnimationFrame) requestAnimationFrame(function () { requestAnimationFrame(settle); });
+    else setTimeout(settle, 60);
+  }
+  window.addEventListener("hashchange", function () { mark(location.hash); });
+  document.addEventListener("click", function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+    if (a) mark(a.getAttribute("href"));
+  });
+  if (location.hash) mark(location.hash);
+  if ("IntersectionObserver" in window) {
+    var order = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "appendix-a", "appendix-b"];
+    var seen = {};
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { seen[en.target.id] = en.isIntersecting; });
+      for (var i = 0; i < order.length; i++) {
+        if (seen[order[i]]) { setActive("#" + order[i]); break; }
+      }
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    order.forEach(function (id) { var h = document.getElementById(id); if (h) spy.observe(h); });
+  }
 })();
 </script>
 
