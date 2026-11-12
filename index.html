@@ -309,6 +309,106 @@
     .stat a:hover, .secd > summary:hover { transform: none; }
   }
 
+  /* --- v2.8 Seer-calm layer (screen only; print layer above is untouched) ---
+     Measured from Seer's own properties (app.seer.pm + seer.pm, Nov 2026):
+     light app, white surfaces, one brand purple #9747FF (their --purple-2 /
+     --purple-primary), deep purple #59097E, hover tint #B38FFF, pale lavender
+     wash #F4F0FD, hairline grays #F2F2F2 / #E5E6E6, text #1F2937, Open Sans,
+     card radius 1rem, primary buttons #9747FF / white / 600 / radius 3px.
+     Calm by design: flat surfaces, no glows, no gradients, no shadow stacks,
+     one accent used sparingly. Open Sans is named first; Segoe UI / Roboto
+     approximate it where it is not installed (no external downloads). */
+  @media screen {
+    :root {
+      --m-sans: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --m-bg: #fefdff; --m-card: #ffffff;
+      --m-ink: #1f2937; --m-ink2: #2b3440; --m-mut: #757575;
+      --m-line: #e5e6e6; --m-line-soft: #f2f2f2;
+      --m-acc: #9747ff; --m-acc-d: #9747ff; --m-acc-xd: #59097e;
+      --m-acc-50: #f4f0fd; --m-acc-100: #efe7fd; --m-acc-200: #dcc2ff; --m-acc-300: #dcc2ff;
+      --m-violet: #59097e;
+      --m-sh-sm: none; --m-sh-md: none; --m-sh-hero: none;
+      --s-line: #e9e5f2; --s-line-hero: #e3d9fa;
+    }
+    body { font-family: var(--m-sans); font-size: 17px; line-height: 1.7; color: var(--m-ink);
+      background-color: var(--m-bg); background-image: none; }
+    ::selection { background: #dcc2ff; color: #59097e; }
+    a { color: var(--m-acc-d); }
+    a:hover { color: var(--m-acc-xd); }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--m-acc); outline-offset: 2px; border-radius: 3px; }
+    h1, h2, h3 { font-family: var(--m-sans); color: var(--m-ink); }
+    h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; }
+    h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em;
+      background: none; border-bottom: 1px solid var(--m-line); padding-bottom: 8px; }
+    h3 { font-size: 16.5px; font-weight: 700; letter-spacing: 0; }
+    /* Flat white app bar, hairline base; one Seer primary button (PDF) */
+    .topbar { background: #ffffff; backdrop-filter: none; -webkit-backdrop-filter: none;
+      border-bottom: 1px solid var(--s-line); box-shadow: none; padding: 10px 20px; }
+    .topbar a { color: var(--m-ink); font-weight: 600; padding: 6px 10px; border-radius: 3px; }
+    .topbar a:hover { background: transparent; color: var(--m-acc); text-decoration: none; }
+    .topbar .tb-name { font-family: var(--m-sans); font-size: 15px; font-weight: 700; letter-spacing: 0; color: var(--m-ink); }
+    .topbar a[href="foreguild-operating-plan.pdf"] { background: var(--m-acc); color: #ffffff; padding: 7px 16px; }
+    .topbar a[href="foreguild-operating-plan.pdf"]:hover { background: #b38fff; color: #ffffff; }
+    /* Hero: one flat pale-lavender panel, hairline border, no shadow, no glow */
+    .cover { background: var(--m-acc-50); border: 1px solid var(--s-line-hero); border-radius: 16px;
+      box-shadow: none; padding: 44px 40px 30px; margin: 22px 0 24px; }
+    .kicker { display: inline; background: transparent; border: none; border-radius: 0; padding: 0;
+      color: var(--m-acc); font-size: 12px; font-weight: 600; letter-spacing: .14em; }
+    .cover h1 { color: #59097e; margin-top: 10px; }
+    .subtitle { color: rgba(31,41,55,.82); font-size: 17.5px; line-height: 1.6; max-width: 62ch; }
+    .cover .meta { color: rgba(31,41,55,.55); font-size: 12.5px; }
+    /* Stat cards: flat white, hairline, equal height kept, no lift */
+    .stats { gap: 12px; margin-top: 26px; align-items: stretch; }
+    .stat a { background: #ffffff; border: 1px solid var(--s-line-hero); border-radius: 16px;
+      padding: 16px 18px 14px; backdrop-filter: none; -webkit-backdrop-filter: none; }
+    .stat a:hover { background: #ffffff; border-color: #b38fff; transform: none; }
+    .stat .v { font-family: var(--m-sans); font-size: 24px; font-weight: 700; letter-spacing: -0.01em; color: var(--m-acc); }
+    .stat .l { color: rgba(31,41,55,.62); font-size: 13px; line-height: 1.45; margin-top: 4px; }
+    /* Every panel: the same quiet white card */
+    .start, .toc, .calc, .whywin, .judgecheck, .briefmap { background: var(--m-card);
+      border: 1px solid var(--s-line); border-radius: 16px; box-shadow: none; padding: 22px 24px; }
+    .start .st-title { font-family: var(--m-sans); color: var(--m-ink); font-size: 13px; letter-spacing: .06em; }
+    .start a { color: var(--m-acc-d); }
+    .start a:hover { color: var(--m-acc-xd); }
+    .toc-title { color: var(--m-ink); font-size: 13px; letter-spacing: .06em; }
+    .toc a { color: var(--m-ink2); }
+    .toc a:hover { color: var(--m-acc-d); }
+    .callout { background: var(--m-acc-50); border-left: 3px solid var(--m-acc); border-radius: 0 12px 12px 0; }
+    .keyline { background: var(--m-acc-50); border: 1px solid var(--s-line-hero); border-radius: 16px;
+      box-shadow: none; color: var(--m-ink); }
+    .keyline b { color: var(--m-acc-xd); }
+    .tag { background: var(--m-acc-50); color: var(--m-acc-xd); border-radius: 999px; padding: 2px 10px; }
+    code { background: var(--m-line-soft); color: var(--m-ink); border-radius: 6px; }
+    .calc label { color: var(--m-ink2); }
+    .calc label output { color: var(--m-acc-xd); font-weight: 700; }
+    .calc input[type=range] { accent-color: var(--m-acc); }
+    .calc-out div { background: #fbf8ff; border: 1px solid var(--s-line); border-radius: 12px; padding: 11px 14px; }
+    .calc-out b { color: var(--m-acc-xd); }
+    /* Tables: quiet gray header, hairline rows */
+    table { border: 1px solid var(--m-line); border-radius: 12px; }
+    th { background: var(--m-line-soft); color: var(--m-ink); text-transform: uppercase; letter-spacing: .06em;
+      font-size: 12px; font-weight: 600; border-bottom: 1px solid var(--m-line); padding: 10px 12px; }
+    td { border-bottom: 1px solid var(--m-line-soft); padding: 9px 12px; }
+    table tr:hover td { background: #fbf8ff; }
+    tr.total td { background: var(--m-acc-50); border-top: 2px solid var(--m-acc); }
+    table tr.total:hover td { background: var(--m-acc-50); }
+    /* Collapsible rows: same quiet white card as every other panel */
+    .secd > summary { background: var(--m-card); border: 1px solid var(--s-line); border-radius: 16px;
+      box-shadow: none; padding: 15px 18px; font-size: 16px; font-weight: 600; letter-spacing: 0; color: var(--m-ink); }
+    .secd > summary:hover { box-shadow: none; transform: none; border-color: #b38fff; text-decoration: none; }
+    .secd[open ] > summary { background: var(--m-card); border-radius: 16px 16px 0 0; box-shadow: none; border-bottom-color: var(--m-line-soft); }
+    .secd > summary::before, .boxd > summary::before { background: var(--m-acc-50); color: var(--m-acc-d); }
+    .boxd > summary { color: var(--m-ink2); font-weight: 600; }
+    .boxd > summary:hover { color: var(--m-acc-d); text-decoration: none; }
+  }
+  @media screen and (max-width: 700px) {
+    h1 { font-size: 29px; }
+    .cover { padding: 30px 20px 24px; border-radius: 16px; }
+    .subtitle { font-size: 16.5px; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat .v { font-size: 21px; }
+  }
+
 </style>
 </head>
 <body>
@@ -325,7 +425,7 @@
     <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
     <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
-  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.7 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.8 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
 </div>
 
 <div class="start">
