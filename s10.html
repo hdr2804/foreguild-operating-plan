@@ -723,47 +723,221 @@
     body.sb-open::before { top: 64px; }
     .sidebar a.active { box-shadow: inset 3px 0 0 #346ddb; }
   }
-</style>
-</head>
-<body>
 
-<nav class="topbar"><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="sidebar"><span></span><span></span><span></span></button><a href="index.html#contents">Contents</a><span class="tb-name">The Guild Runs Itself</span><a href="s3.html#calc">Calculator</a><a href="https://github.com/hdr2804/foreguild-operating-plan">Source</a><a href="foreguild-operating-plan.pdf">PDF</a></nav>
+  /* --- Pass 24 (v2.13): mobile drawer + GitBook micro-details ---
+     Screen only; the PDF never sees this block. The drawer becomes a
+     full overlay above the topbar (z 80 over scrim 70 over topbar 60)
+     with its own header row (plan title + close button); sidebar rows
+     take compact GitBook metrics (14px Inter from pass 23, 7px 12px,
+     line-height 1.35) with per-page icons (::before, keyed by link
+     target, as on the reference's docs) and one-line truncation only
+     inside the drawer; the extras group under .sb-sep reads as a
+     smaller, muted secondary group; below 640px the topbar keeps only
+     the toggle, the title, search and the PDF button. Micro-details:
+     a large page icon above each page title, hover anchor links on
+     headings, the external-link arrow, pointer cursors, prev/next
+     arrow nudges, a thin sidebar scrollbar, and the search overlay
+     (script 5). Selection colour already rides in the pass-23 block. */
+  @media screen {
+    .sb-head { display: contents; }
+    .sb-close { display: none; }
+    .sidebar a { padding: 7px 12px; line-height: 1.35;
+      transition: color .15s ease, background-color .15s ease; }
+    .sb-sep + .sb-list a { font-size: 13px; color: #6e6e6e; }
+    .sb-sep + .sb-list a:hover { color: #1d1d1d; background: #f7f7f7; }
+    .sidebar { scrollbar-width: thin; scrollbar-color: #ccd2da transparent; }
+    .sidebar::-webkit-scrollbar { width: 6px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #d3d8df; border-radius: 3px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    /* per-page icons (the GitBook signature), keyed by link target */
+    .sidebar a::before { font-size: 13.5px; line-height: 1; margin-right: 7px; }
+    .sidebar a[href$="#s1"]::before { content: "🎯"; }
+    .sidebar a[href$="#s2"]::before { content: "🧭"; }
+    .sidebar a[href$="#s3"]::before { content: "💰"; }
+    .sidebar a[href$="#s4"]::before { content: "📒"; }
+    .sidebar a[href$="#s5"]::before { content: "📣"; }
+    .sidebar a[href$="#s6"]::before { content: "👥"; }
+    .sidebar a[href$="#s7"]::before { content: "⚖️"; }
+    .sidebar a[href$="#s8"]::before { content: "🏛️"; }
+    .sidebar a[href$="#s9"]::before { content: "🗳️"; }
+    .sidebar a[href$="#s10"]::before { content: "🛡️"; }
+    .sidebar a[href$="#s11"]::before { content: "🔒"; }
+    .sidebar a[href$="#s12"]::before { content: "🚀"; }
+    .sidebar a[href$="#s13"]::before { content: "⚠️"; }
+    .sidebar a[href$="#appendix-a"]::before { content: "📋"; }
+    .sidebar a[href$="#appendix-b"]::before { content: "🔗"; }
+    .sidebar a[href$="#calc"]::before { content: "🧮"; }
+    .sidebar a[href$="#kill-switches"]::before { content: "🛑"; }
+    .sidebar a[href$="#verification-tiers"]::before { content: "🔍"; }
+    .sidebar a[href$="#demand-first-spread"]::before { content: "📈"; }
+    .sidebar a[href$="#thin-market"]::before { content: "📉"; }
+    .sidebar a[href$="#collected-revenue"]::before { content: "🏦"; }
+    .sidebar a[href$="#model-not-record"]::before { content: "🧪"; }
+    .sidebar a[href$="#s9-4"]::before { content: "📅"; }
+    .sidebar a[href$=".pdf"]::before { content: "📄"; }
+    /* the page's icon, large above its title, as on the reference */
+    .cover h1::before { content: "📘"; display: block; font-size: 42px;
+      line-height: 1.15; margin-bottom: 12px; }
+    .secpage > h2::before { display: block; font-size: 40px;
+      line-height: 1.15; margin-bottom: 10px; }
+    .secpage > h2#s1::before { content: "🎯"; }
+    .secpage > h2#s2::before { content: "🧭"; }
+    .secpage > h2#s3::before { content: "💰"; }
+    .secpage > h2#s4::before { content: "📒"; }
+    .secpage > h2#s5::before { content: "📣"; }
+    .secpage > h2#s6::before { content: "👥"; }
+    .secpage > h2#s7::before { content: "⚖️"; }
+    .secpage > h2#s8::before { content: "🏛️"; }
+    .secpage > h2#s9::before { content: "🗳️"; }
+    .secpage > h2#s10::before { content: "🛡️"; }
+    .secpage > h2#s11::before { content: "🔒"; }
+    .secpage > h2#s12::before { content: "🚀"; }
+    .secpage > h2#s13::before { content: "⚠️"; }
+    .secpage > h2#appendix-a::before { content: "📋"; }
+    .secpage > h2#appendix-b::before { content: "🔗"; }
+    /* heading anchor links: revealed on hover, faint on touch widths */
+    .hanch { opacity: 0; margin-left: 9px; color: #79859b;
+      text-decoration: none; cursor: pointer;
+      transition: opacity .15s ease, color .15s ease; }
+    .hanch svg { display: inline-block; vertical-align: -2px; }
+    h2:hover .hanch, h3:hover .hanch, .hanch:focus-visible { opacity: 1; }
+    .hanch:hover { color: #346ddb; }
+    /* external links carry the GitBook arrow */
+    a[href^="http"]::after { content: "↗"; font-size: .78em;
+      margin-left: 3px; color: #79859b; }
+    /* cursor + hover micro-interactions */
+    .nav-toggle, .sb-close, .search-btn, .search-x, summary { cursor: pointer; }
+    .topbar a { transition: color .15s ease, background-color .15s ease; }
+    .pn-lab::before, .pn-lab::after { display: inline-block;
+      transition: transform .18s ease; }
+    .pn-prev:hover .pn-lab::before { transform: translateX(-3px); }
+    .pn-next:hover .pn-lab::after { transform: translateX(3px); }
+    /* search: header affordance + overlay (script 5 drives it) */
+    .search-btn { display: inline-flex; align-items: center; gap: 7px;
+      min-width: 176px; padding: 6px 10px; background: #f7f7f7;
+      border: 1px solid #e5e5e5; border-radius: 6px; color: #6e6e6e;
+      font-family: Inter, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 13.5px; cursor: pointer;
+      transition: border-color .15s ease, color .15s ease; }
+    .search-btn:hover { border-color: #346ddb; color: #1d1d1d; }
+    .search-kbd { margin-left: auto; background: #ffffff;
+      border: 1px solid #e5e5e5; border-radius: 4px; padding: 0 5px;
+      font-size: 11px; line-height: 1.7; color: #79859b; }
+    .search-ov { position: fixed; inset: 0; z-index: 90;
+      max-width: none !important; background: rgba(29,29,29,.44);
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 10vh 16px 16px; }
+    .search-ov[hidden] { display: none; }
+    .search-panel { background: #ffffff; border-radius: 12px;
+      width: min(640px, 100%); box-shadow: 0 24px 70px rgba(29,29,29,.35);
+      overflow: hidden; }
+    .search-row { display: flex; align-items: center; gap: 10px;
+      padding: 12px 14px; border-bottom: 1px solid #e5e5e5; color: #79859b; }
+    .search-input { flex: 1; border: none; outline: none; background: transparent;
+      font-family: Inter, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 16px; color: #1d1d1d; }
+    .search-x { display: inline-flex; align-items: center; justify-content: center;
+      position: relative; width: 30px; height: 30px; flex: 0 0 auto;
+      padding: 0; background: transparent; border: 1px solid #e5e5e5;
+      border-radius: 7px; cursor: pointer; }
+    .search-x span, .sb-close span { position: absolute; left: 50%; top: 50%;
+      width: 14px; height: 2px; margin: -1px 0 0 -7px; border-radius: 2px;
+      background: #1d1d1d; }
+    .search-x span:nth-child(1), .sb-close span:nth-child(1) { transform: rotate(45deg); }
+    .search-x span:nth-child(2), .sb-close span:nth-child(2) { transform: rotate(-45deg); }
+    .search-results { list-style: none; margin: 0; padding: 6px;
+      max-height: 52vh; overflow-y: auto; }
+    .search-results a { display: flex; align-items: baseline;
+      justify-content: space-between; gap: 14px; padding: 8px 10px;
+      border-radius: 6px; color: #1d1d1d; text-decoration: none; font-size: 14.5px; }
+    .search-results a:hover, .search-results a.sr-active { background: #f1f8ff; }
+    .search-results .sr-p { color: #79859b; font-size: 12.5px; white-space: nowrap; }
+    /* right rail (wide screens only; display switched on below) */
+    .rail { display: none; }
+  }
+  @media screen and (min-width: 1280px) {
+    body.has-rail { padding-right: 268px; }
+    .rail { display: block; position: fixed; top: 88px; right: 22px;
+      width: 226px; max-width: none !important;
+      max-height: calc(100vh - 116px); overflow-y: auto; scrollbar-width: thin; }
+    .rail ul { list-style: none; margin: 0; padding: 0; }
+    .rail a { display: block; padding: 4px 10px;
+      border-left: 2px solid #e5e5e5; color: #6e6e6e; font-size: 13px;
+      line-height: 1.45; text-decoration: none;
+      transition: color .15s ease, border-color .15s ease; }
+    .rail a:hover { color: #1d1d1d; }
+    .rail a.active { color: #346ddb; border-left-color: #346ddb; }
+  }
+  @media screen and (max-width: 1023.98px) {
+    /* the drawer is a full overlay now: above the topbar, own header */
+    .sidebar { top: 0; z-index: 80; width: min(320px, 86vw);
+      max-width: none; padding: 12px 14px 28px; }
+    body.sb-open::before { top: 0; z-index: 70; }
+    .sb-head { display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; padding: 2px 0 12px 2px; margin-bottom: 8px;
+      border-bottom: 1px solid #e5e5e5; }
+    .sb-head .sb-title { padding: 0; font-size: 14.5px; font-weight: 600;
+      letter-spacing: 0; text-transform: none; color: #1d1d1d; }
+    .sb-close { display: inline-flex; align-items: center; justify-content: center;
+      position: relative; width: 34px; height: 34px; flex: 0 0 auto;
+      padding: 0; background: transparent; border: 1px solid #e5e5e5;
+      border-radius: 8px; }
+    .sidebar a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .hanch { opacity: .45; }
+  }
+  @media screen and (max-width: 639.98px) {
+    .topbar { gap: 8px; }
+    .topbar a:nth-of-type(1), .topbar a:nth-of-type(2), .topbar a:nth-of-type(3) { display: none; }
+    .search-btn { min-width: 0; padding: 6px 8px; }
+    .search-txt, .search-kbd { display: none; }
+  }
+  @media screen and (prefers-reduced-motion: reduce) {
+    .sidebar a, .topbar a, .hanch, .search-btn, .rail a,
+    .pn-lab::before, .pn-lab::after { transition: none; }
+    .pn-prev:hover .pn-lab::before, .pn-next:hover .pn-lab::after { transform: none; }
+  }
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📘%3C/text%3E%3C/svg%3E">
+</head>
+<body class="has-rail">
+
+<nav class="topbar"><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="sidebar"><span></span><span></span><span></span></button><a href="index.html#contents">Contents</a><span class="tb-name">The Guild Runs Itself</span><button class="search-btn" type="button" aria-label="Search"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 20.5 20.5"/></svg><span class="search-txt">Search</span><span class="search-kbd">⌘K</span></button><a href="s3.html#calc">Calculator</a><a href="https://github.com/hdr2804/foreguild-operating-plan">Source</a><a href="foreguild-operating-plan.pdf">PDF</a></nav>
 
 <nav class="sidebar" id="sidebar" aria-label="Sections">
-<div class="sb-title">The Guild Runs Itself</div>
+<div class="sb-head"><div class="sb-title">The Guild Runs Itself</div><button class="sb-close" type="button" aria-label="Close"><span></span><span></span></button></div>
 <ol class="sb-list">
-<li><a href="s1.html#s1">1. Executive summary</a></li>
-<li><a href="s2.html#s2">2. What Foreguild is, and how one task moves through it</a></li>
-<li><a href="s3.html#s3">3. Revenue model — first, because everything else is sized by it</a></li>
-<li><a href="s4.html#s4">4. The Year-1 operating ledger</a></li>
-<li><a href="s5.html#s5">5. Demand — where tasks come from</a></li>
-<li><a href="s6.html#s6">6. Supply and assignment — the Worker Guilds</a></li>
-<li><a href="s7.html#s7">7. Assessment — how completed work is judged</a></li>
-<li><a href="s8.html#s8">8. The Guild Offices — the organisation that runs the board</a></li>
-<li><a href="s9.html#s9">9. Futarchy governance — on Seer&rsquo;s rails, against one metric</a></li>
-<li><a class="active" href="#s10">10. Disputes, bonds, and human intervention</a></li>
-<li><a href="s11.html#s11">11. Money controls — treasury, envelopes, freeze rules</a></li>
-<li><a href="s12.html#s12">12. Launch — the first 90 days, and Year-1 gates</a></li>
-<li><a href="s13.html#s13">13. Risks — named, mitigated, and measured monthly</a></li>
-<li><a href="appendix-a.html#appendix-a">Appendix A — Assumptions register (what is fact, what is estimate)</a></li>
-<li><a href="appendix-b.html#appendix-b">Appendix B — References</a></li>
+<li><a href="s1.html#s1" title="1. Executive summary">1. Executive summary</a></li>
+<li><a href="s2.html#s2" title="2. What Foreguild is, and how one task moves through it">2. What Foreguild is, and how one task moves through it</a></li>
+<li><a href="s3.html#s3" title="3. Revenue model — first, because everything else is sized by it">3. Revenue model — first, because everything else is sized by it</a></li>
+<li><a href="s4.html#s4" title="4. The Year-1 operating ledger">4. The Year-1 operating ledger</a></li>
+<li><a href="s5.html#s5" title="5. Demand — where tasks come from">5. Demand — where tasks come from</a></li>
+<li><a href="s6.html#s6" title="6. Supply and assignment — the Worker Guilds">6. Supply and assignment — the Worker Guilds</a></li>
+<li><a href="s7.html#s7" title="7. Assessment — how completed work is judged">7. Assessment — how completed work is judged</a></li>
+<li><a href="s8.html#s8" title="8. The Guild Offices — the organisation that runs the board">8. The Guild Offices — the organisation that runs the board</a></li>
+<li><a href="s9.html#s9" title="9. Futarchy governance — on Seer&rsquo;s rails, against one metric">9. Futarchy governance — on Seer&rsquo;s rails, against one metric</a></li>
+<li><a class="active" href="#s10" title="10. Disputes, bonds, and human intervention">10. Disputes, bonds, and human intervention</a></li>
+<li><a href="s11.html#s11" title="11. Money controls — treasury, envelopes, freeze rules">11. Money controls — treasury, envelopes, freeze rules</a></li>
+<li><a href="s12.html#s12" title="12. Launch — the first 90 days, and Year-1 gates">12. Launch — the first 90 days, and Year-1 gates</a></li>
+<li><a href="s13.html#s13" title="13. Risks — named, mitigated, and measured monthly">13. Risks — named, mitigated, and measured monthly</a></li>
+<li><a href="appendix-a.html#appendix-a" title="Appendix A — Assumptions register (what is fact, what is estimate)">Appendix A — Assumptions register (what is fact, what is estimate)</a></li>
+<li><a href="appendix-b.html#appendix-b" title="Appendix B — References">Appendix B — References</a></li>
 </ol>
 <div class="sb-sep"></div>
 <ul class="sb-list">
-<li><a href="s3.html#calc">Calculator</a></li>
-<li><a href="index.html#kill-switches">If this plan is wrong, it stops itself — the kill switches</a></li>
-<li><a href="index.html#verification-tiers">How a task gets judged — three tiers, each with a price and a kill switch</a></li>
-<li><a href="index.html#demand-first-spread">Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed</a></li>
-<li><a href="index.html#thin-market">When the market is too thin to price, this plan says nothing</a></li>
-<li><a href="index.html#collected-revenue">Counted only when the money settles — the collection rule</a></li>
-<li><a href="index.html#model-not-record">A model, not a track record — what this plan proves, and what it does not claim</a></li>
-<li><a href="s9.html#s9-4">9.4 Worked example — fourteen days in March (Year 1, Month 4 volumes)</a></li>
-<li><a href="foreguild-operating-plan.pdf">PDF</a></li>
+<li><a href="s3.html#calc" title="Calculator">Calculator</a></li>
+<li><a href="index.html#kill-switches" title="If this plan is wrong, it stops itself — the kill switches">If this plan is wrong, it stops itself — the kill switches</a></li>
+<li><a href="index.html#verification-tiers" title="How a task gets judged — three tiers, each with a price and a kill switch">How a task gets judged — three tiers, each with a price and a kill switch</a></li>
+<li><a href="index.html#demand-first-spread" title="Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed">Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed</a></li>
+<li><a href="index.html#thin-market" title="When the market is too thin to price, this plan says nothing">When the market is too thin to price, this plan says nothing</a></li>
+<li><a href="index.html#collected-revenue" title="Counted only when the money settles — the collection rule">Counted only when the money settles — the collection rule</a></li>
+<li><a href="index.html#model-not-record" title="A model, not a track record — what this plan proves, and what it does not claim">A model, not a track record — what this plan proves, and what it does not claim</a></li>
+<li><a href="s9.html#s9-4" title="9.4 Worked example — fourteen days in March (Year 1, Month 4 volumes)">9.4 Worked example — fourteen days in March (Year 1, Month 4 volumes)</a></li>
+<li><a href="foreguild-operating-plan.pdf" title="PDF">PDF</a></li>
 </ul>
 </nav>
 
-<article class="secpage"><h2 id="s10">10. Disputes, bonds, and human intervention</h2><p class="secteas">The dispute ladder with a clock on every step, bonds and slashing, and human intervention that itself faces a ratification market.</p>
-<h3>10.1 The dispute ladder (each step has a clock)</h3>
+<article class="secpage"><h2 id="s10">10. Disputes, bonds, and human intervention<a class="hanch" href="#s10" aria-label="10. Disputes, bonds, and human intervention"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13.5a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 10.5a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></a></h2><p class="secteas">The dispute ladder with a clock on every step, bonds and slashing, and human intervention that itself faces a ratification market.</p>
+<h3 id="s10-1">10.1 The dispute ladder (each step has a clock)<a class="hanch" href="#s10-1" aria-label="10.1 The dispute ladder (each step has a clock)"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13.5a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 10.5a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></a></h3>
 <table>
 <tr><th style="width:20%">Step</th><th style="width:46%">Mechanism</th><th style="width:16%">Clock</th><th>Cost borne by</th></tr>
 <tr><td><b>1. Re-judge</b></td><td>Fresh T1 panel (no prior involvement) re-scores against the acceptance test; evidence pack assembled by the Dispute Clerk is the whole record.</td><td>24h</td><td>Guild (from reserve)</td></tr>
@@ -771,18 +945,20 @@
 <tr><td><b>3. Human panel</b></td><td>T2 panel of 3 decides on the evidence pack; majority rules; rationale published.</td><td>72h</td><td>Loser&rsquo;s dispute bond, then reserve</td></tr>
 <tr class="alt"><td><b>4. External court</b></td><td>For amounts above $1,000 or alleged bad-faith rulings: Kleros court, whose decision executes on-chain. Foreguild does not operate a supreme court above the ecosystem&rsquo;s own.</td><td>Per Kleros</td><td>Loser</td></tr>
 </table>
-<h3>10.2 Bonds and slashing</h3>
+<h3 id="s10-2">10.2 Bonds and slashing<a class="hanch" href="#s10-2" aria-label="10.2 Bonds and slashing"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13.5a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 10.5a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></a></h3>
 <p>Worker bonds (§6.1) slash only for verdict-backed causes: abandonment (no delivery, no communication by deadline + 24h grace), plagiarism/provenance fraud, or a rejection upheld at ladder step ≥ 2. Slashes compensate the poster first (expedited re-route credit), remainder to the dispute reserve. Verifier bonds (§7) slash on overturn patterns. Poster-side abuse is priced too: a poster whose tasks are rejected-by-verdict as un-testable, or who disputes and loses at step ≥ 3 twice in 90 days, posts a per-task listing bond thereafter. Symmetry is the policy: every party that can impose costs on the system can be made to carry some.</p>
-<h3>10.3 Human intervention — narrow, enumerated, and itself governed</h3>
+<h3 id="s10-3">10.3 Human intervention — narrow, enumerated, and itself governed<a class="hanch" href="#s10-3" aria-label="10.3 Human intervention — narrow, enumerated, and itself governed"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13.5a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 10.5a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></a></h3>
 <p>Humans (the two stewards, jointly) may do exactly three things without a prior market: <b>(1)</b> pause settlements for up to 72 hours on a stated security or integrity ground; <b>(2)</b> delist specific unlawful work; <b>(3)</b> freeze a specific office under its kill condition pending review. Every such act is published with its grounds within 24 hours and <b>must face a ratification market within 7 days</b>: if the market declines to ratify, the act reverts automatically and the stewards who took it may not repeat a substantially identical act for 90 days. Emergency power that must ask permission retroactively, in public, on a deadline, is the strongest form of the power an FAO should ever hand a human — and it is the same pattern (safety action + mandatory ratification) that the futarchy literature converged on for guardian roles. Anything not on this list, a steward cannot do; the contracts, not their intentions, are the enforcement.</p>
 </article>
+
+<aside class="rail" aria-label="On this page"><ul><li><a href="#s10-1">10.1 The dispute ladder (each step has a clock)</a></li><li><a href="#s10-2">10.2 Bonds and slashing</a></li><li><a href="#s10-3">10.3 Human intervention — narrow, enumerated, and itself governed</a></li></ul></aside>
 
 <nav class="prevnext">
 <a class="pn-card pn-prev" href="s9.html"><span class="pn-lab">Previous</span><span class="pn-t">9. Futarchy governance — on Seer&rsquo;s rails, against one metric</span></a>
 <a class="pn-card pn-next" href="s11.html"><span class="pn-lab">Next</span><span class="pn-t">11. Money controls — treasury, envelopes, freeze rules</span></a>
 </nav>
 
-<div class="pagefoot"><p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.12 — November 2026 · presentation pass only; every figure unchanged from v1.0</p></div>
+<div class="pagefoot"><p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.13 — November 2026 · presentation pass only; every figure unchanged from v1.0</p></div>
 
 <script>
 (function () {
@@ -890,6 +1066,7 @@
   }
   btn.addEventListener("click", function () { setOpen(!isOpen()); });
   sb.addEventListener("click", function (ev) {
+    if (ev.target && ev.target.closest && ev.target.closest(".sb-close")) { setOpen(false); return; }
     var a = ev.target && ev.target.closest ? ev.target.closest("a") : null;
     if (a && window.innerWidth < 1024) setOpen(false);
   });
@@ -905,6 +1082,86 @@
   window.addEventListener("resize", function () {
     if (window.innerWidth >= 1024 && isOpen()) setOpen(false);
   });
+})();
+</script>
+
+<div class="search-ov" id="search-ov" hidden><div class="search-panel" role="dialog" aria-label="Search"><div class="search-row"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 20.5 20.5"/></svg><input class="search-input" id="search-input" type="text" placeholder="Search" autocomplete="off"><button class="search-x" type="button" aria-label="Close"><span></span><span></span></button></div><ul class="search-results" id="search-results"></ul></div></div>
+
+<script>
+(function () {
+  var INDEX = [{"t": "The Guild Runs Itself", "u": "index.html"}, {"t": "1. Executive summary", "u": "s1.html"}, {"t": "2. What Foreguild is, and how one task moves through it", "u": "s2.html"}, {"t": "3. Revenue model — first, because everything else is sized by it", "u": "s3.html"}, {"t": "4. The Year-1 operating ledger", "u": "s4.html"}, {"t": "5. Demand — where tasks come from", "u": "s5.html"}, {"t": "6. Supply and assignment — the Worker Guilds", "u": "s6.html"}, {"t": "7. Assessment — how completed work is judged", "u": "s7.html"}, {"t": "8. The Guild Offices — the organisation that runs the board", "u": "s8.html"}, {"t": "9. Futarchy governance — on Seer’s rails, against one metric", "u": "s9.html"}, {"t": "10. Disputes, bonds, and human intervention", "u": "s10.html"}, {"t": "11. Money controls — treasury, envelopes, freeze rules", "u": "s11.html"}, {"t": "12. Launch — the first 90 days, and Year-1 gates", "u": "s12.html"}, {"t": "13. Risks — named, mitigated, and measured monthly", "u": "s13.html"}, {"t": "Appendix A — Assumptions register (what is fact, what is estimate)", "u": "appendix-a.html"}, {"t": "Appendix B — References", "u": "appendix-b.html"}, {"t": "Calculator", "u": "s3.html#calc", "p": "3. Revenue model — first, because everything else is sized by it"}, {"t": "If this plan is wrong, it stops itself — the kill switches", "u": "index.html#kill-switches", "p": "The Guild Runs Itself"}, {"t": "How a task gets judged — three tiers, each with a price and a kill switch", "u": "index.html#verification-tiers", "p": "The Guild Runs Itself"}, {"t": "Demand first, priced in the ledger — the spread this plan keeps, and the buyers it has not yet signed", "u": "index.html#demand-first-spread", "p": "The Guild Runs Itself"}, {"t": "When the market is too thin to price, this plan says nothing", "u": "index.html#thin-market", "p": "The Guild Runs Itself"}, {"t": "Counted only when the money settles — the collection rule", "u": "index.html#collected-revenue", "p": "The Guild Runs Itself"}, {"t": "A model, not a track record — what this plan proves, and what it does not claim", "u": "index.html#model-not-record", "p": "The Guild Runs Itself"}, {"t": "9.4 Worked example — fourteen days in March (Year 1, Month 4 volumes)", "u": "s9.html#s9-4", "p": "9. Futarchy governance — on Seer’s rails, against one metric"}, {"t": "2.1 The lifecycle of a task (the only flow that earns money)", "u": "s2.html#s2-1", "p": "2. What Foreguild is, and how one task moves through it"}, {"t": "3.1 Where tasks come from is a pricing question", "u": "s3.html#s3-1", "p": "3. Revenue model — first, because everything else is sized by it"}, {"t": "3.2 The four revenue lines", "u": "s3.html#s3-2", "p": "3. Revenue model — first, because everything else is sized by it"}, {"t": "3.3 Unit economics — every number below is derived from this table", "u": "s3.html#s3-3", "p": "3. Revenue model — first, because everything else is sized by it"}, {"t": "4.1 Scenarios — the plan survives its own downside", "u": "s4.html#s4-1", "p": "4. The Year-1 operating ledger"}, {"t": "6.1 Onboarding, bonds, and reputation that cannot be bought", "u": "s6.html#s6-1", "p": "6. Supply and assignment — the Worker Guilds"}, {"t": "6.2 Assignment — the Router’s scoring function", "u": "s6.html#s6-2", "p": "6. Supply and assignment — the Worker Guilds"}, {"t": "6.3 Caps and anti-collusion", "u": "s6.html#s6-3", "p": "6. Supply and assignment — the Worker Guilds"}, {"t": "9.1 The metric (values are voted once; beliefs are bet continuously)", "u": "s9.html#s9-1", "p": "9. Futarchy governance — on Seer’s rails, against one metric"}, {"t": "9.2 What markets decide, and what they never touch", "u": "s9.html#s9-2", "p": "9. Futarchy governance — on Seer’s rails, against one metric"}, {"t": "9.3 Market mechanics — Seer’s production stack, MetaDAO’s calibrated parameters", "u": "s9.html#s9-3", "p": "9. Futarchy governance — on Seer’s rails, against one metric"}, {"t": "10.1 The dispute ladder (each step has a clock)", "u": "s10.html#s10-1", "p": "10. Disputes, bonds, and human intervention"}, {"t": "10.2 Bonds and slashing", "u": "s10.html#s10-2", "p": "10. Disputes, bonds, and human intervention"}, {"t": "10.3 Human intervention — narrow, enumerated, and itself governed", "u": "s10.html#s10-3", "p": "10. Disputes, bonds, and human intervention"}];
+  var ov = document.getElementById("search-ov");
+  var input = document.getElementById("search-input");
+  var list = document.getElementById("search-results");
+  var btn = document.querySelector(".search-btn");
+  var xBtn = document.querySelector(".search-x");
+  var items = [], active = 0;
+  function markActive() {
+    var as = list.querySelectorAll("a");
+    for (var i = 0; i < as.length; i++) as[i].classList.toggle("sr-active", i === active);
+  }
+  function render() {
+    var q = input.value.trim().toLowerCase();
+    items = [];
+    for (var i = 0; i < INDEX.length && items.length < 12; i++) {
+      var e = INDEX[i];
+      if (!q || e.t.toLowerCase().indexOf(q) >= 0 || (e.p && e.p.toLowerCase().indexOf(q) >= 0)) items.push(e);
+    }
+    if (active >= items.length) active = 0;
+    list.innerHTML = "";
+    items.forEach(function (e) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = e.u;
+      a.textContent = e.t;
+      if (e.p) { var s = document.createElement("span"); s.className = "sr-p"; s.textContent = e.p; a.appendChild(s); }
+      a.addEventListener("click", close);
+      li.appendChild(a); list.appendChild(li);
+    });
+    markActive();
+  }
+  function open() {
+    if (!ov) return;
+    ov.hidden = false; input.value = ""; active = 0; render();
+    setTimeout(function () { input.focus(); }, 0);
+  }
+  function close() { if (ov) ov.hidden = true; }
+  if (btn && ov && input && list) {
+    btn.addEventListener("click", open);
+    if (xBtn) xBtn.addEventListener("click", close);
+    ov.addEventListener("click", function (ev) { if (ev.target === ov) close(); });
+    input.addEventListener("input", function () { active = 0; render(); });
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") {
+        if (items[active]) { var u = items[active].u; close(); window.location.href = u; }
+      } else if (ev.key === "ArrowDown") {
+        ev.preventDefault(); if (active < items.length - 1) { active++; markActive(); }
+      } else if (ev.key === "ArrowUp") {
+        ev.preventDefault(); if (active > 0) { active--; markActive(); }
+      }
+    });
+    document.addEventListener("keydown", function (ev) {
+      if ((ev.metaKey || ev.ctrlKey) && (ev.key === "k" || ev.key === "K")) {
+        ev.preventDefault(); if (ov.hidden) open(); else close();
+      } else if ((ev.key === "Escape" || ev.keyCode === 27) && !ov.hidden) close();
+    });
+  }
+  var railAs = document.querySelectorAll(".rail a");
+  if (railAs.length && "IntersectionObserver" in window) {
+    var byId = {};
+    railAs.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        railAs.forEach(function (a) { a.classList.remove("active"); });
+        var a = byId[en.target.id]; if (a) a.classList.add("active");
+      });
+    }, { rootMargin: "-15% 0px -70% 0px" });
+    railAs.forEach(function (a) {
+      var el = document.getElementById(a.getAttribute("href").slice(1));
+      if (el) spy.observe(el);
+    });
+  }
 })();
 </script>
 
