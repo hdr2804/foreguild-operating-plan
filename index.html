@@ -317,18 +317,25 @@
      card radius 1rem, primary buttons #9747FF / white / 600 / radius 3px.
      Calm by design: flat surfaces, no glows, no gradients, no shadow stacks,
      one accent used sparingly. Open Sans is named first; Segoe UI / Roboto
-     approximate it where it is not installed (no external downloads). */
+     approximate it where it is not installed (no external downloads).
+     --- Pass 20 (v2.9): surfaces re-based to warm cream at Hdr's choice ---
+     The light lavender/white surfaces still glared at night, so every surface
+     token below is now warm cream: page #FAF5EB, cards #FFFDF7 (warm ivory),
+     hero/chips/tints #F3EAD8, table header #F1EADB, hairlines #E5DCC8 family,
+     body ink warm stone #292524. Seer purple #9747FF / #59097E survives only
+     as foreground (text, links, icons, the solid PDF button) — never as a
+     background wash. Structure, calm discipline and all text unchanged. */
   @media screen {
     :root {
       --m-sans: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --m-bg: #fefdff; --m-card: #ffffff;
-      --m-ink: #1f2937; --m-ink2: #2b3440; --m-mut: #757575;
-      --m-line: #e5e6e6; --m-line-soft: #f2f2f2;
+      --m-bg: #faf5eb; --m-card: #fffdf7;
+      --m-ink: #292524; --m-ink2: #44403c; --m-mut: #78716c;
+      --m-line: #e2d7bf; --m-line-soft: #f1eadb;
       --m-acc: #9747ff; --m-acc-d: #9747ff; --m-acc-xd: #59097e;
-      --m-acc-50: #f4f0fd; --m-acc-100: #efe7fd; --m-acc-200: #dcc2ff; --m-acc-300: #dcc2ff;
+      --m-acc-50: #f3ead8; --m-acc-100: #efe3cb; --m-acc-200: #d9cba6; --m-acc-300: #dcc2ff;
       --m-violet: #59097e;
       --m-sh-sm: none; --m-sh-md: none; --m-sh-hero: none;
-      --s-line: #e9e5f2; --s-line-hero: #e3d9fa;
+      --s-line: #e5dcc8; --s-line-hero: #ddd0b2;
     }
     body { font-family: var(--m-sans); font-size: 17px; line-height: 1.7; color: var(--m-ink);
       background-color: var(--m-bg); background-image: none; }
@@ -336,13 +343,13 @@
     a { color: var(--m-acc-d); }
     a:hover { color: var(--m-acc-xd); }
     a:focus-visible, summary:focus-visible { outline: 2px solid var(--m-acc); outline-offset: 2px; border-radius: 3px; }
-    h1, h2, h3 { font-family: var(--m-sans); color: var(--m-ink); }
-    h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; }
-    h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em;
+    h1, h2, h3 { font-family: var(--m-sans); color: var(--m-ink); text-transform: uppercase; }
+    h1 { font-size: 34px; font-weight: 800; letter-spacing: .03em; line-height: 1.18; }
+    h2 { font-size: 20px; font-weight: 800; letter-spacing: .06em;
       background: none; border-bottom: 1px solid var(--m-line); padding-bottom: 8px; }
-    h3 { font-size: 16.5px; font-weight: 700; letter-spacing: 0; }
+    h3 { font-size: 16.5px; font-weight: 800; letter-spacing: .05em; }
     /* Flat white app bar, hairline base; one Seer primary button (PDF) */
-    .topbar { background: #ffffff; backdrop-filter: none; -webkit-backdrop-filter: none;
+    .topbar { background: var(--m-card); backdrop-filter: none; -webkit-backdrop-filter: none;
       border-bottom: 1px solid var(--s-line); box-shadow: none; padding: 10px 20px; }
     .topbar a { color: var(--m-ink); font-weight: 600; padding: 6px 10px; border-radius: 3px; }
     .topbar a:hover { background: transparent; color: var(--m-acc); text-decoration: none; }
@@ -355,22 +362,23 @@
     .kicker { display: inline; background: transparent; border: none; border-radius: 0; padding: 0;
       color: var(--m-acc); font-size: 12px; font-weight: 600; letter-spacing: .14em; }
     .cover h1 { color: #59097e; margin-top: 10px; }
-    .subtitle { color: rgba(31,41,55,.82); font-size: 17.5px; line-height: 1.6; max-width: 62ch; }
-    .cover .meta { color: rgba(31,41,55,.55); font-size: 12.5px; }
+    .subtitle { color: rgba(41,37,36,.84); font-size: 17.5px; line-height: 1.6; max-width: 62ch; }
+    .cover .meta { color: rgba(41,37,36,.56); font-size: 12.5px; }
     /* Stat cards: flat white, hairline, equal height kept, no lift */
     .stats { gap: 12px; margin-top: 26px; align-items: stretch; }
-    .stat a { background: #ffffff; border: 1px solid var(--s-line-hero); border-radius: 16px;
+    .stat a { background: var(--m-card); border: 1px solid var(--s-line-hero); border-radius: 16px;
       padding: 16px 18px 14px; backdrop-filter: none; -webkit-backdrop-filter: none; }
-    .stat a:hover { background: #ffffff; border-color: #b38fff; transform: none; }
+    .stat a:hover { background: var(--m-card); border-color: #b38fff; transform: none; }
     .stat .v { font-family: var(--m-sans); font-size: 24px; font-weight: 700; letter-spacing: -0.01em; color: var(--m-acc); }
-    .stat .l { color: rgba(31,41,55,.62); font-size: 13px; line-height: 1.45; margin-top: 4px; }
+    .stat .l { color: rgba(41,37,36,.64); font-size: 13px; line-height: 1.45; margin-top: 4px; text-wrap: balance; }
     /* Every panel: the same quiet white card */
     .start, .toc, .calc, .whywin, .judgecheck, .briefmap { background: var(--m-card);
       border: 1px solid var(--s-line); border-radius: 16px; box-shadow: none; padding: 22px 24px; }
-    .start .st-title { font-family: var(--m-sans); color: var(--m-ink); font-size: 13px; letter-spacing: .06em; }
+    .start .st-title { font-family: var(--m-sans); color: var(--m-ink); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .start a { color: var(--m-acc-d); }
     .start a:hover { color: var(--m-acc-xd); }
-    .toc-title { color: var(--m-ink); font-size: 13px; letter-spacing: .06em; }
+    .toc-title { color: var(--m-ink); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .toc ol { list-style: none; }
     .toc a { color: var(--m-ink2); }
     .toc a:hover { color: var(--m-acc-d); }
     .callout { background: var(--m-acc-50); border-left: 3px solid var(--m-acc); border-radius: 0 12px 12px 0; }
@@ -382,23 +390,26 @@
     .calc label { color: var(--m-ink2); }
     .calc label output { color: var(--m-acc-xd); font-weight: 700; }
     .calc input[type=range] { accent-color: var(--m-acc); }
-    .calc-out div { background: #fbf8ff; border: 1px solid var(--s-line); border-radius: 12px; padding: 11px 14px; }
+    .calc-out div { background: #faf3e2; border: 1px solid var(--s-line); border-radius: 12px; padding: 11px 14px; }
     .calc-out b { color: var(--m-acc-xd); }
     /* Tables: quiet gray header, hairline rows */
     table { border: 1px solid var(--m-line); border-radius: 12px; }
     th { background: var(--m-line-soft); color: var(--m-ink); text-transform: uppercase; letter-spacing: .06em;
       font-size: 12px; font-weight: 600; border-bottom: 1px solid var(--m-line); padding: 10px 12px; }
     td { border-bottom: 1px solid var(--m-line-soft); padding: 9px 12px; }
-    table tr:hover td { background: #fbf8ff; }
+    table tr:hover td { background: #faf3e2; }
     tr.total td { background: var(--m-acc-50); border-top: 2px solid var(--m-acc); }
     table tr.total:hover td { background: var(--m-acc-50); }
     /* Collapsible rows: same quiet white card as every other panel */
     .secd > summary { background: var(--m-card); border: 1px solid var(--s-line); border-radius: 16px;
-      box-shadow: none; padding: 15px 18px; font-size: 16px; font-weight: 600; letter-spacing: 0; color: var(--m-ink); }
+      box-shadow: none; padding: 15px 18px; font-size: 16px; font-weight: 600; letter-spacing: 0; color: var(--m-ink);
+      text-wrap: balance; }
     .secd > summary:hover { box-shadow: none; transform: none; border-color: #b38fff; text-decoration: none; }
     .secd[open ] > summary { background: var(--m-card); border-radius: 16px 16px 0 0; box-shadow: none; border-bottom-color: var(--m-line-soft); }
     .secd > summary::before, .boxd > summary::before { background: var(--m-acc-50); color: var(--m-acc-d); }
-    .boxd > summary { color: var(--m-ink2); font-weight: 600; }
+    .secd > summary::before { width: 24px; height: 24px; line-height: 24px; font-size: 14px; margin-right: 10px; vertical-align: -6px; }
+    .boxd > summary::before { width: 22px; height: 22px; line-height: 22px; font-size: 12px; margin-right: 8px; vertical-align: -5px; }
+    .boxd > summary { color: var(--m-ink2); font-weight: 600; text-wrap: balance; }
     .boxd > summary:hover { color: var(--m-acc-d); text-decoration: none; }
   }
   @media screen and (max-width: 700px) {
@@ -425,7 +436,7 @@
     <div class="stat"><a href="#s4"><div class="v">Month 5</div><div class="l">operating break-even</div></a></div>
     <div class="stat"><a href="#calc"><div class="v">2,214</div><div class="l">tasks/mo at break-even</div></a></div>
   </div>
-  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.8 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
+  <p class="meta">Deliverable: operating plan (HTML, print-ready PDF twin) · Basis of preparation: public sources listed in Appendix B; every financial figure is a plan derived from the assumptions in Appendix A — no figure is a reported result · Currency: USD; settlement in USDC on Base unless stated · Version 2.9 — November 2026 · presentation pass only; every figure unchanged from v1.0</p>
 </div>
 
 <div class="start">
